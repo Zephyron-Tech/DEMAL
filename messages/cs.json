@@ -31,6 +31,74 @@
     "privacy": "Ochrana osobních údajů",
     "copyright": "© {year} DEMAL SPEDITION s.r.o."
   },
+  "Quote": {
+    "metaTitle": "Poptávka přepravy a dřevního materiálu",
+    "metaDescription": "Pošlete poptávku kamionové přepravy nebo dřevního materiálu. Dispečer DEMAL SPEDITION se vám ozve s cenovou nabídkou.",
+    "title": "Poptávka",
+    "lead": "Vyplňte, co víte. Čím přesnější údaje, tím rychleji připravíme cenovou nabídku.",
+    "asideTitle": "Raději zavoláte?",
+    "asideText": "Dispečink",
+    "typeLegend": "Co poptáváte",
+    "typeTransport": "Přeprava",
+    "typeWood": "Dřevní materiál",
+    "transport": {
+      "legend": "Přeprava",
+      "from": "Místo nakládky",
+      "fromHint": "město a země, případně PSČ",
+      "to": "Místo vykládky",
+      "date": "Termín nakládky",
+      "kind": "Druh přepravy",
+      "kindReefer": "chlazená, s kontrolovanou teplotou",
+      "kindWalking": "sypký materiál, walking floor",
+      "kindOther": "jiná nebo nevím",
+      "temp": "Požadovaná teplota",
+      "tempHint": "například +2 až +4 °C",
+      "cargo": "Druh zboží",
+      "amount": "Hmotnost nebo objem",
+      "amountHint": "například 24 t nebo 90 m³"
+    },
+    "wood": {
+      "legend": "Dřevní materiál",
+      "direction": "Chcete",
+      "buy": "koupit",
+      "sell": "prodat",
+      "commodity": "Materiál",
+      "chips": "dřevní štěpka",
+      "sawdust": "piliny",
+      "pellets": "pelety",
+      "byproducts": "vedlejší produkty",
+      "other": "jiný",
+      "amount": "Množství",
+      "amountHint": "například 100 t měsíčně",
+      "place": "Místo dodání nebo odběru",
+      "when": "Od kdy a jak často"
+    },
+    "contact": {
+      "legend": "Kontakt",
+      "name": "Jméno a příjmení",
+      "company": "Firma",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "note": "Poznámka",
+      "optional": "nepovinné"
+    },
+    "privacy": "Údaje použijeme jen k vyřízení poptávky.",
+    "privacyLink": "Zásady ochrany osobních údajů",
+    "submit": "Odeslat poptávku",
+    "submitting": "Odesílám…",
+    "errors": {
+      "required": "Vyplňte toto pole.",
+      "email": "Zadejte e-mail ve tvaru jmeno@firma.cz.",
+      "tooLong": "Text je moc dlouhý.",
+      "form": "Formulář obsahuje chyby. Opravte označená pole.",
+      "server": "Poptávku se nepodařilo odeslat. Zkuste to znovu, nebo zavolejte dispečink {phone}."
+    },
+    "success": {
+      "title": "Poptávku jsme přijali",
+      "text": "Dispečer se vám ozve na uvedený e-mail nebo telefon. Pokud spěcháte, volejte {phone}.",
+      "again": "Poslat další poptávku"
+    }
+  },
   "Home": {
     "hero": {
       "title": "Mezinárodní kamionová doprava a obchod se dřevem",

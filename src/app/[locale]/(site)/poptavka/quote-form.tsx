@@ -1,0 +1,306 @@
+"use client";
+
+import { useLocale, useTranslations } from "next-intl";
+import { useActionState, useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Link } from "@/i18n/navigation";
+import { company } from "@/lib/company";
+import { submitQuote, type QuoteState, type QuoteType } from "./actions";
+
+const initialState: QuoteState = { status: "idle", message: "" };
+
+const inputClass =
+  "w-full border border-rule border-b-2 border-b-graphite bg-white px-3 py-2.5 aria-[invalid=true]:border-alert aria-[invalid=true]:border-b-alert";
+
+type FieldProps = {
+  name: string;
+  label: string;
+  hint?: string;
+  optionalLabel?: string;
+  error?: string;
+  children: (props: {
+    id: string;
+    name: string;
+    "aria-invalid": boolean;
+    "aria-describedby"?: string;
+  }) => React.ReactNode;
+  className?: string;
+};
+
+function Field({ name, label, hint, optionalLabel, error, children, className = "" }: FieldProps) {
+  const id = `f-${name}`;
+  const describedBy = [hint && `${id}-hint`, error && `${id}-error`].filter(Boolean).join(" ");
+  return (
+    <div className={`grid content-start gap-1.5 ${className}`}>
+      <label htmlFor={id} className="font-semibold">
+        {label}
+        {optionalLabel ? <span className="font-normal text-steel"> ({optionalLabel})</span> : null}
+      </label>
+      {hint ? (
+        <span id={`${id}-hint`} className="text-sm text-graphite">
+          {hint}
+        </span>
+      ) : null}
+      {children({
+        id,
+        name,
+        "aria-invalid": Boolean(error),
+        "aria-describedby": describedBy || undefined,
+      })}
+      {error ? (
+        <span id={`${id}-error`} className="text-sm font-semibold text-alert">
+          {error}
+        </span>
+      ) : null}
+    </div>
+  );
+}
+
+function Choice({
+  name,
+  value,
+  label,
+  checked,
+  onChange,
+}: {
+  name: string;
+  value: string;
+  label: string;
+  checked: boolean;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <label className="flex min-h-12 cursor-pointer items-center gap-3 border-2 border-asphalt bg-white px-4 has-checked:bg-asphalt has-checked:text-trailer has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-demal">
+      <input
+        type="radio"
+        name={name}
+        value={value}
+        checked={checked}
+        onChange={() => onChange(value)}
+        className="sr-only"
+      />
+      <span aria-hidden="true" className="size-3 rounded-pill border-2 border-current p-0.5">
+        <span className={`block size-full rounded-pill ${checked ? "bg-current" : ""}`} />
+      </span>
+      <span className="font-display font-bold font-wide">{label}</span>
+    </label>
+  );
+}
+
+// Reads ?typ=drevo (links from the wood pages); render inside <Suspense>.
+export function QuoteFormFromUrl() {
+  const searchParams = useSearchParams();
+  return <QuoteForm initialType={searchParams.get("typ") === "drevo" ? "wood" : "transport"} />;
+}
+
+export function QuoteForm({ initialType }: { initialType: QuoteType }) {
+  const t = useTranslations("Quote");
+  const locale = useLocale();
+  const [state, formAction, pending] = useActionState(submitQuote, initialState);
+  const [type, setType] = useState<QuoteType>(initialType);
+  const [kind, setKind] = useState(state.values?.kind ?? "reefer");
+  const [sentAgain, setSentAgain] = useState(0);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // Move focus to the first invalid field so keyboard and screen-reader users land on the problem.
+  useEffect(() => {
+    if (state.status !== "error") return;
+    const invalid = formRef.current?.querySelector<HTMLElement>("[aria-invalid=true]");
+    invalid?.focus();
+  }, [state]);
+
+  const v = (name: string) => state.values?.[name] ?? "";
+  const err = (name: string) => state.fieldErrors?.[name];
+  const opt = t("contact.optional");
+
+  if (state.status === "saved" && sentAgain === 0) {
+    return (
+      <div role="status" className="border-2 border-asphalt bg-white p-6 sm:p-8">
+        <h2 className="text-2xl font-bold italic">{t("success.title")}</h2>
+        <p className="mt-3 max-w-(--container-prose)">
+          {t("success.text", { phone: company.dispatch.phone })}
+        </p>
+        <button
+          type="button"
+          onClick={() => setSentAgain((n) => n + 1)}
+          className="mt-6 inline-flex min-h-12 items-center border-2 border-asphalt px-6 font-display font-bold font-wide hover:bg-asphalt hover:text-trailer"
+        >
+          {t("success.again")}
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      ref={formRef}
+      action={(formData) => {
+        setSentAgain(0);
+        formAction(formData);
+      }}
+      noValidate
+      className="grid gap-10"
+    >
+      <input type="hidden" name="locale" value={locale} />
+
+      <fieldset>
+        <legend className="mb-3 font-semibold">{t("typeLegend")}</legend>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <Choice
+            name="type"
+            value="transport"
+            label={t("typeTransport")}
+            checked={type === "transport"}
+            onChange={() => setType("transport")}
+          />
+          <Choice
+            name="type"
+            value="wood"
+            label={t("typeWood")}
+            checked={type === "wood"}
+            onChange={() => setType("wood")}
+          />
+        </div>
+      </fieldset>
+
+      {type === "transport" ? (
+        <fieldset className="grid gap-6 border-t-2 border-asphalt pt-6 sm:grid-cols-2">
+          <legend className="sr-only">{t("transport.legend")}</legend>
+          <Field name="from" label={t("transport.from")} hint={t("transport.fromHint")} error={err("from")}>
+            {(p) => <input {...p} defaultValue={v("from")} autoComplete="off" required className={inputClass} />}
+          </Field>
+          <Field name="to" label={t("transport.to")} hint={t("transport.fromHint")} error={err("to")}>
+            {(p) => <input {...p} defaultValue={v("to")} autoComplete="off" required className={inputClass} />}
+          </Field>
+          <Field name="cargo" label={t("transport.cargo")} error={err("cargo")}>
+            {(p) => <input {...p} defaultValue={v("cargo")} required className={inputClass} />}
+          </Field>
+          <Field
+            name="amount"
+            label={t("transport.amount")}
+            hint={t("transport.amountHint")}
+            optionalLabel={opt}
+            error={err("amount")}
+          >
+            {(p) => <input {...p} defaultValue={v("amount")} className={inputClass} />}
+          </Field>
+          <Field name="date" label={t("transport.date")} optionalLabel={opt} error={err("date")}>
+            {(p) => <input {...p} type="date" defaultValue={v("date")} className={inputClass} />}
+          </Field>
+          <Field name="kind" label={t("transport.kind")} error={err("kind")}>
+            {(p) => (
+              <select {...p} value={kind} onChange={(e) => setKind(e.target.value)} className={inputClass}>
+                <option value="reefer">{t("transport.kindReefer")}</option>
+                <option value="walking">{t("transport.kindWalking")}</option>
+                <option value="other">{t("transport.kindOther")}</option>
+              </select>
+            )}
+          </Field>
+          {kind === "reefer" ? (
+            <Field
+              name="temp"
+              label={t("transport.temp")}
+              hint={t("transport.tempHint")}
+              optionalLabel={opt}
+              error={err("temp")}
+            >
+              {(p) => <input {...p} defaultValue={v("temp")} className={inputClass} />}
+            </Field>
+          ) : null}
+        </fieldset>
+      ) : (
+        <fieldset className="grid gap-6 border-t-2 border-asphalt pt-6 sm:grid-cols-2">
+          <legend className="sr-only">{t("wood.legend")}</legend>
+          <Field name="direction" label={t("wood.direction")} error={err("direction")}>
+            {(p) => (
+              <select {...p} defaultValue={v("direction") || "buy"} className={inputClass}>
+                <option value="buy">{t("wood.buy")}</option>
+                <option value="sell">{t("wood.sell")}</option>
+              </select>
+            )}
+          </Field>
+          <Field name="commodity" label={t("wood.commodity")} error={err("commodity")}>
+            {(p) => (
+              <select {...p} defaultValue={v("commodity") || "chips"} className={inputClass}>
+                <option value="chips">{t("wood.chips")}</option>
+                <option value="sawdust">{t("wood.sawdust")}</option>
+                <option value="pellets">{t("wood.pellets")}</option>
+                <option value="byproducts">{t("wood.byproducts")}</option>
+                <option value="other">{t("wood.other")}</option>
+              </select>
+            )}
+          </Field>
+          <Field name="amount" label={t("wood.amount")} hint={t("wood.amountHint")} error={err("amount")}>
+            {(p) => <input {...p} defaultValue={v("amount")} required className={inputClass} />}
+          </Field>
+          <Field name="place" label={t("wood.place")} optionalLabel={opt} error={err("place")}>
+            {(p) => <input {...p} defaultValue={v("place")} className={inputClass} />}
+          </Field>
+          <Field name="when" label={t("wood.when")} optionalLabel={opt} error={err("when")} className="sm:col-span-2">
+            {(p) => <input {...p} defaultValue={v("when")} className={inputClass} />}
+          </Field>
+        </fieldset>
+      )}
+
+      <fieldset className="grid gap-6 border-t-2 border-asphalt pt-6 sm:grid-cols-2">
+        <legend className="float-left mb-2 w-full pt-0 font-display text-xl font-bold italic font-wide sm:col-span-2">
+          {t("contact.legend")}
+        </legend>
+        <Field name="name" label={t("contact.name")} error={err("name")}>
+          {(p) => <input {...p} defaultValue={v("name")} autoComplete="name" required className={inputClass} />}
+        </Field>
+        <Field name="company" label={t("contact.company")} optionalLabel={opt} error={err("company")}>
+          {(p) => <input {...p} defaultValue={v("company")} autoComplete="organization" className={inputClass} />}
+        </Field>
+        <Field name="email" label={t("contact.email")} error={err("email")}>
+          {(p) => (
+            <input
+              {...p}
+              type="email"
+              defaultValue={v("email")}
+              autoComplete="email"
+              spellCheck={false}
+              required
+              className={inputClass}
+            />
+          )}
+        </Field>
+        <Field name="phone" label={t("contact.phone")} optionalLabel={opt} error={err("phone")}>
+          {(p) => <input {...p} type="tel" defaultValue={v("phone")} autoComplete="tel" className={inputClass} />}
+        </Field>
+        <Field name="note" label={t("contact.note")} optionalLabel={opt} error={err("note")} className="sm:col-span-2">
+          {(p) => <textarea {...p} rows={4} defaultValue={v("note")} className={`${inputClass} resize-y`} />}
+        </Field>
+      </fieldset>
+
+      {/* Honeypot, hidden from people and assistive tech. */}
+      <div aria-hidden="true" className="absolute -left-[9999px]">
+        <label htmlFor="website">Web</label>
+        <input id="website" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
+
+      <div className="grid gap-4 border-t-2 border-asphalt pt-6">
+        {state.status === "error" ? (
+          <p role="alert" className="font-semibold text-alert">
+            {state.message}
+          </p>
+        ) : null}
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+          <button
+            type="submit"
+            disabled={pending}
+            className="inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt transition-colors hover:bg-marking-deep disabled:opacity-60"
+          >
+            {pending ? t("submitting") : t("submit")}
+          </button>
+          <p className="text-sm text-graphite">
+            {t("privacy")}{" "}
+            <Link href="/ochrana-osobnich-udaju" className="underline underline-offset-4">
+              {t("privacyLink")}
+            </Link>
+          </p>
+        </div>
+      </div>
+    </form>
+  );
+}
