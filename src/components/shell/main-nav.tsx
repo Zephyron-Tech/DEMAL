@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 import type { Pathname } from "@/i18n/routing";
 
@@ -19,11 +19,15 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const panelId = useId();
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!open) return;
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key !== "Escape") return;
+      setOpen(false);
+      // Focus would otherwise stay on a link inside the now hidden panel.
+      buttonRef.current?.focus();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -49,6 +53,7 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
       </ul>
 
       <button
+        ref={buttonRef}
         type="button"
         aria-expanded={open}
         aria-controls={panelId}
@@ -64,7 +69,7 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
       <div
         id={panelId}
         hidden={!open}
-        className="absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-rule border-b-2 border-b-asphalt bg-white lg:hidden"
+        className="absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain border-t border-rule border-b-2 border-b-asphalt bg-white lg:hidden"
       >
         <ul className="mx-auto max-w-(--container-page) px-4 py-2 sm:px-8">
           {items.map((item) => (

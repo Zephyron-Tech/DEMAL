@@ -27,6 +27,7 @@ Pravidla: žlutá max. jednou na obrazovku. Modrá je značka, ne dekorace. Žá
 
 - **Archivo** (variabilní, osa šířky 62–125, kurzíva) pro nadpisy. Nadpisy na šířce 125 %, výrazné nadpisy kurzívou. Odkazuje na široké skloněné písmo v logu. Velká písmena jen tam, kde to dává smysl (krátký hlavní nadpis), ne u štítků.
 - **Public Sans** pro text. Neutrální, dobře čitelná, plná podpora češtiny (`latin-ext`).
+- Archivo je self-hostované v `src/fonts/` jen v šířce 125 % a se znaky, které web používá (latinka, čeština, němčina; 71 KB). Nový znak v nadpisu je potřeba přidat do podmnožiny, postup je v `src/app/fonts.ts`.
 - Stupnice velká tercie (1,25) na 16 px, text 17 px, nadpisy plynulé (`clamp`). Měrka textu ≤ 68 znaků.
 
 ## Rozvržení

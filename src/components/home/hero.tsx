@@ -51,7 +51,8 @@ export async function Hero() {
           src={trailers}
           alt={t("photoAlt")}
           fill
-          priority
+          loading="eager"
+          fetchPriority="high"
           placeholder="blur"
           sizes="100vw"
           className="object-cover object-[50%_72%]"

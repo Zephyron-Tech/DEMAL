@@ -7,8 +7,10 @@ import { routing } from "./routing";
 export default getRequestConfig(async ({ locale }) => {
   if (!locale) {
     const paramValue = await rootParams.locale();
-    if (!hasLocale(routing.locales, paramValue)) notFound();
-    locale = paramValue;
+    // No [locale] segment at all (app/global-not-found.tsx): fall back to the default.
+    if (paramValue === undefined) locale = routing.defaultLocale;
+    else if (hasLocale(routing.locales, paramValue)) locale = paramValue;
+    else notFound();
   }
 
   return {

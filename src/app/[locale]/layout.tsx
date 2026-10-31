@@ -1,27 +1,17 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
-import { Archivo, Public_Sans } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { isIndexable, siteUrl } from "@/lib/site";
+import { archivo, publicSans } from "../fonts";
 import "../globals.css";
-
-// Wide + italic axes echo the slanted, extended lettering of the DEMAL logo.
-const archivo = Archivo({
-  variable: "--font-archivo",
-  subsets: ["latin", "latin-ext"],
-  axes: ["wdth"],
-  style: ["normal", "italic"],
-});
-
-const publicSans = Public_Sans({
-  variable: "--font-public-sans",
-  subsets: ["latin", "latin-ext"],
-});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
+
+// Matches the white header so the mobile browser bar blends in.
+export const viewport: Viewport = { themeColor: "#ffffff" };
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Metadata");

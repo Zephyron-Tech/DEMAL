@@ -36,7 +36,7 @@ export async function SiteFooter() {
     <footer className="mt-auto bg-asphalt text-trailer">
       <div className="mx-auto grid max-w-(--container-page) gap-10 px-4 py-14 sm:px-8 lg:grid-cols-[1fr_2fr]">
         <div>
-          <p className="font-display text-2xl font-extrabold italic font-wide">
+          <p translate="no" className="font-display text-2xl font-extrabold italic font-wide">
             DEMAL SPEDITION
           </p>
           <p className="mt-3 max-w-xs text-rule">{t("tagline")}</p>

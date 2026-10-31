@@ -20,6 +20,10 @@ const oldSiteRedirects = [
 const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
+  experimental: {
+    // app/global-not-found.tsx: unknown URLs get a fully server-rendered 404.
+    globalNotFound: true,
+  },
   turbopack: {
     rules: {
       "*.css": {

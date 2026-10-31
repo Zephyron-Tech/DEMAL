@@ -42,6 +42,8 @@ export default async function FleetPage() {
             src={tractors}
             alt={t("tractors.photoAlt")}
             fill
+            // First photo on the page; on phones it is the LCP element.
+            loading="eager"
             placeholder="blur"
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover object-[50%_65%]"

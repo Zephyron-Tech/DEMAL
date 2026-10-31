@@ -173,7 +173,7 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
             {(p) => <input {...p} defaultValue={v("to")} autoComplete="off" required className={inputClass} />}
           </Field>
           <Field name="cargo" label={t("transport.cargo")} error={err("cargo")}>
-            {(p) => <input {...p} defaultValue={v("cargo")} required className={inputClass} />}
+            {(p) => <input {...p} defaultValue={v("cargo")} autoComplete="off" required className={inputClass} />}
           </Field>
           <Field
             name="amount"
@@ -182,7 +182,7 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
             optionalLabel={opt}
             error={err("amount")}
           >
-            {(p) => <input {...p} defaultValue={v("amount")} className={inputClass} />}
+            {(p) => <input {...p} defaultValue={v("amount")} autoComplete="off" className={inputClass} />}
           </Field>
           <Field name="date" label={t("transport.date")} optionalLabel={opt} error={err("date")}>
             {(p) => <input {...p} type="date" defaultValue={v("date")} className={inputClass} />}
@@ -204,7 +204,7 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
               optionalLabel={opt}
               error={err("temp")}
             >
-              {(p) => <input {...p} defaultValue={v("temp")} className={inputClass} />}
+              {(p) => <input {...p} defaultValue={v("temp")} autoComplete="off" className={inputClass} />}
             </Field>
           ) : null}
         </fieldset>
@@ -231,13 +231,13 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
             )}
           </Field>
           <Field name="amount" label={t("wood.amount")} hint={t("wood.amountHint")} error={err("amount")}>
-            {(p) => <input {...p} defaultValue={v("amount")} required className={inputClass} />}
+            {(p) => <input {...p} defaultValue={v("amount")} autoComplete="off" required className={inputClass} />}
           </Field>
           <Field name="place" label={t("wood.place")} optionalLabel={opt} error={err("place")}>
-            {(p) => <input {...p} defaultValue={v("place")} className={inputClass} />}
+            {(p) => <input {...p} defaultValue={v("place")} autoComplete="off" className={inputClass} />}
           </Field>
           <Field name="when" label={t("wood.when")} optionalLabel={opt} error={err("when")} className="sm:col-span-2">
-            {(p) => <input {...p} defaultValue={v("when")} className={inputClass} />}
+            {(p) => <input {...p} defaultValue={v("when")} autoComplete="off" className={inputClass} />}
           </Field>
         </fieldset>
       )}

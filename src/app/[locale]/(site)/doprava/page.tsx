@@ -56,7 +56,7 @@ export default async function TransportPage() {
               key={id}
               id={id}
               aria-labelledby={`${id}-title`}
-              className="grid scroll-mt-24 gap-4 border-b border-rule py-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-12"
+              className="grid gap-4 border-b border-rule py-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-12"
             >
               <h2 id={`${id}-title`} className="text-2xl font-bold italic sm:text-3xl">
                 {s(`${key}.title`)}

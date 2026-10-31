@@ -13,7 +13,7 @@ export async function SiteHeader() {
     <header className="sticky top-0 z-40 border-b-2 border-asphalt bg-white">
       <div className="relative mx-auto flex h-18 max-w-(--container-page) items-center justify-between gap-6 px-4 sm:px-8">
         <Link href="/" className="shrink-0" aria-label={t("homeLink")}>
-          <Image src={logo} alt="" priority sizes="120px" className="h-14 w-auto" />
+          <Image src={logo} alt="" loading="eager" sizes="120px" className="h-14 w-auto" />
         </Link>
 
         <div className="flex items-center gap-3 lg:gap-6">
