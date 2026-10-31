@@ -33,6 +33,36 @@
     "register": "Zapsáno v obchodním rejstříku, spisová značka {register}, {court}",
     "icoDic": "IČ / DIČ"
   },
+  "About": {
+    "title": "O nás",
+    "metaDescription": "DEMAL SPEDITION s.r.o. je dopravní firma ze Všemyslic u Českých Budějovic. Od roku 2012 jezdí po EU, nejčastěji do jižní Itálie.",
+    "lead": "Jsme dopravní firma ze Všemyslic u Českých Budějovic. Zabýváme se mezinárodní kamionovou dopravou a zasílatelstvím, jezdíme po celé Evropské unii a nejčastěji do jižní Itálie.",
+    "historyTitle": "Jak jsme rostli",
+    "history": {
+      "2012": {
+        "year": "2012",
+        "title": "Vznik DEMAL SPEDITION s.r.o.",
+        "text": "Společnost je 19. července 2012 zapsána do obchodního rejstříku u Krajského soudu v Českých Budějovicích."
+      },
+      "2016": {
+        "year": "2016",
+        "title": "První návěsy walking floor",
+        "text": "Kromě chlazeného zboží začínáme vozit i volně ložené materiály."
+      },
+      "dnes": {
+        "year": "Dnes",
+        "title": "14 vlastních souprav",
+        "text": "Tahače s normou EURO 6, chladírenské a walking floor návěsy, všechny s GPS."
+      }
+    },
+    "peopleTitle": "Lidé",
+    "peopleCount": "17 zaměstnanců",
+    "peopleText": "Řidiči i dispečeři průběžně procházejí školeními, která vyžadují předpisy a která potřebujeme pro kvalitní služby.",
+    "photoAlt": "Tahače Scania DEMAL SPEDITION v areálu",
+    "more": "Co děláme",
+    "moreTransport": "Kamionová doprava",
+    "moreFleet": "Vozový park"
+  },
   "Transport": {
     "title": "Kamionová doprava",
     "metaDescription": "Mezinárodní kamionová doprava po EU, hlavně Česko – jižní Itálie. Chlazené přepravy podle HACCP, walking floor pro sypké materiály, spedice a pojištění CMR.",
