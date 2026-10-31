@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SpecPlate } from "@/components/spec-plate";
 
 // Internal reference for the design tokens; removed before launch.
 export const metadata: Metadata = {
@@ -31,7 +32,7 @@ const plate = [
   { label: "Vlastní soupravy", value: "14" },
   { label: "Emisní norma tahačů", value: "EURO 6" },
   { label: "Walking floor", value: "od roku 2016" },
-  { label: "Hlavní relace", value: "ČR ⇄ jižní Itálie" },
+  { label: "Hlavní relace", value: "ČR – jižní Itálie" },
   { label: "Chlazené přepravy", value: "HACCP" },
   { label: "Sledování zásilek", value: "GPS online" },
 ];
@@ -66,19 +67,7 @@ export default function Styleguide() {
         <h2 id="plate-heading" className="text-2xl font-bold">
           Technický štítek
         </h2>
-        <dl className="mt-6 grid border-2 border-asphalt bg-plate sm:grid-cols-2 lg:grid-cols-3">
-          {plate.map((item) => (
-            <div
-              key={item.label}
-              className="-mb-px -mr-px border-r border-b border-rule px-5 py-4"
-            >
-              <dt className="text-sm text-graphite">{item.label}</dt>
-              <dd className="mt-1 font-display text-2xl font-bold italic font-wide">
-                {item.value}
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <SpecPlate label="Technický štítek" fields={plate} className="mt-6" />
         <p className="mt-3 text-sm text-steel">
           Údaje ze současného webu, majitel je musí potvrdit.
         </p>

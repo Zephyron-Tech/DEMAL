@@ -32,6 +32,27 @@
     "copyright": "© {year} DEMAL SPEDITION s.r.o."
   },
   "Home": {
-    "placeholder": "DEMAL SPEDITION – připravujeme nový web"
+    "hero": {
+      "title": "Mezinárodní kamionová doprava a obchod se dřevem",
+      "lead": "Čtrnáct vlastních souprav jezdí z Česka po celé Evropské unii, nejčastěji do jižní Itálie. Vozíme zboží s kontrolovanou teplotou i sypké materiály v návěsech walking floor.",
+      "ctaTransport": "Poptat přepravu",
+      "ctaWood": "Dřevní materiál",
+      "photoAlt": "Řada chladírenských a walking floor návěsů DEMAL SPEDITION na parkovišti, pohled zezadu",
+      "plateLabel": "Vozový park v číslech",
+      "plate": {
+        "setsLabel": "Vlastní soupravy",
+        "sets": "14",
+        "euroLabel": "Emisní norma tahačů",
+        "euro": "EURO 6",
+        "walkingLabel": "Walking floor",
+        "walking": "od roku 2016",
+        "routeLabel": "Hlavní relace",
+        "route": "ČR – jižní Itálie",
+        "reeferLabel": "Chlazené návěsy",
+        "reefer": "teplota online",
+        "gpsLabel": "Sledování zásilek",
+        "gps": "GPS online"
+      }
+    }
   }
 }
