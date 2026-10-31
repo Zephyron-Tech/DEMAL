@@ -33,6 +33,49 @@
     "register": "Zapsáno v obchodním rejstříku, spisová značka {register}, {court}",
     "icoDic": "IČ / DIČ"
   },
+  "Transport": {
+    "title": "Kamionová doprava",
+    "metaDescription": "Mezinárodní kamionová doprava po EU, hlavně Česko – jižní Itálie. Chlazené přepravy podle HACCP, walking floor pro sypké materiály, spedice a pojištění CMR.",
+    "lead": "Mezinárodní kamionovou dopravou a zasílatelstvím se zabýváme od roku 2012. Jezdíme po celé Evropské unii vlastními soupravami.",
+    "tocLabel": "Na této stránce",
+    "sections": {
+      "relace": {
+        "title": "Relace",
+        "p1": "Jezdíme do všech zemí Evropské unie, nejčastěji mezi Českem a jižní Itálií.",
+        "p2": "Zásilku vyzvedneme na místě nakládky a doručíme v předem dohodnutém čase."
+      },
+      "chlazene": {
+        "title": "Chlazené přepravy",
+        "p1": "Specializujeme se na zboží s kontrolovanou teplotou, hlavně potraviny. Přepravy zajišťujeme v rámci certifikace HACCP.",
+        "points": {
+          "a": "HACCP je systém řízení kvality zaměřený na zdravotní nezávadnost potravin.",
+          "b": "Pro přepravu máme stanovené kritické kontrolní body.",
+          "c": "Teplotu v návěsu sledujeme online přes jeho vlastní GPS jednotku."
+        },
+        "link": "Chladírenské návěsy ve vozovém parku"
+      },
+      "walking": {
+        "title": "Walking floor",
+        "p1": "Od roku 2016 vozíme i volně ložené zboží v návěsech s pohyblivou podlahou. Náklad se vyloží bez sklápění, takže na vykládce nepotřebujete manipulační techniku.",
+        "p2": "Typicky jde o dřevní štěpku, piliny a další sypké materiály.",
+        "link": "Obchod s dřevním materiálem"
+      },
+      "spedice": {
+        "title": "Spedice",
+        "subtitle": "pro dopravce",
+        "p1": "Máte volné vozy na relaci Česko – Itálie? Díky smluvním partnerům v obou zemích vám pomůžeme je vytížit, hlavně zbožím pod kontrolovanou teplotou.",
+        "call": "Zavolejte dispečink"
+      },
+      "pojisteni": {
+        "title": "Pojištění",
+        "points": {
+          "a": "Přeprava je pojištěná podle mezinárodní úmluvy CMR.",
+          "b": "Pojištění u České podnikatelské pojišťovny s krytím do 10 mil. platí na celém území EU.",
+          "c": "Zasílatelství kryje pojištění odpovědnosti zasílatele za škodu."
+        }
+      }
+    }
+  },
   "Fleet": {
     "title": "Vozový park",
     "metaDescription": "Tahače Scania a DAF s normou EURO 6, chladírenské návěsy Schmitz a Krone, walking floor Stas a Reich. Všechna vozidla s GPS.",
