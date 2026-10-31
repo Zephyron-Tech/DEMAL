@@ -50,8 +50,12 @@ export async function SiteFooter() {
               <br />
               {company.city}
             </Field>
-            <Field label={t("ico")}>
-              <span className="tabular-nums">{company.ico}</span>
+            <Field label={t("icoDic")}>
+              <span className="tabular-nums">
+                {company.ico}
+                <br />
+                {company.dic}
+              </span>
             </Field>
             <Field label={t("phone")}>
               <a
@@ -86,7 +90,10 @@ export async function SiteFooter() {
 
       <div className="border-t border-graphite">
         <div className="mx-auto flex max-w-(--container-page) flex-wrap justify-between gap-x-6 gap-y-2 px-4 py-5 text-sm text-rule sm:px-8">
-          <p>{t("copyright", { year })}</p>
+          <div>
+            <p>{t("copyright", { year })}</p>
+            <p>{t("register", { register: company.register, court: company.registerCourt })}</p>
+          </div>
           <Link href="/ochrana-osobnich-udaju" className="underline-offset-4 hover:underline">
             {t("privacy")}
           </Link>

@@ -29,7 +29,29 @@
     "email": "E-mail",
     "pages": "Stránky",
     "privacy": "Ochrana osobních údajů",
-    "copyright": "© {year} DEMAL SPEDITION s.r.o."
+    "copyright": "© {year} DEMAL SPEDITION s.r.o.",
+    "register": "Zapsáno v obchodním rejstříku, spisová značka {register}, {court}",
+    "icoDic": "IČ / DIČ"
+  },
+  "Contact": {
+    "title": "Kontakt",
+    "metaDescription": "Dispečink DEMAL SPEDITION s.r.o., sídlo ve Všemyslicích a fakturační údaje.",
+    "dispatchTitle": "Dispečink",
+    "dispatchText": "Přepravu nebo dřevní materiál nejrychleji poptáte telefonicky. Písemně přes formulář nebo e-mail.",
+    "quoteCta": "Poptat přepravu",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "seatTitle": "Sídlo",
+    "openMapy": "Otevřít v Mapy.com",
+    "openGoogle": "Otevřít v Google Maps",
+    "newTab": "(otevře se v novém okně)",
+    "billingTitle": "Fakturační údaje",
+    "billingName": "Obchodní firma",
+    "billingSeat": "Sídlo",
+    "billingIco": "IČ",
+    "billingDic": "DIČ",
+    "billingRegister": "Zápis v obchodním rejstříku",
+    "registerValue": "spisová značka {register}, {court}"
   },
   "Privacy": {
     "title": "Ochrana osobních údajů",
