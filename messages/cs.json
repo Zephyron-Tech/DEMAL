@@ -3,6 +3,34 @@
     "title": "DEMAL SPEDITION s.r.o. – Mezinárodní kamionová doprava a obchod se dřevem",
     "description": "Mezinárodní kamionová doprava a zasílatelství, přepravy s kontrolovanou teplotou a walking floor, obchod s dřevním materiálem. Česká republika a Itálie."
   },
+  "Shell": {
+    "skipToContent": "Přejít na obsah",
+    "homeLink": "DEMAL SPEDITION s.r.o., úvodní stránka",
+    "mainNav": "Hlavní navigace",
+    "openMenu": "Menu",
+    "closeMenu": "Zavřít",
+    "dispatch": "Dispečink",
+    "cta": "Poptat přepravu"
+  },
+  "Nav": {
+    "doprava": "Doprava",
+    "drevo": "Dřevní materiál",
+    "vozovyPark": "Vozový park",
+    "oNas": "O nás",
+    "kontakt": "Kontakt"
+  },
+  "Footer": {
+    "label": "Údaje o firmě",
+    "tagline": "Mezinárodní kamionová doprava a obchod s dřevním materiálem.",
+    "carrier": "Dopravce",
+    "seat": "Sídlo",
+    "ico": "IČ",
+    "phone": "Dispečink",
+    "email": "E-mail",
+    "pages": "Stránky",
+    "privacy": "Ochrana osobních údajů",
+    "copyright": "© {year} DEMAL SPEDITION s.r.o."
+  },
   "Home": {
     "placeholder": "DEMAL SPEDITION – připravujeme nový web"
   }
