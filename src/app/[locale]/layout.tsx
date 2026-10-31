@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Archivo, Public_Sans } from "next/font/google";
 import { routing } from "@/i18n/routing";
+import { isIndexable, siteUrl } from "@/lib/site";
 import "../globals.css";
 
 // Wide + italic axes echo the slanted, extended lettering of the DEMAL logo.
@@ -25,9 +26,15 @@ export function generateStaticParams() {
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Metadata");
   return {
-    metadataBase: new URL("https://demalspedition.cz"),
-    title: t("title"),
+    metadataBase: new URL(siteUrl),
+    title: { default: t("title"), template: "%s | DEMAL SPEDITION" },
     description: t("description"),
+    openGraph: {
+      type: "website",
+      siteName: "DEMAL SPEDITION s.r.o.",
+      locale: "cs_CZ",
+    },
+    robots: isIndexable ? undefined : { index: false, follow: false },
   };
 }
 

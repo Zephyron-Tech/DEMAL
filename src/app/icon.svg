@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="4" fill="#0b3ea8"/>
+  <!-- Bold D slanted like the logotype -->
+  <path transform="skewX(-12) translate(4 0)" fill="#f5f6f4" fill-rule="evenodd"
+    d="M7 6h8.5a10 10 0 0 1 0 20H7zM12 11v10h3.5a5 5 0 0 0 0-10z"/>
+</svg>

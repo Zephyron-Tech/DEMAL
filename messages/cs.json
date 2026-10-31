@@ -33,6 +33,13 @@
     "register": "Zapsáno v obchodním rejstříku, spisová značka {register}, {court}",
     "icoDic": "IČ / DIČ"
   },
+  "NotFound": {
+    "metaTitle": "Stránka nenalezena",
+    "code": "Chyba 404",
+    "title": "Tahle stránka neexistuje",
+    "text": "Adresa je chybná, nebo jsme stránku při přestavbě webu přesunuli. Zkuste některou z hlavních stránek, nebo zavolejte dispečink.",
+    "home": "Úvodní stránka"
+  },
   "About": {
     "title": "O nás",
     "metaDescription": "DEMAL SPEDITION s.r.o. je dopravní firma ze Všemyslic u Českých Budějovic. Od roku 2012 jezdí po EU, nejčastěji do jižní Itálie.",

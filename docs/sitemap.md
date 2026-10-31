@@ -72,3 +72,12 @@ Next.js odstraní koncové lomítko sám (`/o-nas/` → `/o-nas`), zbytek do `ne
 10. **Jazyky:** Pro DE a EN – kdo dodá nebo schválí překlady? Jsou zákazníci hlavně z Itálie (nemá být i italština)?
 11. **Analytika:** Chcete měřit návštěvnost? (Rozhoduje o cookie liště.)
 12. **Reference:** Můžeme jmenovat některé zákazníky nebo partnery?
+
+## Před přepnutím domény demalspedition.cz
+
+- [ ] Ve Vercelu nastavit `SITE_INDEXABLE=true` (Production) a nasadit znovu. Bez toho web posílá `noindex` a `robots.txt` zakazuje vše, aby se neindexovala dočasná doména demal.zephyron.tech.
+- [ ] Přesměrování starých WordPress adres jsou v `next.config.ts` (`oldSiteRedirects`), ověřeno lokálně 31. 10. 2026.
+- [ ] Smazat interní stránky `/podklady` a `/styleguide`.
+- [ ] Majitel schválí zásady ochrany osobních údajů a doplní obecný kontaktní e-mail.
+- [ ] Doplnit e-mailové notifikace poptávek (Resend) a zmínit Resend v zásadách.
+- [ ] Po přepnutí přidat web do Google Search Console a odeslat `sitemap.xml`.
