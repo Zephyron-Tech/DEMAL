@@ -53,6 +53,35 @@
         "gpsLabel": "Sledování zásilek",
         "gps": "GPS online"
       }
+    },
+    "branches": {
+      "label": "Co děláme",
+      "transport": {
+        "title": "Kamionová doprava",
+        "lead": "Vlastními soupravami jezdíme po celé Evropské unii, nejčastěji mezi Českem a jižní Itálií. Zboží pod teplotou vozíme podle zásad HACCP.",
+        "items": {
+          "reefer": "Chlazené přepravy",
+          "reeferNote": "kontrolovaná teplota se záznamem online",
+          "walking": "Walking floor",
+          "walkingNote": "sypké a volně ložené materiály",
+          "spedition": "Spedice",
+          "speditionNote": "vytížení vozů partnerů v ČR a Itálii",
+          "tracking": "Sledování",
+          "trackingNote": "GPS ve všech vozidlech"
+        },
+        "link": "Více o dopravě"
+      },
+      "wood": {
+        "title": "Dřevní materiál",
+        "lead": "Nakupujeme a prodáváme dřevní hmotu pro teplárny, pily a další odběratele. Odvoz zajistíme vlastními návěsy.",
+        "items": {
+          "chips": "Dřevní štěpka",
+          "sawdust": "Piliny",
+          "pellets": "Pelety",
+          "byproducts": "Vedlejší produkty dřevozpracujícího průmyslu"
+        },
+        "link": "Více o materiálu"
+      }
     }
   }
 }
