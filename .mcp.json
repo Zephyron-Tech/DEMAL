@@ -1,0 +1,36 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@0.0.84"
+      ],
+      "env": {}
+    },
+    "accesslint": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@accesslint/mcp@0.11.1"
+      ],
+      "env": {}
+    },
+    "serena": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server",
+        "--context",
+        "claude-code",
+        "--project-from-cwd"
+      ],
+      "env": {}
+    }
+  }
+}
