@@ -18,6 +18,7 @@
   --color-demal-deep: #082e7e; /* hover / pressed for blue */
   --color-marking: #e8b400; /* CTA only, always with asphalt text (8.35:1) */
   --color-marking-deep: #c99c00;
+  --color-alert: #8a3b00; /* form errors, 7.1:1 */
   --color-transparent: transparent;
   --color-current: currentColor;
 
