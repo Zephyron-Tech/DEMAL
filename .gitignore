@@ -42,3 +42,6 @@ next-env.d.ts
 
 # serena
 /.serena/cache/
+
+# claude code local settings
+/.claude/settings.local.json
