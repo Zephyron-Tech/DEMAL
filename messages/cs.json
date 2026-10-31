@@ -121,6 +121,18 @@
         "body": "Telefon zvedne člověk, který vaši přepravu plánuje a ví, kde je souprava právě teď.",
         "proof": "Dispečink {phone}"
       }
+    },
+    "quote": {
+      "title": "Potřebujete něco odvézt?",
+      "cta": "Poptat přepravu",
+      "orCall": "nebo volejte dispečink",
+      "needsTitle": "K cenové nabídce potřebujeme",
+      "needs": {
+        "route": "místo nakládky a vykládky",
+        "date": "termín nakládky",
+        "cargo": "druh zboží, hmotnost nebo objem",
+        "temp": "požadovanou teplotu, pokud jde o chlazené zboží"
+      }
     }
   }
 }
