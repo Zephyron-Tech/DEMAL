@@ -82,6 +82,26 @@
         },
         "link": "Více o materiálu"
       }
+    },
+    "fleet": {
+      "title": "Vozový park",
+      "lead": "Všechna vozidla mají navigaci a GPS s online sledováním, takže víme, kde je vaše zásilka.",
+      "photoAlt": "Tři bílé tahače Scania DEMAL SPEDITION zaparkované v areálu",
+      "tableCaption": "Typy vozidel a k čemu se hodí",
+      "colVehicle": "Vozidlo",
+      "colUse": "Na co",
+      "rows": {
+        "reefer": "Chladírenské návěsy",
+        "reeferMakes": "Schmitz, Krone",
+        "reeferUse": "zboží s kontrolovanou teplotou, potraviny podle HACCP",
+        "walking": "Návěsy walking floor",
+        "walkingMakes": "Stas, Reich",
+        "walkingUse": "štěpka, piliny a další sypké materiály",
+        "tractors": "Tahače",
+        "tractorsMakes": "Scania, DAF",
+        "tractorsUse": "norma EURO 6, GPS v každém voze"
+      },
+      "link": "Celý vozový park"
     }
   }
 }
