@@ -39,7 +39,7 @@ Hlavní navigace: **Doprava · Dřevní materiál · Vozový park · O nás · K
 | `/kontakt` | Kontakt | Dispečink (lidé, telefony), sídlo, mapa, fakturační údaje. | ano, ověřit |
 | `/poptavka` | Poptávka | Formulář se dvěma variantami: přeprava / dřevní materiál. Cíl všech CTA. | – |
 | `/ochrana-osobnich-udaju` | Zásady ochrany osobních údajů | GDPR, včetně formuláře. | text nutno napsat |
-| `/cookies` | Cookies | Jen pokud budeme měřit (analytika). Bez měření lišta nebude potřeba. | – |
+| `/cookies` | Cookies | Zatím není potřeba: web nenastavuje žádné cookies (ověřeno 31. 10. 2026). Vznikne jen s analytikou. | – |
 
 **Podstránky jednotlivých služeb** (`/doprava/chlazene-prepravy`, `/doprava/walking-floor` …) ani **komodit** (`/drevni-material/stepka` …) zatím nedělat. Bez vlastního obsahu by to byly tenké stránky. Přidáme je, až bude co na ně napsat (a kvůli SEO dávají smysl hlavně pro dřevo).
 
@@ -54,7 +54,7 @@ Next.js odstraní koncové lomítko sám (`/o-nas/` → `/o-nas`), zbytek do `ne
 | `/o-nas/`, `/vozovy-park/`, `/kontakt/` | stejné bez lomítka |
 | `/sluzby/:slug*` | `/doprava` |
 | `/gdpr/`, `/smazani-osobnich-dat-gdpr/`, `/ochrana-osobnich-udaju/` | `/ochrana-osobnich-udaju` |
-| `/zasady-pouzivani-cokies/` | `/cookies` (nebo `/ochrana-osobnich-udaju`, pokud cookies stránka nebude) |
+| `/zasady-pouzivani-cokies/` | `/ochrana-osobnich-udaju` (sekce o cookies) |
 | `/blog/`, `/unie-chce-zezelenit-kamiony/`, `/vznikla-prvni-elektrodalnice/`, `/kategorie/:slug*`, `/testimonials/:slug*`, `/staff/:slug*`, `/zkusebni-stranka/` | `/` |
 | `/wp-content/:path*`, `/wp-admin`, `/wp-login.php`, `/xmlrpc.php` | 410 / 404 (nepřesměrovávat) |
 

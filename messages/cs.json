@@ -31,6 +31,11 @@
     "privacy": "Ochrana osobních údajů",
     "copyright": "© {year} DEMAL SPEDITION s.r.o."
   },
+  "Privacy": {
+    "title": "Ochrana osobních údajů",
+    "metaDescription": "Jak DEMAL SPEDITION s.r.o. zpracovává osobní údaje z poptávek a jaká máte práva.",
+    "updated": "Platné od {date}"
+  },
   "Quote": {
     "metaTitle": "Poptávka přepravy a dřevního materiálu",
     "metaDescription": "Pošlete poptávku kamionové přepravy nebo dřevního materiálu. Dispečer DEMAL SPEDITION se vám ozve s cenovou nabídkou.",
