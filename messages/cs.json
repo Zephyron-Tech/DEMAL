@@ -33,6 +33,49 @@
     "register": "Zapsáno v obchodním rejstříku, spisová značka {register}, {court}",
     "icoDic": "IČ / DIČ"
   },
+  "Fleet": {
+    "title": "Vozový park",
+    "metaDescription": "Tahače Scania a DAF s normou EURO 6, chladírenské návěsy Schmitz a Krone, walking floor Stas a Reich. Všechna vozidla s GPS.",
+    "lead": "Jezdíme vlastními soupravami: tahače Scania a DAF s chladírenskými a walking floor návěsy. Všechna vozidla mají navigaci a GPS s online sledováním.",
+    "plateLabel": "Vozový park v číslech",
+    "plate": {
+      "setsLabel": "Vlastní soupravy",
+      "sets": "14",
+      "euroLabel": "Emisní norma tahačů",
+      "euro": "EURO 6",
+      "tractorsLabel": "Tahače",
+      "tractors": "Scania, DAF",
+      "reeferLabel": "Chladírenské návěsy",
+      "reefer": "Schmitz, Krone",
+      "walkingLabel": "Walking floor",
+      "walking": "Stas, Reich",
+      "gpsLabel": "Sledování",
+      "gps": "GPS online"
+    },
+    "tractors": {
+      "title": "Tahače",
+      "makes": "Scania, DAF",
+      "text": "Tahače splňují emisní normu EURO 6. Každý má navigaci, GPS jednotku a telefon, takže řidič je pořád ve spojení s dispečinkem.",
+      "photoAlt": "Tři bílé tahače Scania DEMAL SPEDITION zaparkované v areálu"
+    },
+    "trailers": {
+      "title": "Návěsy",
+      "photoAlt": "Řada chladírenských a walking floor návěsů DEMAL SPEDITION, pohled zezadu",
+      "reefer": "Chladírenské návěsy",
+      "reeferMakes": "Schmitz, Krone",
+      "reeferText": "Pro zboží, které musí cestovat v kontrolované teplotě, hlavně potraviny. Přepravy zajišťujeme podle zásad HACCP.",
+      "walking": "Návěsy walking floor",
+      "walkingMakes": "Stas, Reich, od roku 2016",
+      "walkingText": "Pohyblivá podlaha vyloží náklad sama, bez sklápění a bez manipulační techniky. Vozíme v nich volně ložené materiály: dřevní štěpku, piliny a další sypké zboží."
+    },
+    "tracking": {
+      "title": "Víme, kde je vaše zásilka",
+      "position": "Poloha",
+      "positionText": "Vozidla jsou díky GPS a datovému přenosu pod trvalým dohledem dispečinku.",
+      "temperature": "Teplota",
+      "temperatureText": "Chladírenské návěsy mají vlastní GPS jednotku, která v reálném čase posílá průběh teploty převáženého zboží."
+    }
+  },
   "Contact": {
     "title": "Kontakt",
     "metaDescription": "Dispečink DEMAL SPEDITION s.r.o., sídlo ve Všemyslicích a fakturační údaje.",

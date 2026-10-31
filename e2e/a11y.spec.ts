@@ -1,7 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
-const pages = ["/", "/poptavka", "/poptavka?typ=drevo", "/ochrana-osobnich-udaju", "/kontakt", "/styleguide", "/podklady"];
+const pages = ["/", "/poptavka", "/poptavka?typ=drevo", "/ochrana-osobnich-udaju", "/kontakt", "/vozovy-park", "/styleguide", "/podklady"];
 
 for (const path of pages) {
   test(`${path} has no serious a11y violations`, async ({ page }) => {
