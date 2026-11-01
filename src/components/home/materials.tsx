@@ -8,7 +8,7 @@ export async function Materials() {
   return (
     <section
       aria-labelledby="materials-title"
-      className="mx-auto mt-24 max-w-(--container-page) px-4 sm:mt-32 sm:px-8"
+      className="mx-auto mt-16 max-w-(--container-page) px-4 sm:mt-32 sm:px-8"
     >
       <div className="grid gap-4 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end lg:gap-16">
         <h2 id="materials-title" className="text-3xl font-extrabold italic">
@@ -18,14 +18,14 @@ export async function Materials() {
           <p className="max-w-[46ch] text-graphite">{t("lead")}</p>
           <Link
             href="/drevni-material"
-            className="mt-3 inline-block font-display font-bold font-wide text-demal underline decoration-2 underline-offset-6 transition-colors hover:text-demal-deep"
+            className="mt-1 inline-flex min-h-12 items-center font-display font-bold font-wide text-demal underline decoration-2 underline-offset-6 transition-colors hover:text-demal-deep lg:mt-3 lg:min-h-0"
           >
             {t("link")}
           </Link>
         </div>
       </div>
 
-      <div className="mt-10">
+      <div className="mt-8 sm:mt-10">
         <MaterialTiles />
       </div>
     </section>
