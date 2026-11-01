@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { company } from "@/lib/company";
 
-// Each claim carries its proof, set like a note in the margin of a document.
+// Each reason leads with the fact that backs it, set large; the claim and its explanation follow.
 // Sources: current demalspedition.cz ("O nás") and ARES; the owner confirms them via /podklady.
 const reasons = ["own", "insured", "direct"] as const;
 
@@ -18,23 +18,27 @@ export async function WhyDemal() {
           {reasons.map((reason) => (
             <li
               key={reason}
-              className="grid gap-3 border-b border-rule py-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,5fr)_minmax(0,3fr)] lg:gap-10"
+              className="grid gap-4 border-b border-rule py-8 sm:py-10 lg:grid-cols-2 lg:items-center lg:gap-16"
             >
-              <h3 className="text-2xl font-bold italic">{t(`${reason}.claim`)}</h3>
-              <p className="max-w-(--container-prose) text-graphite">{t(`${reason}.body`)}</p>
-              <p className="border-l-2 border-demal pl-4 text-sm">
-                <span className="block text-graphite">{t("proofLabel")}</span>
+              <div>
                 {reason === "direct" ? (
                   <a
                     href={company.dispatch.phoneHref}
-                    className="font-semibold tabular-nums link-reveal"
+                    className="font-display text-3xl leading-none font-extrabold italic font-wide whitespace-nowrap text-demal tabular-nums link-reveal"
                   >
-                    {t("direct.proof", { phone: company.dispatch.phone })}
+                    {company.dispatch.phone}
                   </a>
                 ) : (
-                  <span className="font-semibold">{t(`${reason}.proof`)}</span>
+                  <p className="font-display text-5xl leading-none font-extrabold italic font-wide text-demal">
+                    {t(`${reason}.figure`)}
+                  </p>
                 )}
-              </p>
+                <p className="mt-3 text-graphite">{t(`${reason}.caption`)}</p>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold italic">{t(`${reason}.claim`)}</h3>
+                <p className="mt-2 max-w-(--container-prose) text-lg">{t(`${reason}.body`)}</p>
+              </div>
             </li>
           ))}
         </ul>

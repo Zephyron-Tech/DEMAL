@@ -329,21 +329,22 @@
     },
     "why": {
       "title": "Proč DEMAL",
-      "proofLabel": "Doklad",
       "own": {
+        "figure": "14",
+        "caption": "vlastních souprav, na trhu od roku 2012",
         "claim": "Jezdíme vlastními vozy",
-        "body": "Nejsme jen zprostředkovatel. Zásilky vozíme vlastními soupravami a za přepravu ručíme sami.",
-        "proof": "14 vlastních souprav, firma na trhu od roku 2012"
+        "body": "Nejsme jen zprostředkovatel. Zásilky vozíme vlastními soupravami a za přepravu ručíme sami."
       },
       "insured": {
+        "figure": "CMR",
+        "caption": "Česká podnikatelská pojišťovna, krytí do 10 mil.",
         "claim": "Zboží je pojištěné",
-        "body": "Přeprava je pojištěná podle úmluvy CMR po celé Evropské unii. Zasílatelství kryje pojištění odpovědnosti zasílatele.",
-        "proof": "Česká podnikatelská pojišťovna, krytí do 10 mil."
+        "body": "Přeprava je pojištěná podle úmluvy CMR po celé Evropské unii. Zasílatelství kryje pojištění odpovědnosti zasílatele."
       },
       "direct": {
+        "caption": "dispečink, přímá linka",
         "claim": "Voláte přímo dispečerovi",
-        "body": "Telefon zvedne člověk, který vaši přepravu plánuje a ví, kde je souprava právě teď.",
-        "proof": "Dispečink {phone}"
+        "body": "Telefon zvedne člověk, který vaši přepravu plánuje a ví, kde je souprava právě teď."
       }
     },
     "quote": {
