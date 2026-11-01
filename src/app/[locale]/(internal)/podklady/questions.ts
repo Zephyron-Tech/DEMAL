@@ -46,6 +46,11 @@ export const questions: Question[] = [
     known: "Web dnes jako hlavní kontakt uvádí erik.pisacka@demal.cz a +420 606 602 570.",
   },
   {
+    id: "drevo-dvakrat",
+    title: "Dřevo na úvodní stránce dvakrát",
+    ask: "Na úvodní stránce se dřevo objevuje ve dvou sekcích: v části „Kamionová doprava a dřevní materiál“ (dvě velké karty pod hero) a v části „Co přepravujeme a obchodujeme“ (dlaždice se štěpkou, pilinami, pelety a vedlejšími produkty). Má zůstat v obou, nebo jen v jedné? A pokud v jedné, které?",
+  },
+  {
     id: "nabor",
     title: "Hledáte řidiče?",
     ask: "Nabíráte řidiče nebo dispečery? Pokud ano, jaké podmínky můžeme zveřejnit (typ práce, relace, mzda, výhody)? Link na inzerát co máš napsanej",
