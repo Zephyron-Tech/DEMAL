@@ -103,8 +103,11 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
           without them simply show and hide it. */}
       <div
         id={panelId}
-        hidden={!open}
-        className="absolute inset-x-0 top-full h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain bg-white transition-[clip-path,display] transition-discrete duration-600 ease-(--ease-out) [clip-path:inset(0)] starting:[clip-path:inset(0_0_100%_0)] motion-reduce:transition-none lg:hidden [&[hidden]]:[clip-path:inset(0_0_100%_0)] [&[hidden]]:duration-300 [&[hidden]]:ease-exit"
+        className={`absolute inset-x-0 top-full h-[calc(100svh-78px)] overflow-y-auto overscroll-contain bg-white transition-[opacity,translate,visibility] duration-600 ease-(--ease-out) motion-reduce:transition-none lg:hidden ${
+          open
+            ? "visible translate-y-0 opacity-100"
+            : "invisible -translate-y-3 opacity-0 duration-300 ease-exit"
+        }`}
       >
         <div className="mx-auto flex min-h-full max-w-(--container-page) flex-col px-4 sm:px-8">
           <ul className="border-t-2 border-asphalt">

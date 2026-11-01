@@ -1,6 +1,8 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
+import { useLocale } from "next-intl";
+import { usePathname } from "@/i18n/navigation";
 
 const BAR_HEIGHT = 72;
 
@@ -19,6 +21,16 @@ export const useHeaderMenu = () => useContext(HeaderMenuContext);
 export function SiteHeaderFrame({ children }: { children: ReactNode }) {
   const [compact, setCompact] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  // Changing page or language closes the menu: the header lives in the layout, so its state would
+  // otherwise survive the navigation and reopen on the new page.
+  const locale = useLocale();
+  const pathname = usePathname();
+  const route = `${locale}${pathname}`;
+  const [shownRoute, setShownRoute] = useState(route);
+  if (shownRoute !== route) {
+    setShownRoute(route);
+    setMenuOpen(false);
+  }
 
   useEffect(() => {
     const update = () => {
