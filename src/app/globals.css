@@ -41,7 +41,7 @@
   --text-2xl--line-height: 1.2;
   --text-3xl: clamp(1.9rem, 1.3rem + 2.2vw, 2.441rem);
   --text-3xl--line-height: 1.1;
-  --text-4xl: clamp(2.2rem, 1.2rem + 3.6vw, 3.815rem);
+  --text-4xl: clamp(2rem, 1.2rem + 3.6vw, 3.815rem);
   --text-4xl--line-height: 1.02;
   --text-5xl: clamp(2.6rem, 1rem + 5.6vw, 5.96rem);
   --text-5xl--line-height: 0.95;

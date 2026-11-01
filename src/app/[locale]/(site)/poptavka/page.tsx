@@ -13,7 +13,7 @@ export default async function QuotePage() {
   const t = await getTranslations("Quote");
 
   return (
-    <main className="mx-auto grid w-full max-w-(--container-page) gap-12 px-4 py-12 sm:px-8 sm:py-16 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-16">
+    <main className="mx-auto grid w-full max-w-(--container-page) grid-cols-[minmax(0,1fr)] gap-12 px-4 py-12 sm:px-8 sm:py-16 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-16">
       <div>
         <h1 className="text-4xl font-extrabold italic uppercase">{t("title")}</h1>
         <p className="mt-4 max-w-(--container-prose) text-lg text-graphite">{t("lead")}</p>

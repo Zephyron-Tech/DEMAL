@@ -38,7 +38,7 @@ export default async function ContactPage() {
               <dd>
                 <a
                   href={company.dispatch.phoneHref}
-                  className="font-display text-3xl font-bold font-wide whitespace-nowrap tabular-nums underline-offset-4 hover:underline"
+                  className="font-display text-3xl font-bold font-wide whitespace-nowrap tabular-nums underline-offset-4 hover:underline max-[22rem]:text-2xl"
                 >
                   {company.dispatch.phone}
                 </a>

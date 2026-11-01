@@ -35,19 +35,20 @@ export async function MaterialTiles({ exclude, headingLevel = "h3" }: Props) {
                 className={`object-cover transition-transform duration-500 group-hover:scale-[1.05] ${item.position}`}
               />
             </div>
-            <div className="flex flex-1 items-end justify-between gap-3 px-4 py-4 sm:px-5">
-              <div>
+            <div className="flex flex-1 items-start justify-between gap-3 px-3 py-4 sm:px-5">
+              <div className="min-w-0">
                 <Heading className="font-display text-base font-bold not-italic font-wide sm:text-lg">
                   {t(`items.${item.key}.name`)}
                 </Heading>
-                <p className="text-sm text-graphite group-hover:text-rule">
+                <p className="text-sm break-words hyphens-auto text-graphite group-hover:text-rule">
                   {t(`items.${item.key}.note`)}
                 </p>
               </div>
-              {/* The square marks the whole tile as a way in; it turns yellow on hover. */}
+              {/* The square marks the whole tile as a way in; it turns yellow on hover.
+                  Phones leave it out: two tiles side by side have no room for it next to the note. */}
               <span
                 aria-hidden="true"
-                className="flex size-10 shrink-0 items-center justify-center bg-asphalt text-trailer transition-colors group-hover:bg-marking group-hover:text-asphalt"
+                className="hidden size-10 shrink-0 items-center justify-center self-end sm:flex bg-asphalt text-trailer transition-colors group-hover:bg-marking group-hover:text-asphalt"
               >
                 <svg viewBox="0 0 16 16" className="size-4" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M3 8h10M9 4l4 4-4 4" />
