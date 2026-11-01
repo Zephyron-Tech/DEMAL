@@ -59,18 +59,32 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((value) => !value)}
-        className="press flex min-h-11 items-center gap-2 border-2 border-asphalt px-3 font-display font-bold font-wide lg:hidden"
+        className="press group flex min-h-11 items-center gap-2 border-2 border-asphalt px-3 font-display font-bold font-wide lg:hidden"
       >
+        {/* Three bars fold into a cross: the outer two meet in the middle and turn, the middle one goes. */}
         <svg aria-hidden="true" viewBox="0 0 16 16" className="size-4" fill="none" stroke="currentColor" strokeWidth="2">
-          {open ? <path d="M3 3l10 10M13 3L3 13" /> : <path d="M1 3.5h14M1 8h14M1 12.5h14" />}
+          <path
+            d="M1 3.5h14"
+            className="origin-[8px_8px] transition-transform duration-(--duration-ui) ease-out group-aria-expanded:[transform:rotate(45deg)_translateY(4.5px)]"
+          />
+          <path
+            d="M1 8h14"
+            className="origin-[8px_8px] transition-opacity duration-(--duration-ui) group-aria-expanded:opacity-0"
+          />
+          <path
+            d="M1 12.5h14"
+            className="origin-[8px_8px] transition-transform duration-(--duration-ui) ease-out group-aria-expanded:[transform:rotate(-45deg)_translateY(-4.5px)]"
+          />
         </svg>
         {open ? closeLabel : openLabel}
       </button>
 
+      {/* Drops 8px into place as it opens and leaves a little faster; @starting-style and a discrete
+          display transition, so browsers without them simply show and hide it. */}
       <div
         id={panelId}
         hidden={!open}
-        className="absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain border-t border-rule border-b-2 border-b-asphalt bg-white lg:hidden"
+        className="absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain border-t border-rule border-b-2 border-b-asphalt bg-white transition-[opacity,translate,display] transition-discrete duration-(--duration-ui) ease-out starting:-translate-y-2 starting:opacity-0 lg:hidden [&[hidden]]:-translate-y-2 [&[hidden]]:opacity-0 [&[hidden]]:duration-150 [&[hidden]]:ease-exit"
       >
         <ul className="mx-auto max-w-(--container-page) px-4 py-2 sm:px-8">
           {items.map((item) => (
@@ -79,7 +93,7 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
                 href={item.href}
                 onClick={() => setOpen(false)}
                 aria-current={isActive(item.href) ? "page" : undefined}
-                className="flex min-h-14 items-center font-display text-xl font-bold font-wide aria-[current=page]:text-demal"
+                className="flex min-h-14 items-center font-display text-xl font-bold font-wide transition-colors hover:text-demal aria-[current=page]:text-demal"
               >
                 {item.label}
               </Link>
