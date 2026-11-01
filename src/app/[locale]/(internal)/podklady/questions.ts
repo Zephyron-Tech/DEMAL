@@ -10,7 +10,7 @@ export const questions: Question[] = [
   {
     id: "drevo",
     title: "Obchod se dřevem",
-    ask: "Které komodity skutečně nakupujete a prodáváte (štěpka, piliny, pelety, kůra, kulatina, jiné)? Odkud, v jakých objemech a komu? Prodáváte i bez vlastní dopravy?",
+    ask: "Komodity teda jenom štěpka, piliny, pelety, pelety, vedlejší produkty? Klidně detaily - odkud, v jakých objemech a komu? Co napsat na ty podstránky?",
     known:
       "Současný web o obchodu se dřevem nemá nic. Z návrhu webu víme jen, že má být jednou ze dvou hlavních činností.",
   },
@@ -30,9 +30,7 @@ export const questions: Question[] = [
   {
     id: "lide",
     title: "Lidé a kontakty",
-    ask: "Kdo je dnes v dispečinku a koho máme na webu uvést (jméno, role, telefon, e-mail, případně fotka)? Mají všichni souhlas se zveřejněním? Kolik má firma zaměstnanců?",
-    known:
-      "Dispečeři Libor Písačka, Bc. Erik Písačka, Pavlína Šmitmajerová, Šimon Lopaur; 17 zaměstnanců.",
+    ask: "Kdo je dnes v dispečinku a koho máme na webu uvést (jméno, role, telefon, e-mail, případně fotka)? Kolik má firma zaměstnanců?",
   },
   {
     id: "pojisteni",
@@ -44,40 +42,40 @@ export const questions: Question[] = [
   {
     id: "poptavky",
     title: "Kam posílat poptávky",
-    ask: "Na jaký e-mail mají chodit poptávky z webu? Jeden společný, nebo zvlášť pro dopravu a pro dřevo? Chcete na webu obecnou adresu typu info@?",
+    ask: "Na jaký e-mail mají chodit poptávky z webu?",
     known: "Web dnes jako hlavní kontakt uvádí erik.pisacka@demal.cz a +420 606 602 570.",
   },
   {
     id: "nabor",
     title: "Hledáte řidiče?",
-    ask: "Nabíráte řidiče nebo dispečery? Pokud ano, jaké podmínky můžeme zveřejnit (typ práce, relace, mzda, výhody)?",
+    ask: "Nabíráte řidiče nebo dispečery? Pokud ano, jaké podmínky můžeme zveřejnit (typ práce, relace, mzda, výhody)? Link na inzerát co máš napsanej",
     known: "Současný web stránku Kariéra nemá.",
   },
   {
     id: "fotky",
     title: "Fotky",
-    ask: "Máte fotky vlastních souprav, nakládky, dřevního materiálu nebo areálu? Amatérské stačí, ideálně za denního světla. Kam nám je pošlete?",
+    ask: "Vlastní fotky souprav, areálu atd. Ideálně link na úschovnu.",
     known: "Na nový web nechceme použít fotky vygenerované AI ani fotky z fotobank.",
   },
   {
     id: "logo",
     title: "Logo",
-    ask: "Existuje původní logo ve vektoru (soubor SVG, AI, PDF nebo EPS)? Kdo ho navrhoval?",
+    ask: "Existuje původní logo ve vektoru (soubor SVG, AI, PDF nebo EPS)? Zase link na úschovnu.",
     known: "Máme jen obrázek loga (PNG s bílým pozadím).",
   },
   {
     id: "jazyky",
     title: "Jazyky webu",
-    ask: "Web bude nejdřív česky, potom německy a anglicky. Kdo dodá nebo zkontroluje překlady? Nemá být i italská verze, když jezdíte hlavně do Itálie?",
+    ask: "Web bude nejdřív česky, potom německy a anglicky. To stačí asi, ne?",
   },
   {
     id: "analytika",
     title: "Měření návštěvnosti",
-    ask: "Chcete vidět, kolik lidí web navštěvuje a odkud přicházejí? Podle toho se rozhodne, jestli bude potřeba cookie lišta.",
+    ask: "Chcete vidět, kolik lidí web navštěvuje a odkud přicházejí? Vyplň prostě \"ANO\", je to jen pro mě, abych na to nezapomněl.",
   },
   {
     id: "reference",
     title: "Zákazníci a partneři",
-    ask: "Můžeme na webu jmenovat některé zákazníky nebo partnery? Máte jejich souhlas?",
+    ask: "Můžem na webu jmenovat některé zákazníky nebo partnery? Nějaký co se vrací atd.",
   },
 ];
