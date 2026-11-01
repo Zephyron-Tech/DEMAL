@@ -37,10 +37,9 @@ export async function Branches() {
         <div className="mt-auto pt-8 sm:pt-10">
           <Link
             href="/doprava"
-            className="flex min-h-12 w-full items-center justify-between border-2 border-trailer px-4 font-display font-bold font-wide press hover:bg-trailer hover:text-asphalt md:inline-flex md:w-auto md:px-6"
+            className="flex min-h-12 w-full items-center border-2 border-trailer px-4 font-display font-bold font-wide press hover:bg-trailer hover:text-asphalt md:inline-flex md:w-auto md:px-6"
           >
             {t("transport.link")}
-            <span aria-hidden="true" className="h-0.5 w-6 bg-current md:hidden" />
           </Link>
         </div>
       </article>
@@ -69,7 +68,6 @@ export async function Branches() {
             className="flex min-h-12 w-full items-center justify-between border-2 border-trailer px-4 font-display font-bold font-wide press hover:bg-trailer hover:text-demal md:inline-flex md:w-auto md:px-6"
           >
             {t("wood.link")}
-            <span aria-hidden="true" className="h-0.5 w-6 bg-current md:hidden" />
           </Link>
         </div>
       </article>
