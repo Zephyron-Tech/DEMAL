@@ -100,33 +100,15 @@
     }
   }
 
-  --animate-fact-ticker: fact-ticker 20s linear infinite;
+  --animate-fact-ticker: fact-ticker 16s linear infinite;
 
-  /* Four facts and a copy of the first: the track moves one slot every 4s, easing over the last
-     0.8s of each slot, then jumps back to the start, where the copy matches the first fact. */
+  /* Four facts and a copy of the first: the track slides on without pauses, one fact every 4s.
+     The loop ends on the copy, which looks exactly like the first fact, so the reset is invisible. */
   @keyframes fact-ticker {
-    0%,
-    16% {
+    from {
       translate: 0% 0;
-      animation-timing-function: var(--ease-in-out);
     }
-    20%,
-    36% {
-      translate: -20% 0;
-      animation-timing-function: var(--ease-in-out);
-    }
-    40%,
-    56% {
-      translate: -40% 0;
-      animation-timing-function: var(--ease-in-out);
-    }
-    60%,
-    76% {
-      translate: -60% 0;
-      animation-timing-function: var(--ease-in-out);
-    }
-    80%,
-    100% {
+    to {
       translate: -80% 0;
     }
   }
