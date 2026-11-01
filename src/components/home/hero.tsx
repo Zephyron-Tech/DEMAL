@@ -114,35 +114,29 @@ export async function Hero() {
         <div className="mx-auto max-w-(--container-page) lg:px-8">
           <ul
             aria-label={t("factsLabel")}
-            className="flex w-[500%] motion-safe:animate-fact-ticker lg:grid lg:w-auto lg:animate-none lg:grid-cols-4 lg:gap-x-6"
+            className="flex w-[800%] motion-safe:animate-fact-ticker lg:grid lg:w-auto lg:animate-none lg:grid-cols-4 lg:gap-x-6"
           >
-            {facts.map((fact) => (
-              <li
-                key={fact.key}
-                className="flex w-1/5 shrink-0 flex-col gap-2 px-4 py-7 sm:px-8 lg:w-auto lg:flex-row lg:items-center lg:gap-4 lg:px-0"
-              >
-                <FactIcon d={fact.icon} />
-                <span>
-                  <span className="block font-display font-bold font-wide">
-                    {t(`facts.${fact.key}.title`)}
+            {/* The list runs twice, so the drift loops without a seam; the second run is hidden from
+                assistive tech and, on desktop, from view. */}
+            {[0, 1].map((run) =>
+              facts.map((fact) => (
+                <li
+                  key={`${run}-${fact.key}`}
+                  aria-hidden={run === 1 || undefined}
+                  className={`flex w-1/8 shrink-0 flex-col gap-2 px-4 py-7 sm:px-8 lg:w-auto lg:flex-row lg:items-center lg:gap-4 lg:px-0 ${
+                    run === 1 ? "lg:hidden" : ""
+                  }`}
+                >
+                  <FactIcon d={fact.icon} />
+                  <span>
+                    <span className="block font-display font-bold font-wide">
+                      {t(`facts.${fact.key}.title`)}
+                    </span>
+                    <span className="text-sm text-white/85">{t(`facts.${fact.key}.text`)}</span>
                   </span>
-                  <span className="text-sm text-white/85">{t(`facts.${fact.key}.text`)}</span>
-                </span>
-              </li>
-            ))}
-            {/* The first fact again, so the loop closes without a visible jump. */}
-            <li
-              aria-hidden="true"
-              className="flex w-1/5 shrink-0 flex-col gap-2 px-4 py-7 sm:px-8 lg:hidden"
-            >
-              <FactIcon d={facts[0].icon} />
-              <span>
-                <span className="block font-display font-bold font-wide">
-                  {t(`facts.${facts[0].key}.title`)}
-                </span>
-                <span className="text-sm text-white/85">{t(`facts.${facts[0].key}.text`)}</span>
-              </span>
-            </li>
+                </li>
+              )),
+            )}
           </ul>
         </div>
       </div>

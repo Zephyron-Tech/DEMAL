@@ -102,14 +102,11 @@
 
   --animate-fact-ticker: fact-ticker 16s linear infinite;
 
-  /* Four facts and a copy of the first: the track slides on without pauses, one fact every 4s.
-     The loop ends on the copy, which looks exactly like the first fact, so the reset is invisible. */
+  /* The facts run twice on the track; moving it by half its width loops it without a seam, the same
+     constant drift as the partner logos. One fact passes every 4s. */
   @keyframes fact-ticker {
-    from {
-      translate: 0% 0;
-    }
     to {
-      translate: -80% 0;
+      translate: -50% 0;
     }
   }
 
