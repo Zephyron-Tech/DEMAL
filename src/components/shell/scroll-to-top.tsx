@@ -66,7 +66,7 @@ export function ScrollToTop({ label }: { label: string }) {
       onClick={toTop}
       aria-label={label}
       tabIndex={visible ? 0 : -1}
-      className={`focus-on-dark press fixed right-4 bottom-4 z-30 flex size-12 items-center justify-center shadow-[0_6px_16px_rgb(30_34_38/0.3)] transition-[opacity,translate,visibility,background-color,color] duration-300 ease-(--ease-out) motion-reduce:transition-none sm:right-8 sm:bottom-8 ${tone} ${
+      className={`focus-on-dark press fixed cursor-pointer right-4 bottom-4 z-30 flex size-12 items-center justify-center shadow-[0_6px_16px_rgb(30_34_38/0.3)] transition-[opacity,translate,visibility,background-color,color] duration-300 ease-(--ease-out) motion-reduce:transition-none sm:right-8 sm:bottom-8 ${tone} ${
         visible ? "visible translate-y-0 opacity-100" : "invisible translate-y-3 opacity-0"
       }`}
     >
