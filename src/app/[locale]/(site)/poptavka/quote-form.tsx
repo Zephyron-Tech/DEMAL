@@ -9,8 +9,9 @@ import { submitQuote, type QuoteState, type QuoteType } from "./actions";
 
 const initialState: QuoteState = { status: "idle", message: "" };
 
+// The bottom rule darkens under the pointer and turns blue with the focus ring sitting on the field.
 const inputClass =
-  "w-full border border-rule border-b-2 border-b-graphite bg-white px-3 py-2.5 aria-[invalid=true]:border-alert aria-[invalid=true]:border-b-alert";
+  "w-full border border-rule border-b-2 border-b-graphite bg-white px-3 py-2.5 transition-colors hover:border-b-asphalt focus-visible:border-b-demal focus-visible:outline-offset-0 aria-[invalid=true]:border-alert aria-[invalid=true]:border-b-alert";
 
 type FieldProps = {
   name: string;
@@ -48,7 +49,7 @@ function Field({ name, label, hint, optionalLabel, error, children, className = 
         "aria-describedby": describedBy || undefined,
       })}
       {error ? (
-        <span id={`${id}-error`} className="text-sm font-semibold text-alert">
+        <span id={`${id}-error`} className="text-sm font-semibold text-alert motion-safe:animate-field-in">
           {error}
         </span>
       ) : null}
@@ -70,7 +71,7 @@ function Choice({
   onChange: (value: string) => void;
 }) {
   return (
-    <label className="flex min-h-12 cursor-pointer items-center gap-3 border-2 border-asphalt bg-white px-4 has-checked:bg-asphalt has-checked:text-trailer has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-demal">
+    <label className="press flex min-h-12 cursor-pointer items-center gap-3 border-2 border-asphalt bg-white px-4 not-has-checked:hover:bg-plate has-checked:bg-asphalt has-checked:text-trailer has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-demal">
       <input
         type="radio"
         name={name}
@@ -80,7 +81,9 @@ function Choice({
         className="sr-only"
       />
       <span aria-hidden="true" className="size-3 rounded-pill border-2 border-current p-0.5">
-        <span className={`block size-full rounded-pill ${checked ? "bg-current" : ""}`} />
+        <span
+          className={`block size-full rounded-pill bg-current transition-transform duration-(--duration-ui) ease-out ${checked ? "scale-100" : "scale-0"}`}
+        />
       </span>
       <span className="font-display font-bold font-wide">{label}</span>
     </label>
@@ -100,7 +103,10 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
   const [type, setType] = useState<QuoteType>(initialType);
   const [kind, setKind] = useState(state.values?.kind ?? "reefer");
   const [sentAgain, setSentAgain] = useState(0);
+  // Fields that appear in answer to a choice slide in; on the first render they are simply there.
+  const [answered, setAnswered] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
+  const successRef = useRef<HTMLHeadingElement>(null);
 
   // Move focus to the first invalid field so keyboard and screen-reader users land on the problem.
   useEffect(() => {
@@ -109,14 +115,25 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
     invalid?.focus();
   }, [state]);
 
+  // The submit button is gone once the enquiry is saved, and the confirmation is gone after
+  // "send another": in both cases focus would fall back to the page, so it moves to what replaced it.
+  useEffect(() => {
+    if (state.status === "saved" && sentAgain === 0) successRef.current?.focus();
+    if (sentAgain > 0) formRef.current?.querySelector<HTMLElement>("input[type=radio]:checked")?.focus();
+  }, [state, sentAgain]);
+
+  const appear = answered ? "motion-safe:animate-field-in" : "";
+
   const v = (name: string) => state.values?.[name] ?? "";
   const err = (name: string) => state.fieldErrors?.[name];
   const opt = t("contact.optional");
 
   if (state.status === "saved" && sentAgain === 0) {
     return (
-      <div role="status" className="border-2 border-asphalt bg-white p-6 sm:p-8">
-        <h2 className="text-2xl font-bold italic">{t("success.title")}</h2>
+      <div role="status" className="border-2 border-asphalt bg-white p-6 motion-safe:animate-field-in sm:p-8">
+        <h2 ref={successRef} tabIndex={-1} className="text-2xl font-bold italic outline-none">
+          {t("success.title")}
+        </h2>
         <p className="mt-3 max-w-(--container-prose)">
           {t("success.text", { phone: company.dispatch.phone })}
         </p>
@@ -151,20 +168,26 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
             value="transport"
             label={t("typeTransport")}
             checked={type === "transport"}
-            onChange={() => setType("transport")}
+            onChange={() => {
+              setType("transport");
+              setAnswered(true);
+            }}
           />
           <Choice
             name="type"
             value="wood"
             label={t("typeWood")}
             checked={type === "wood"}
-            onChange={() => setType("wood")}
+            onChange={() => {
+              setType("wood");
+              setAnswered(true);
+            }}
           />
         </div>
       </fieldset>
 
       {type === "transport" ? (
-        <fieldset className="grid gap-6 border-t-2 border-asphalt pt-6 sm:grid-cols-2">
+        <fieldset key="transport" className={`grid gap-6 border-t-2 border-asphalt pt-6 sm:grid-cols-2 ${appear}`}>
           <legend className="sr-only">{t("transport.legend")}</legend>
           <Field name="from" label={t("transport.from")} hint={t("transport.fromHint")} error={err("from")}>
             {(p) => <input {...p} defaultValue={v("from")} autoComplete="off" required className={inputClass} />}
@@ -189,7 +212,15 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
           </Field>
           <Field name="kind" label={t("transport.kind")} error={err("kind")}>
             {(p) => (
-              <select {...p} value={kind} onChange={(e) => setKind(e.target.value)} className={inputClass}>
+              <select
+                {...p}
+                value={kind}
+                onChange={(e) => {
+                  setKind(e.target.value);
+                  setAnswered(true);
+                }}
+                className={inputClass}
+              >
                 <option value="reefer">{t("transport.kindReefer")}</option>
                 <option value="walking">{t("transport.kindWalking")}</option>
                 <option value="other">{t("transport.kindOther")}</option>
@@ -203,13 +234,14 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
               hint={t("transport.tempHint")}
               optionalLabel={opt}
               error={err("temp")}
+              className={appear}
             >
               {(p) => <input {...p} defaultValue={v("temp")} autoComplete="off" className={inputClass} />}
             </Field>
           ) : null}
         </fieldset>
       ) : (
-        <fieldset className="grid gap-6 border-t-2 border-asphalt pt-6 sm:grid-cols-2">
+        <fieldset key="wood" className={`grid gap-6 border-t-2 border-asphalt pt-6 sm:grid-cols-2 ${appear}`}>
           <legend className="sr-only">{t("wood.legend")}</legend>
           <Field name="direction" label={t("wood.direction")} error={err("direction")}>
             {(p) => (
@@ -281,7 +313,7 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
 
       <div className="grid gap-4 border-t-2 border-asphalt pt-6">
         {state.status === "error" ? (
-          <p role="alert" className="font-semibold text-alert">
+          <p role="alert" className="font-semibold text-alert motion-safe:animate-field-in">
             {state.message}
           </p>
         ) : null}
@@ -289,7 +321,7 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
           <button
             type="submit"
             disabled={pending}
-            className="inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt press hover:bg-marking-deep disabled:opacity-60"
+            className="inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt press hover:bg-marking-deep disabled:cursor-progress disabled:opacity-60"
           >
             {pending ? t("submitting") : t("submit")}
           </button>
