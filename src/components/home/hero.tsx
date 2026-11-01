@@ -26,7 +26,7 @@ export async function Hero() {
   const t = await getTranslations("Home.hero");
 
   return (
-    <section aria-labelledby="hero-title" className="lg:flex lg:min-h-[max(36rem,calc(100svh_-_4.625rem))] lg:flex-col">
+    <section aria-labelledby="hero-title" className="lg:flex lg:min-h-[max(36rem,calc(100svh_-_4.5rem))] lg:flex-col">
       <div className="focus-on-dark relative isolate flex-1 bg-asphalt text-white lg:flex lg:flex-col">
         {/* Phones: a tall photograph whose lower edge fades into the panel, the title set across that
             fade. Desktop: the photograph fills the hero behind the text. */}
