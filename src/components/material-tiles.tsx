@@ -41,7 +41,7 @@ export async function MaterialTiles({ exclude, headingLevel = "h3" }: Props) {
             </ViewTransition>
             <div className="flex min-w-0 flex-1 items-center justify-between gap-3 px-4 py-3 sm:items-start sm:px-5 sm:py-4">
               <div className="min-w-0">
-                <Heading className="font-display text-base font-bold not-italic font-wide sm:text-lg">
+                <Heading className="break-words hyphens-auto font-display text-base font-bold not-italic font-wide sm:text-lg">
                   {t(`items.${item.key}.name`)}
                 </Heading>
                 <p className="text-sm break-words hyphens-auto text-graphite transition-colors duration-500 ease-(--ease-out) group-hover:text-rule">
