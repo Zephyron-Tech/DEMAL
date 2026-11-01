@@ -38,14 +38,14 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
 
   return (
     <nav aria-label={label} className="flex items-center">
-      <ul className="hidden items-center gap-1 lg:flex">
+      <ul className="hidden items-center gap-1 lg:flex xl:gap-2">
         {items.map((item) => (
           <li key={item.href}>
             {/* The bar under the current page also draws in from the left under the pointer. */}
             <Link
               href={item.href}
               aria-current={isActive(item.href) ? "page" : undefined}
-              className="relative flex min-h-11 items-center px-3 font-semibold text-asphalt transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-[3px] after:origin-left after:scale-x-0 after:bg-demal after:transition-transform after:duration-(--duration-ui) after:ease-out hover:text-demal hover:after:scale-x-100 aria-[current=page]:text-demal aria-[current=page]:after:scale-x-100"
+              className="relative flex min-h-11 items-center px-3 xl:px-4 font-semibold text-asphalt transition-colors after:absolute after:inset-x-3 xl:after:inset-x-4 after:bottom-1 after:h-[3px] after:origin-left after:scale-x-0 after:bg-demal after:transition-transform after:duration-(--duration-ui) after:ease-out hover:text-demal hover:after:scale-x-100 aria-[current=page]:text-demal aria-[current=page]:after:scale-x-100"
             >
               {item.label}
             </Link>

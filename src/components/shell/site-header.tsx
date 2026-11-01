@@ -38,7 +38,7 @@ export async function SiteHeader() {
           />
         </Link>
 
-        <div className="flex items-center gap-3 lg:gap-6">
+        <div className="flex items-center gap-3 lg:gap-6 xl:gap-8">
           <a
             href={company.dispatch.phoneHref}
             aria-label={`${t("dispatch")} ${company.dispatch.phone}`}
