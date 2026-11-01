@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { company } from "@/lib/company";
 import logo from "../../../public/logo_nobg.png";
 import { HomeLink } from "./home-link";
-import { LanguageMenu } from "./language-switch";
+import { TopStrip } from "./top-strip";
 import { MainNav } from "./main-nav";
 import { SiteHeaderFrame } from "./site-header-frame";
 
@@ -13,6 +13,8 @@ export async function SiteHeader() {
   const nav = await getTranslations("Nav");
 
   return (
+    <>
+      <TopStrip />
     <SiteHeaderFrame>
       <div className="relative mx-auto flex h-18 max-w-(--container-page) items-center justify-between gap-6 px-4 sm:px-8">
         {/* The logo tab hangs below the bar. Its fillets, sides and rounded bottom are one SVG path
@@ -39,7 +41,7 @@ export async function SiteHeader() {
           />
         </HomeLink>
 
-        <div className="flex items-center gap-3 lg:gap-6 xl:gap-5">
+        <div className="flex items-center gap-3 lg:gap-6 xl:gap-8">
           <a
             href={company.dispatch.phoneHref}
             aria-label={`${t("dispatch")} ${company.dispatch.phone}`}
@@ -68,17 +70,6 @@ export async function SiteHeader() {
             }}
           />
 
-          <LanguageMenu className="hidden xl:block" />
-
-          <a
-            href={company.dispatch.phoneHref}
-            className="hidden flex-col leading-tight xl:flex"
-          >
-            <span className="text-xs text-graphite">{t("dispatch")}</span>
-            <span className="font-display font-bold font-wide tabular-nums whitespace-nowrap">
-              {company.dispatch.phone}
-            </span>
-          </a>
 
           <Link
             href="/poptavka"
@@ -89,5 +80,6 @@ export async function SiteHeader() {
         </div>
       </div>
     </SiteHeaderFrame>
+    </>
   );
 }
