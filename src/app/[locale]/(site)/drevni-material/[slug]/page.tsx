@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
+import { ViewTransition } from "react";
 import { MaterialTiles } from "@/components/material-tiles";
 import { PendingNotice } from "@/components/pending-notice";
 import { findMaterial, materials } from "@/content/materials";
@@ -35,17 +36,20 @@ export default async function MaterialPage({ params }: PageProps<"/[locale]/drev
 
   return (
     <main className="pb-24">
-      <div className="relative h-[34svh] min-h-56 w-full bg-plate sm:h-[42svh]">
-        <Image
-          src={material.image}
-          alt={t(`items.${material.key}.alt`)}
-          fill
-          loading="eager"
-          fetchPriority="high"
-          sizes="100vw"
-          className={`object-cover ${material.position}`}
-        />
-      </div>
+      {/* Pairs with the material's tile (MaterialTiles): the photo grows from the tile into place. */}
+      <ViewTransition name={`material-${material.slug}`} share="material-photo" default="none">
+        <div className="relative h-[34svh] min-h-56 w-full bg-plate sm:h-[42svh]">
+          <Image
+            src={material.image}
+            alt={t(`items.${material.key}.alt`)}
+            fill
+            loading="eager"
+            fetchPriority="high"
+            sizes="100vw"
+            className={`object-cover ${material.position}`}
+          />
+        </div>
+      </ViewTransition>
 
       <div className="mx-auto max-w-(--container-page) px-4 pt-10 sm:px-8 sm:pt-14">
         <Link

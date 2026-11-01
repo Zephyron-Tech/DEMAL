@@ -164,6 +164,41 @@
   }
 }
 
+/* Route changes (React <ViewTransition>): a material photo travels from its tile to the top of its
+   page and back. The old page, with any tile that has no partner, clears in 120ms; the new page is
+   simply there underneath. Each photo snapshot is cropped, not stretched, while its box changes. */
+::view-transition-old(root),
+::view-transition-old(.material-photo):only-child {
+  animation-duration: 120ms;
+}
+
+::view-transition-new(.material-photo):only-child {
+  animation: none;
+}
+
+::view-transition-group(.material-photo) {
+  animation-duration: 420ms;
+  animation-timing-function: var(--ease-in-out);
+}
+
+::view-transition-image-pair(.material-photo) {
+  overflow: clip;
+}
+
+::view-transition-old(.material-photo),
+::view-transition-new(.material-photo) {
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
 @utility font-wide {
   font-stretch: 125%;
 }

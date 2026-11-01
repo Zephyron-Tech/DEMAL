@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import { ViewTransition } from "react";
 import { materials } from "@/content/materials";
 import { Link } from "@/i18n/navigation";
 
@@ -26,15 +27,18 @@ export async function MaterialTiles({ exclude, headingLevel = "h3" }: Props) {
             href={{ pathname: "/drevni-material/[slug]", params: { slug: item.slug } }}
             className="group flex w-full flex-col bg-white transition-colors hover:bg-asphalt hover:text-trailer"
           >
-            <div className="relative aspect-4/3 overflow-hidden bg-plate">
-              <Image
-                src={item.image}
-                alt={t(`items.${item.key}.alt`)}
-                fill
-                sizes="(min-width: 1024px) 25vw, 50vw"
-                className={`object-cover transition-transform duration-700 ease-soft motion-safe:group-hover:scale-[1.04] ${item.position}`}
-              />
-            </div>
+            {/* Same name as the photo at the top of the material's page: it travels there. */}
+            <ViewTransition name={`material-${item.slug}`} share="material-photo" default="none">
+              <div className="relative aspect-4/3 overflow-hidden bg-plate">
+                <Image
+                  src={item.image}
+                  alt={t(`items.${item.key}.alt`)}
+                  fill
+                  sizes="(min-width: 1024px) 25vw, 50vw"
+                  className={`object-cover transition-transform duration-700 ease-soft motion-safe:group-hover:scale-[1.04] ${item.position}`}
+                />
+              </div>
+            </ViewTransition>
             <div className="flex flex-1 items-start justify-between gap-3 px-3 py-4 sm:px-5">
               <div className="min-w-0">
                 <Heading className="font-display text-base font-bold not-italic font-wide sm:text-lg">
