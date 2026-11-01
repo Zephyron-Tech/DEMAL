@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 import { ogLocale } from "@/i18n/alternates";
@@ -43,6 +44,8 @@ export default async function LocaleLayout({
     >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        {/* Cookieless page-view counts only; no consent banner needed. See the privacy page. */}
+        <Analytics />
       </body>
     </html>
   );

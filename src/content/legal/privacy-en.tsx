@@ -3,7 +3,7 @@ import { company } from "@/lib/company";
 
 // English privacy notice (GDPR art. 13). A translation of privacy-cs.tsx; the Czech text is the
 // binding version. Retention period and contact e-mail still await the owner's confirmation.
-export const privacyUpdatedEn = "31 October 2026";
+export const privacyUpdatedEn = "1 November 2026";
 
 export function PrivacyEn() {
   return (
@@ -61,9 +61,7 @@ export function PrivacyEn() {
 
       <h2>Cookies and visitor statistics</h2>
       <p>
-        The website sets no cookies for visitors and uses no visitor statistics or advertising tools. The only
-        cookie is set by the login to the internal administration, which only dispatch staff use. If this
-        changes, we will update this notice and ask for your consent beforehand.
+        We count page views with Vercel Web Analytics. The tool sets no cookies and stores nothing in your browser; the data is aggregated and does not identify individuals. The legal basis is our legitimate interest in understanding how the website is used (Article 6(1)(f) GDPR). The only cookie is set by the login to the internal administration, which only dispatch staff use.
       </p>
 
       <h2>Your rights</h2>

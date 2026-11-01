@@ -3,7 +3,7 @@ import { company } from "@/lib/company";
 
 // Czech privacy notice (GDPR art. 13). Drafted from how the site actually processes data;
 // retention period and contact e-mail await the owner's confirmation (docs/sitemap.md).
-export const privacyUpdated = "31. 10. 2026";
+export const privacyUpdated = "1. 11. 2026";
 
 export function PrivacyCs() {
   return (
@@ -63,8 +63,7 @@ export function PrivacyCs() {
 
       <h2>Cookies a měření návštěvnosti</h2>
       <p>
-        Web pro návštěvníky nepoužívá cookies ani nástroje pro měření návštěvnosti nebo reklamu. Jedinou cookie nastavuje přihlášení do interní administrace, kterou používají jen zaměstnanci dispečinku. Pokud se to
-        změní, upravíme tyto zásady a&nbsp;o&nbsp;souhlas vás požádáme předem.
+        Počty návštěv stránek měříme nástrojem Vercel Web Analytics. Nepoužívá cookies ani úložiště v&nbsp;prohlížeči, údaje jsou souhrnné a&nbsp;neslouží k&nbsp;identifikaci osoby. Právním základem je náš oprávněný zájem zjistit, jak se web používá (čl. 6 odst. 1 písm. f) GDPR). Jedinou cookie nastavuje přihlášení do interní administrace, kterou používají jen zaměstnanci dispečinku.
       </p>
 
       <h2>Vaše práva</h2>

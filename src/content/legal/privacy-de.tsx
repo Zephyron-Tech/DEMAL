@@ -3,7 +3,7 @@ import { company } from "@/lib/company";
 
 // German privacy notice (GDPR art. 13). A translation of privacy-cs.tsx; the Czech text is the
 // binding version. Retention period and contact e-mail still await the owner's confirmation.
-export const privacyUpdatedDe = "31.10.2026";
+export const privacyUpdatedDe = "1.11.2026";
 
 export function PrivacyDe() {
   return (
@@ -64,10 +64,7 @@ export function PrivacyDe() {
 
       <h2>Cookies und Besucherstatistik</h2>
       <p>
-        Die Website setzt für Besucher keine Cookies und verwendet keine Werkzeuge zur Besucherstatistik
-        oder Werbung. Ein Cookie setzt nur die Anmeldung in die interne Verwaltung, die ausschließlich
-        die Mitarbeiter der Disposition nutzen. Ändert sich das, passen wir diese Hinweise an und bitten
-        Sie vorher um Ihre Einwilligung.
+        Die Besuche der Seiten zählen wir mit Vercel Web Analytics. Das Werkzeug setzt keine Cookies und speichert nichts im Browser; die Daten sind zusammengefasst und dienen nicht der Identifizierung einzelner Personen. Rechtsgrundlage ist unser berechtigtes Interesse, die Nutzung der Website zu verstehen (Art. 6 Abs. 1 lit. f DSGVO). Ein Cookie setzt nur die Anmeldung in die interne Verwaltung, die ausschließlich die Mitarbeiter der Disposition nutzen.
       </p>
 
       <h2>Ihre Rechte</h2>
