@@ -1,6 +1,5 @@
 "use client";
 
-import { LanguageSwitch } from "./language-switch";
 import { useEffect, useId, useRef } from "react";
 import { useHeaderMenu } from "./site-header-frame";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -144,9 +143,6 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
             >
               {cta.label}
             </Link>
-          </div>
-          <div className="border-t border-rule py-2">
-            <LanguageSwitch />
           </div>
         </div>
       </div>

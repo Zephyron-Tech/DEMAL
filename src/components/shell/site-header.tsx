@@ -25,7 +25,7 @@ export async function SiteHeader() {
           <svg
             aria-hidden="true"
             viewBox="0 -1 168 25"
-            className="pointer-events-none absolute -left-3.5 top-[71px] h-[25px] w-[168px] origin-top transition-[scale] duration-600 ease-(--ease-out) motion-reduce:transition-none group-data-[compact=true]/header:scale-x-[0.88] group-data-[compact=true]/header:scale-y-0"
+            className="pointer-events-none absolute -left-3.5 top-[71px] h-[25px] w-[168px] origin-top transition-[scale] duration-600 ease-(--ease-out) motion-reduce:transition-none group-data-[compact=true]/header:scale-x-[0.88] group-data-[compact=true]/header:scale-y-0 delay-[320ms] group-data-[compact=true]/header:delay-0"
           >
             <path
               fill="#fff"
@@ -37,7 +37,7 @@ export async function SiteHeader() {
             alt=""
             loading="eager"
             sizes="150px"
-            className="relative h-17 w-auto translate-y-3 transition-[translate,scale] duration-500 ease-(--ease-out) motion-reduce:transition-none group-data-[compact=true]/header:translate-x-[-18px] group-data-[compact=true]/header:translate-y-0 group-data-[compact=true]/header:scale-[0.706]"
+            className="relative h-17 w-auto translate-y-3 transition-[translate,scale] duration-500 ease-(--ease-out) motion-reduce:transition-none group-data-[compact=true]/header:translate-x-[-18px] group-data-[compact=true]/header:translate-y-0 group-data-[compact=true]/header:scale-[0.706] delay-[320ms] group-data-[compact=true]/header:delay-0"
           />
         </HomeLink>
 
