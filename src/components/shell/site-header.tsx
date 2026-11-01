@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { company } from "@/lib/company";
 import logo from "../../../public/logo_nobg.png";
+import { HomeLink } from "./home-link";
 import { MainNav } from "./main-nav";
 import { SiteHeaderFrame } from "./site-header-frame";
 
@@ -17,7 +18,7 @@ export async function SiteHeader() {
             in the bar's white, so bar and tab are a single shape with no seam. */}
         {/* The tab drops 24px below the bar. The logo stays in the bar box and moves with transforms:
             expanded it sits 12px lower and full size, compact it is centred in the bar at 0.706 scale. */}
-        <Link href="/" className="relative flex h-18 w-[140px] shrink-0 items-center justify-center self-start" aria-label={t("homeLink")}>
+        <HomeLink label={t("homeLink")} className="relative flex h-18 w-[140px] shrink-0 items-center justify-center self-start">
           <svg
             aria-hidden="true"
             viewBox="0 -1 168 25"
@@ -35,7 +36,7 @@ export async function SiteHeader() {
             sizes="150px"
             className="relative h-17 w-auto translate-y-3 transition-[translate,scale] duration-500 ease-(--ease-out) motion-reduce:transition-none group-data-[compact=true]/header:translate-x-[-18px] group-data-[compact=true]/header:translate-y-0 group-data-[compact=true]/header:scale-[0.706]"
           />
-        </Link>
+        </HomeLink>
 
         <div className="flex items-center gap-3 lg:gap-6 xl:gap-8">
           <a

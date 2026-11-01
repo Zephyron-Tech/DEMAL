@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { SiteFooter } from "@/components/shell/site-footer";
+import { ScrollToTop } from "@/components/shell/scroll-to-top";
 import { SiteHeader } from "@/components/shell/site-header";
 
 export default async function SiteLayout({ children }: LayoutProps<"/[locale]">) {
@@ -18,6 +19,7 @@ export default async function SiteLayout({ children }: LayoutProps<"/[locale]">)
         {children}
       </div>
       <SiteFooter />
+      <ScrollToTop label={t("toTop")} />
     </>
   );
 }

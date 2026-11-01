@@ -5,11 +5,10 @@ import { useEffect, useState, type ReactNode } from "react";
 const BAR_HEIGHT = 72;
 
 // Sticky header frame. Rendered folded, so the bar reads as one piece. Once mounted, a page at the
-// top unfolds: the logo tab slides down out of the bar and the logo grows into place. Once the hero
-// has scrolled away the header stays folded, and a shadow falls under the frame.
+// top unfolds: the logo tab grows out of the bar and the logo grows into place. Once the hero has
+// scrolled away the header stays folded. A shadow falls under the frame from the first pixel.
 export function SiteHeaderFrame({ children }: { children: ReactNode }) {
   const [compact, setCompact] = useState(true);
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const update = () => {
@@ -17,7 +16,6 @@ export function SiteHeaderFrame({ children }: { children: ReactNode }) {
       // Pages without the home hero fold as soon as they scroll.
       const hero = document.getElementById("hero-title")?.closest("section");
       const heroEnd = hero ? hero.getBoundingClientRect().bottom + y : 0;
-      setScrolled(y > 0);
       setCompact(y > Math.max(0, heroEnd - BAR_HEIGHT));
     };
     // Two frames: the folded state gets painted first, so the unfold animates on every load,
@@ -37,8 +35,7 @@ export function SiteHeaderFrame({ children }: { children: ReactNode }) {
   return (
     <header
       data-compact={compact}
-      data-scrolled={scrolled}
-      className="group/header sticky top-0 z-40 bg-white data-[scrolled=true]:drop-shadow-[0_6px_10px_rgb(30_34_38/0.28)]"
+      className="group/header sticky top-0 z-40 bg-white drop-shadow-[0_6px_10px_rgb(30_34_38/0.28)]"
     >
       {children}
     </header>
