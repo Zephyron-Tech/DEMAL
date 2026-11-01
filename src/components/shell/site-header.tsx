@@ -13,9 +13,8 @@ export async function SiteHeader() {
   const nav = await getTranslations("Nav");
 
   return (
-    <>
-      <TopStrip />
     <SiteHeaderFrame>
+      <TopStrip />
       <div className="relative mx-auto flex h-18 max-w-(--container-page) items-center justify-between gap-6 px-4 sm:px-8">
         {/* The logo tab hangs below the bar. Its fillets, sides and rounded bottom are one SVG path
             in the bar's white, so bar and tab are a single shape with no seam. */}
@@ -80,6 +79,5 @@ export async function SiteHeader() {
         </div>
       </div>
     </SiteHeaderFrame>
-    </>
   );
 }

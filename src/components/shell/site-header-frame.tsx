@@ -33,11 +33,20 @@ export function SiteHeaderFrame({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <header
-      data-compact={compact}
-      className="group/header sticky top-0 z-40 bg-white drop-shadow-[0_6px_10px_rgb(30_34_38/0.28)]"
-    >
-      {children}
-    </header>
+    <>
+      <header
+        data-compact={compact}
+        className="group/header sticky top-0 z-40 bg-white drop-shadow-[0_6px_10px_rgb(30_34_38/0.28)]"
+      >
+        {children}
+      </header>
+      {/* Stands in for the strip's collapsed height, so the page below never moves while it folds. */}
+      <div
+        aria-hidden="true"
+        className={`hidden transition-[height] duration-600 ease-(--ease-out) motion-reduce:transition-none lg:block ${
+          compact ? "h-[38px]" : "h-0"
+        }`}
+      />
+    </>
   );
 }
