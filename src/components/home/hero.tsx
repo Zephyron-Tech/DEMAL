@@ -109,35 +109,34 @@ export async function Hero() {
         </div>
       </div>
 
-      {/* Phones: the four facts take turns in a single slot, sliding along a track. Desktop: a row. */}
+      {/* Phones: the facts run on one continuous track, two copies so the drift loops without a seam.
+          Desktop: a row of four. */}
       <div className="overflow-hidden bg-demal text-white">
-        <div className="mx-auto max-w-(--container-page) lg:px-8">
-          <ul
-            aria-label={t("factsLabel")}
-            className="flex w-[800%] motion-safe:animate-fact-ticker lg:grid lg:w-auto lg:animate-none lg:grid-cols-4 lg:gap-x-6"
-          >
-            {/* The list runs twice, so the drift loops without a seam; the second run is hidden from
-                assistive tech and, on desktop, from view. */}
-            {[0, 1].map((run) =>
-              facts.map((fact) => (
-                <li
-                  key={`${run}-${fact.key}`}
-                  aria-hidden={run === 1 || undefined}
-                  className={`flex w-1/8 shrink-0 flex-col gap-2 px-4 py-7 sm:px-8 lg:w-auto lg:flex-row lg:items-center lg:gap-4 lg:px-0 ${
-                    run === 1 ? "lg:hidden" : ""
-                  }`}
-                >
-                  <FactIcon d={fact.icon} />
-                  <span>
-                    <span className="block font-display font-bold font-wide">
-                      {t(`facts.${fact.key}.title`)}
+        <div className="mx-auto max-w-(--container-page) py-6 lg:px-8 lg:py-7">
+          <div className="flex w-max motion-safe:animate-fact-ticker lg:w-full lg:animate-none">
+            {[0, 1].map((copy) => (
+              <ul
+                key={copy}
+                aria-label={copy === 0 ? t("factsLabel") : undefined}
+                aria-hidden={copy === 1 || undefined}
+                className={`flex shrink-0 items-center gap-12 px-4 lg:grid lg:w-full lg:grid-cols-4 lg:gap-x-6 lg:px-0 ${
+                  copy === 1 ? "lg:hidden" : ""
+                }`}
+              >
+                {facts.map((fact) => (
+                  <li key={fact.key} className="flex shrink-0 items-center gap-3 whitespace-nowrap lg:gap-4">
+                    <FactIcon d={fact.icon} />
+                    <span>
+                      <span className="block font-display font-bold font-wide">
+                        {t(`facts.${fact.key}.title`)}
+                      </span>
+                      <span className="block text-sm text-white/85">{t(`facts.${fact.key}.text`)}</span>
                     </span>
-                    <span className="text-sm text-white/85">{t(`facts.${fact.key}.text`)}</span>
-                  </span>
-                </li>
-              )),
-            )}
-          </ul>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
         </div>
       </div>
     </section>
