@@ -4,8 +4,8 @@ import { expect, test } from "@playwright/test";
 const pages = [
   "/", "/poptavka", "/poptavka?typ=drevo", "/ochrana-osobnich-udaju", "/kontakt", "/vozovy-park", "/doprava", "/o-nas", "/drevni-material", "/drevni-material/stepka", "/zdroje-fotografii", "/neexistujici-stranka", "/styleguide", "/podklady",
   // German and English versions of the public pages, with their translated paths.
-  "/de", "/de/anfrage", "/de/transport", "/de/ueber-uns", "/de/holzmaterial", "/de/datenschutz", "/de/bildquellen",
-  "/en", "/en/quote", "/en/freight", "/en/about-us", "/en/wood-materials", "/en/privacy", "/en/photo-credits",
+  "/de", "/de/anfrage", "/de/transport", "/de/ueber-uns", "/de/holzmaterial", "/de/datenschutz", "/de/bildquellen", "/de/impressum", "/impressum",
+  "/en", "/en/quote", "/en/freight", "/en/about-us", "/en/wood-materials", "/en/privacy", "/en/photo-credits", "/en/imprint",
 ];
 
 for (const path of pages) {

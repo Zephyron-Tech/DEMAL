@@ -16,6 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function ContactPage() {
   const t = await getTranslations("Contact");
+  const tCompany = await getTranslations("Company");
 
   const billing = [
     { label: t("billingName"), value: company.name },
@@ -24,7 +25,7 @@ export default async function ContactPage() {
     { label: t("billingDic"), value: company.dic },
     {
       label: t("billingRegister"),
-      value: t("registerValue", { register: company.register, court: company.registerCourt }),
+      value: t("registerValue", { register: company.register, court: tCompany("court") }),
     },
   ];
 

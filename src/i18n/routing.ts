@@ -32,6 +32,7 @@ export const routing = defineRouting({
       de: "/datenschutz",
       en: "/privacy",
     },
+    "/impressum": { cs: "/provozovatel", de: "/impressum", en: "/imprint" },
     "/zdroje-fotografii": {
       cs: "/zdroje-fotografii",
       de: "/bildquellen",

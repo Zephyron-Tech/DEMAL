@@ -13,6 +13,7 @@ const pages: StaticPathname[] = [
   "/poptavka",
   "/ochrana-osobnich-udaju",
   "/zdroje-fotografii",
+  "/impressum",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

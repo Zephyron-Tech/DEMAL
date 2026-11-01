@@ -37,7 +37,8 @@
     "copyright": "© {year} DEMAL SPEDITION s.r.o.",
     "register": "Registered in the Commercial Register, file number {register}, {court}",
     "icoDic": "Company ID / VAT ID",
-    "photoSources": "Photo credits"
+    "photoSources": "Photo credits",
+    "imprint": "Imprint"
   },
   "NotFound": {
     "metaTitle": "Page not found",
@@ -450,5 +451,29 @@
       "pellets": "Pellets",
       "byproducts": "Roundwood"
     }
+  },
+  "Company": {
+    "court": "Regional Court in České Budějovice"
+  },
+  "Imprint": {
+    "title": "Imprint",
+    "metaDescription": "Provider identification of DEMAL SPEDITION s.r.o. (imprint).",
+    "provider": "Provider",
+    "legalForm": "Limited liability company under Czech law (s.r.o.)",
+    "seat": "Registered seat",
+    "representative": "Represented by the managing director",
+    "representativeValue": "[name of the managing director to be added]",
+    "contact": "Contact",
+    "register": "Commercial Register",
+    "registerValue": "file number {register}, kept by the {court}",
+    "ico": "Company ID (IČ)",
+    "dic": "VAT ID (DIČ)",
+    "disputes": "Dispute resolution",
+    "disputesText": "We are neither obliged nor willing to take part in dispute resolution proceedings before a consumer arbitration body.",
+    "copyright": "The content of this website is protected by copyright. The photographs used and their authors are listed on the Photo credits page.",
+    "country": "Czech Republic",
+    "copyrightTitle": "Copyright",
+    "phone": "Phone",
+    "email": "E-mail"
   }
 }

@@ -24,6 +24,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 export async function SiteFooter() {
   const t = await getTranslations("Footer");
   const nav = await getTranslations("Nav");
+  const tCompany = await getTranslations("Company");
   const year = await currentYear();
 
   const pages: { href: StaticPathname; label: string }[] = [
@@ -88,10 +89,18 @@ export async function SiteFooter() {
       <div className="mx-auto max-w-(--container-page) px-4 sm:px-8">
         <div className="flex flex-col gap-y-3 border-t border-white/10 pt-5 pb-6 text-sm text-rule sm:flex-row sm:flex-wrap sm:justify-between sm:gap-x-6 sm:gap-y-2 sm:py-5">
           <p>
-            {t("copyright", { year })} {t("register", { register: company.register, court: company.registerCourt })}
+            {t("copyright", { year })} {t("register", { register: company.register, court: tCompany("court") })}
           </p>
           <div className="flex flex-col items-start sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-2">
           <ul className="flex flex-wrap gap-x-6 max-lg:gap-y-0 lg:gap-y-2">
+            <li>
+              <Link
+                href="/impressum"
+                className="link-reveal max-lg:inline-flex max-lg:min-h-11 max-lg:items-center"
+              >
+                {t("imprint")}
+              </Link>
+            </li>
             <li>
               <Link
                 href="/ochrana-osobnich-udaju"

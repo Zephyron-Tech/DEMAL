@@ -37,7 +37,8 @@
     "copyright": "© {year} DEMAL SPEDITION s.r.o.",
     "register": "Zapsáno v obchodním rejstříku, spisová značka {register}, {court}",
     "icoDic": "IČ / DIČ",
-    "photoSources": "Zdroje fotografií"
+    "photoSources": "Zdroje fotografií",
+    "imprint": "Provozovatel"
   },
   "NotFound": {
     "metaTitle": "Stránka nenalezena",
@@ -450,5 +451,29 @@
       "pellets": "Pelety",
       "byproducts": "Kulatina"
     }
+  },
+  "Company": {
+    "court": "Krajský soud v Českých Budějovicích"
+  },
+  "Imprint": {
+    "title": "Provozovatel",
+    "metaDescription": "Identifikační údaje provozovatele webu DEMAL SPEDITION s.r.o.",
+    "provider": "Provozovatel",
+    "legalForm": "Společnost s ručením omezeným, zapsaná v obchodním rejstříku",
+    "seat": "Sídlo",
+    "representative": "Jednatel",
+    "representativeValue": "[jméno jednatele doplní majitel]",
+    "contact": "Kontakt",
+    "register": "Zápis v obchodním rejstříku",
+    "registerValue": "spisová značka {register}, vedená u {court}",
+    "ico": "IČ",
+    "dic": "DIČ",
+    "disputes": "Spory",
+    "disputesText": "Nejsme ochotni ani povinni účastnit se řízení o řešení spotřebitelských sporů před subjektem alternativního řešení sporů.",
+    "copyright": "Obsah webu je chráněn autorským právem. Použité fotografie a jejich autoři jsou uvedeni na stránce Zdroje fotografií.",
+    "country": "Česká republika",
+    "copyrightTitle": "Autorská práva",
+    "phone": "Telefon",
+    "email": "E-mail"
   }
 }
