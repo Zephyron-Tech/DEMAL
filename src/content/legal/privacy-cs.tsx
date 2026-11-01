@@ -62,7 +62,7 @@ export function PrivacyCs() {
 
       <h2>Cookies a měření návštěvnosti</h2>
       <p>
-        Web nepoužívá cookies ani nástroje pro měření návštěvnosti nebo reklamu. Pokud se to
+        Web pro návštěvníky nepoužívá cookies ani nástroje pro měření návštěvnosti nebo reklamu. Jedinou cookie nastavuje přihlášení do interní administrace, kterou používají jen zaměstnanci dispečinku. Pokud se to
         změní, upravíme tyto zásady a&nbsp;o&nbsp;souhlas vás požádáme předem.
       </p>
 

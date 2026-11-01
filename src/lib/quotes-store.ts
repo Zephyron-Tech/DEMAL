@@ -47,7 +47,8 @@ export async function listQuotes(): Promise<StoredQuote[]> {
 export async function setHandled(id: string, handled: boolean) {
   const quote = await getQuote(id);
   if (!quote) return;
-  const { id: _id, ...data } = quote;
+  const data: Partial<StoredQuote> = { ...quote };
+  delete data.id;
   await put(
     pathnameOf(id),
     JSON.stringify({ ...data, handledAt: handled ? new Date().toISOString() : null }, null, 2),
