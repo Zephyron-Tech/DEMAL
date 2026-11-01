@@ -62,7 +62,6 @@ export async function SiteHeader() {
             }}
           />
 
-
           <Link
             href="/poptavka"
             className="hidden min-h-12 items-center bg-marking px-5 font-display font-bold font-wide whitespace-nowrap text-asphalt press hover:bg-marking-deep lg:inline-flex"
