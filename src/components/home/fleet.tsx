@@ -12,7 +12,7 @@ export async function Fleet() {
   return (
     <section
       aria-labelledby="fleet-title"
-      className="mx-auto mt-24 grid max-w-(--container-page) gap-10 px-4 sm:mt-32 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-16"
+      className="mx-auto mt-16 grid max-w-(--container-page) gap-8 px-4 sm:mt-32 sm:gap-10 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-16"
     >
       <div className="relative aspect-4/3 w-full overflow-hidden bg-plate">
         <Image
@@ -31,28 +31,33 @@ export async function Fleet() {
         </h2>
         <p className="mt-4 max-w-md text-graphite">{t("lead")}</p>
 
-        <table className="mt-8 w-full border-collapse text-left">
+        {/* Below sm the rows stack (name, makes, use) because two columns leave 150 px each. The roles
+            keep the table semantics for assistive tech when the display is no longer table. */}
+        <table
+          role="table"
+          className="mt-6 w-full border-collapse text-left max-sm:block sm:mt-8"
+        >
           <caption className="sr-only">{t("tableCaption")}</caption>
-          <thead>
-            <tr className="border-b-2 border-asphalt text-sm text-graphite">
-              <th scope="col" className="w-[48%] py-2 pr-4 font-normal">
+          <thead role="rowgroup" className="max-sm:sr-only">
+            <tr role="row" className="border-b-2 border-asphalt text-sm text-graphite">
+              <th role="columnheader" scope="col" className="w-[48%] py-2 pr-4 font-normal">
                 {t("colVehicle")}
               </th>
-              <th scope="col" className="py-2 font-normal">
+              <th role="columnheader" scope="col" className="py-2 font-normal">
                 {t("colUse")}
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody role="rowgroup" className="max-sm:block">
             {rows.map((row) => (
-              <tr key={row} className="border-b border-rule align-top">
-                <th scope="row" className="py-4 pr-4 font-normal">
-                  <span className="block font-display text-lg font-bold font-wide">
+              <tr key={row} role="row" className="border-b border-rule align-top max-sm:block max-sm:py-4">
+                <th role="rowheader" scope="row" className="py-4 pr-4 font-normal max-sm:block max-sm:p-0">
+                  <span className="block font-display text-base font-bold font-wide sm:text-lg">
                     {t(`rows.${row}`)}
                   </span>
                   <span className="text-sm text-graphite">{t(`rows.${row}Makes`)}</span>
                 </th>
-                <td className="py-4">{t(`rows.${row}Use`)}</td>
+                <td role="cell" className="py-4 max-sm:mt-2 max-sm:block max-sm:p-0">{t(`rows.${row}Use`)}</td>
               </tr>
             ))}
           </tbody>
@@ -60,9 +65,10 @@ export async function Fleet() {
 
         <Link
           href="/vozovy-park"
-          className="mt-8 inline-flex min-h-12 items-center border-2 border-asphalt px-6 font-display font-bold font-wide press hover:bg-asphalt hover:text-trailer"
+          className="mt-6 flex min-h-12 w-full items-center justify-between border-2 border-asphalt px-4 font-display font-bold font-wide press hover:bg-asphalt hover:text-trailer sm:mt-8 sm:inline-flex sm:w-auto sm:px-6"
         >
           {t("link")}
+          <span aria-hidden="true" className="h-0.5 w-6 bg-current sm:hidden" />
         </Link>
       </div>
     </section>
