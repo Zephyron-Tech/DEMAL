@@ -32,7 +32,7 @@ export async function MaterialTiles({ exclude, headingLevel = "h3" }: Props) {
                 alt={t(`items.${item.key}.alt`)}
                 fill
                 sizes="(min-width: 1024px) 25vw, 50vw"
-                className={`object-cover transition-transform duration-500 group-hover:scale-[1.05] ${item.position}`}
+                className={`object-cover transition-transform duration-700 ease-soft motion-safe:group-hover:scale-[1.04] ${item.position}`}
               />
             </div>
             <div className="flex flex-1 items-start justify-between gap-3 px-3 py-4 sm:px-5">
@@ -48,9 +48,15 @@ export async function MaterialTiles({ exclude, headingLevel = "h3" }: Props) {
                   Phones leave it out: two tiles side by side have no room for it next to the note. */}
               <span
                 aria-hidden="true"
-                className="hidden size-10 shrink-0 items-center justify-center self-end sm:flex bg-asphalt text-trailer transition-colors group-hover:bg-marking group-hover:text-asphalt"
+                className="hidden size-10 shrink-0 items-center justify-center self-end bg-asphalt text-trailer transition-colors group-hover:bg-marking group-hover:text-asphalt sm:flex"
               >
-                <svg viewBox="0 0 16 16" className="size-4" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  viewBox="0 0 16 16"
+                  className="size-4 transition-transform duration-(--duration-ui) ease-out motion-safe:group-hover:translate-x-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M3 8h10M9 4l4 4-4 4" />
                 </svg>
               </span>

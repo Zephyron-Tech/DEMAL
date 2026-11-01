@@ -31,13 +31,13 @@ export default async function QuotePage() {
           <p className="mt-3 text-sm text-graphite">{t("asideText")}</p>
           <a
             href={company.dispatch.phoneHref}
-            className="mt-1 block font-display text-xl font-bold font-wide whitespace-nowrap tabular-nums underline-offset-4 hover:underline"
+            className="mt-1 block font-display text-xl font-bold font-wide whitespace-nowrap tabular-nums link-reveal"
           >
             {company.dispatch.phone}
           </a>
           <a
             href={`mailto:${company.dispatch.email}`}
-            className="mt-3 block break-all underline-offset-4 hover:underline"
+            className="mt-3 block break-all link-reveal"
           >
             {company.dispatch.email}
           </a>

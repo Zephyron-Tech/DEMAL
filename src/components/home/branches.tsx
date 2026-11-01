@@ -15,7 +15,7 @@ export async function Branches() {
     >
       <article
         aria-labelledby="branch-transport"
-        className="flex flex-col bg-asphalt px-6 py-10 text-trailer sm:px-10 sm:py-12"
+        className="focus-on-dark flex flex-col bg-asphalt px-6 py-10 text-trailer sm:px-10 sm:py-12"
       >
         <h2 id="branch-transport" className="text-3xl font-extrabold italic">
           {t("transport.title")}
@@ -34,7 +34,7 @@ export async function Branches() {
         <div className="mt-auto pt-10">
           <Link
             href="/doprava"
-            className="inline-flex min-h-12 items-center border-2 border-trailer px-6 font-display font-bold font-wide transition-colors hover:bg-trailer hover:text-asphalt"
+            className="inline-flex min-h-12 items-center border-2 border-trailer px-6 font-display font-bold font-wide press hover:bg-trailer hover:text-asphalt"
           >
             {t("transport.link")}
           </Link>
@@ -43,7 +43,7 @@ export async function Branches() {
 
       <article
         aria-labelledby="branch-wood"
-        className="flex flex-col bg-demal px-6 py-10 text-trailer sm:px-10 sm:py-12"
+        className="focus-on-dark flex flex-col bg-demal px-6 py-10 text-trailer sm:px-10 sm:py-12"
       >
         <h2 id="branch-wood" className="text-3xl font-extrabold italic">
           {t("wood.title")}
@@ -62,7 +62,7 @@ export async function Branches() {
         <div className="mt-auto pt-10">
           <Link
             href="/drevni-material"
-            className="inline-flex min-h-12 items-center border-2 border-trailer px-6 font-display font-bold font-wide transition-colors hover:bg-trailer hover:text-demal"
+            className="inline-flex min-h-12 items-center border-2 border-trailer px-6 font-display font-bold font-wide press hover:bg-trailer hover:text-demal"
           >
             {t("wood.link")}
           </Link>

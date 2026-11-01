@@ -27,7 +27,7 @@ export async function Hero() {
 
   return (
     <section aria-labelledby="hero-title">
-      <div className="relative isolate bg-asphalt text-white">
+      <div className="focus-on-dark relative isolate bg-asphalt text-white">
         {/* Phones: the photograph sits above the text. Desktop: it fills the hero behind it. */}
         <div className="relative h-[40svh] min-h-60 lg:absolute lg:inset-0 lg:-z-20 lg:h-auto">
           <Image
@@ -62,13 +62,13 @@ export async function Hero() {
             <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
               <Link
                 href="/poptavka"
-                className="inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt transition-colors hover:bg-marking-deep"
+                className="inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt press hover:bg-marking-deep"
               >
                 {t("ctaTransport")}
               </Link>
               <Link
                 href={{ pathname: "/poptavka", query: { typ: "drevo" } }}
-                className="inline-flex min-h-12 items-center border-2 border-white px-6 font-display font-bold font-wide transition-colors hover:bg-white hover:text-asphalt"
+                className="inline-flex min-h-12 items-center border-2 border-white px-6 font-display font-bold font-wide press hover:bg-white hover:text-asphalt"
               >
                 {t("ctaWood")}
               </Link>

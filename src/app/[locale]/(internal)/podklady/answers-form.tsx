@@ -124,7 +124,7 @@ export function AnswersForm() {
         <button
           type="submit"
           disabled={pending}
-          className="inline-flex min-h-12 items-center justify-center bg-marking px-6 font-display font-bold font-wide text-asphalt transition-colors hover:bg-marking-deep disabled:opacity-60"
+          className="inline-flex min-h-12 items-center justify-center bg-marking px-6 font-display font-bold font-wide text-asphalt press hover:bg-marking-deep disabled:opacity-60"
         >
           {pending ? "Odesílám…" : "Odeslat odpovědi"}
         </button>

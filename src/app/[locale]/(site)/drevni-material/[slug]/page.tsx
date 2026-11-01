@@ -50,7 +50,7 @@ export default async function MaterialPage({ params }: PageProps<"/[locale]/drev
       <div className="mx-auto max-w-(--container-page) px-4 pt-10 sm:px-8 sm:pt-14">
         <Link
           href="/drevni-material"
-          className="font-semibold text-demal underline underline-offset-4 hover:text-demal-deep"
+          className="font-semibold text-demal link-underline hover:text-demal-deep"
         >
           {t("backLink")}
         </Link>

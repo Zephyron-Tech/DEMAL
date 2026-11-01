@@ -25,7 +25,7 @@ export async function NotFoundContent() {
           <li key={link.href}>
             <Link
               href={link.href}
-              className="inline-flex min-h-11 items-center border-2 border-asphalt px-4 font-display font-bold font-wide transition-colors hover:bg-asphalt hover:text-trailer"
+              className="inline-flex min-h-11 items-center border-2 border-asphalt px-4 font-display font-bold font-wide press hover:bg-asphalt hover:text-trailer"
             >
               {link.label}
             </Link>
@@ -34,7 +34,7 @@ export async function NotFoundContent() {
       </ul>
       <a
         href={company.dispatch.phoneHref}
-        className="mt-8 inline-block font-display text-2xl font-bold font-wide tabular-nums underline-offset-4 hover:underline"
+        className="mt-8 inline-block font-display text-2xl font-bold font-wide tabular-nums link-reveal"
       >
         {company.dispatch.phone}
       </a>

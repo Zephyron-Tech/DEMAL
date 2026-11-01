@@ -17,7 +17,7 @@ export async function QuoteCta() {
           </h2>
           <Link
             href="/poptavka"
-            className="mt-8 inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt transition-colors hover:bg-marking-deep"
+            className="mt-8 inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt press hover:bg-marking-deep"
           >
             {t("cta")}
           </Link>
@@ -25,7 +25,7 @@ export async function QuoteCta() {
             {t("orCall")}
             <a
               href={company.dispatch.phoneHref}
-              className="mt-1 block font-display text-2xl font-bold font-wide text-asphalt tabular-nums underline-offset-4 hover:underline"
+              className="mt-1 block font-display text-2xl font-bold font-wide text-asphalt tabular-nums link-reveal"
             >
               {company.dispatch.phone}
             </a>

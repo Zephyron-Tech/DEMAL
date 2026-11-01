@@ -18,7 +18,7 @@ export async function Materials() {
           <p className="max-w-[46ch] text-graphite">{t("lead")}</p>
           <Link
             href="/drevni-material"
-            className="mt-3 inline-block font-display font-bold font-wide text-demal underline decoration-2 underline-offset-6 hover:text-demal-deep"
+            className="mt-3 inline-block font-display font-bold font-wide text-demal underline decoration-2 underline-offset-6 transition-colors hover:text-demal-deep"
           >
             {t("link")}
           </Link>

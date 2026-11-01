@@ -58,7 +58,17 @@
   /* One shadow: lifted plate on photography. */
   --shadow-plate: 0 1px 0 var(--color-rule), 0 12px 24px -16px rgb(30 34 38 / 0.35);
 
-  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  /* Motion: short, no overshoot. Hover changes colour, a press gives, things open from where they
+     were triggered. The one orchestrated move is the home hero on load. */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* entrances, moves under 600ms */
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1); /* wipes, panels */
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1); /* slow scale on photographs */
+  --ease-exit: cubic-bezier(0.55, 0.055, 0.675, 0.19); /* something leaving for good */
+  --default-transition-duration: 180ms;
+  --default-transition-timing-function: ease;
+  --duration-press: 140ms;
+  --duration-hover: 180ms;
+  --duration-ui: 240ms;
 }
 
 @layer base {
@@ -74,6 +84,13 @@
     touch-action: manipulation;
   }
 
+  /* Anchor jumps glide; Next.js turns it off for route changes (data-scroll-behavior on <html>). */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
   h1,
   h2,
   h3 {
@@ -87,7 +104,7 @@
   }
 
   :focus-visible {
-    outline: 3px solid var(--color-demal);
+    outline: 3px solid var(--focus-ring, var(--color-demal));
     outline-offset: 3px;
   }
 
@@ -114,4 +131,58 @@
 
 @utility font-condensed {
   font-stretch: 75%;
+}
+
+/* Dark surfaces (asphalt, logo blue, the hero photograph): the blue focus ring would vanish there. */
+@utility focus-on-dark {
+  --focus-ring: var(--color-trailer);
+}
+
+/* Buttons and button-like links: colour follows the pointer, the shape gives a little on press. */
+@utility press {
+  transition:
+    color var(--duration-hover) ease,
+    background-color var(--duration-hover) ease,
+    border-color var(--duration-hover) ease,
+    transform var(--duration-press) var(--ease-out);
+
+  @media (prefers-reduced-motion: no-preference) {
+    &:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+  }
+}
+
+/* Quiet links (phone, e-mail, footer): the underline fades in instead of popping. */
+@utility link-reveal {
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: text-decoration-color var(--duration-hover) ease;
+
+  &:focus-visible {
+    text-decoration-color: currentColor;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      text-decoration-color: currentColor;
+    }
+  }
+}
+
+/* Links in running text: always underlined, the line thickens under the pointer. */
+@utility link-underline {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition:
+    color var(--duration-hover) ease,
+    text-decoration-thickness var(--duration-hover) ease;
+
+  @media (hover: hover) {
+    &:hover {
+      text-decoration-thickness: 2px;
+    }
+  }
 }

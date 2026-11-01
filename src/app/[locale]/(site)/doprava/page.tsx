@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function TransportPage() {
   const t = await getTranslations("Transport");
   const s = (path: string) => t(`sections.${path}`);
-  const linkClass = "mt-5 inline-block font-semibold text-demal underline underline-offset-4";
+  const linkClass = "mt-5 inline-block font-semibold text-demal link-underline";
 
   return (
     <main>
@@ -39,7 +39,7 @@ export default async function TransportPage() {
               <li key={section.id}>
                 <a
                   href={`#${section.id}`}
-                  className="inline-flex min-h-11 items-center border-2 border-asphalt px-4 font-display font-bold font-wide transition-colors hover:bg-asphalt hover:text-trailer"
+                  className="inline-flex min-h-11 items-center border-2 border-asphalt px-4 font-display font-bold font-wide press hover:bg-asphalt hover:text-trailer"
                 >
                   {s(`${section.key}.title`)}
                 </a>
@@ -104,7 +104,7 @@ export default async function TransportPage() {
                       {s("spedice.call")}
                       <a
                         href={company.dispatch.phoneHref}
-                        className="mt-1 block font-display text-2xl font-bold font-wide whitespace-nowrap text-asphalt tabular-nums underline-offset-4 hover:underline"
+                        className="mt-1 block font-display text-2xl font-bold font-wide whitespace-nowrap text-asphalt tabular-nums link-reveal"
                       >
                         {company.dispatch.phone}
                       </a>

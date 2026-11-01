@@ -36,6 +36,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
+      data-scroll-behavior="smooth"
       className={`${archivo.variable} ${publicSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">

@@ -73,7 +73,7 @@ export default async function AboutPage() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="inline-flex min-h-11 items-center border-2 border-asphalt px-4 font-display font-bold font-wide transition-colors hover:bg-asphalt hover:text-trailer"
+                  className="inline-flex min-h-11 items-center border-2 border-asphalt px-4 font-display font-bold font-wide press hover:bg-asphalt hover:text-trailer"
                 >
                   {link.label}
                 </Link>

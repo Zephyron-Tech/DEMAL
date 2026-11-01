@@ -15,7 +15,7 @@ export async function PendingNotice({ ctaLabel }: { ctaLabel?: string }) {
       <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4">
         <Link
           href={{ pathname: "/poptavka", query: { typ: "drevo" } }}
-          className="inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt transition-colors hover:bg-marking-deep"
+          className="inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt press hover:bg-marking-deep"
         >
           {ctaLabel ?? t("cta")}
         </Link>
@@ -23,7 +23,7 @@ export async function PendingNotice({ ctaLabel }: { ctaLabel?: string }) {
           {t("call")}{" "}
           <a
             href={company.dispatch.phoneHref}
-            className="font-display font-bold font-wide whitespace-nowrap text-asphalt tabular-nums underline-offset-4 hover:underline"
+            className="font-display font-bold font-wide whitespace-nowrap text-asphalt tabular-nums link-reveal"
           >
             {company.dispatch.phone}
           </a>

@@ -27,7 +27,7 @@ export async function WhyDemal() {
                 {reason === "direct" ? (
                   <a
                     href={company.dispatch.phoneHref}
-                    className="font-semibold tabular-nums underline-offset-4 hover:underline"
+                    className="font-semibold tabular-nums link-reveal"
                   >
                     {t("direct.proof", { phone: company.dispatch.phone })}
                   </a>

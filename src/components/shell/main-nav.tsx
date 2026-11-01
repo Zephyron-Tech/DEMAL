@@ -41,10 +41,11 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
       <ul className="hidden items-center gap-1 lg:flex">
         {items.map((item) => (
           <li key={item.href}>
+            {/* The bar under the current page also draws in from the left under the pointer. */}
             <Link
               href={item.href}
               aria-current={isActive(item.href) ? "page" : undefined}
-              className="relative flex min-h-11 items-center px-3 font-semibold text-asphalt transition-colors hover:text-demal aria-[current=page]:text-demal aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-3 aria-[current=page]:after:bottom-1 aria-[current=page]:after:h-[3px] aria-[current=page]:after:bg-demal"
+              className="relative flex min-h-11 items-center px-3 font-semibold text-asphalt transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-[3px] after:origin-left after:scale-x-0 after:bg-demal after:transition-transform after:duration-(--duration-ui) after:ease-out hover:text-demal hover:after:scale-x-100 aria-[current=page]:text-demal aria-[current=page]:after:scale-x-100"
             >
               {item.label}
             </Link>
@@ -58,7 +59,7 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((value) => !value)}
-        className="flex min-h-11 items-center gap-2 border-2 border-asphalt px-3 font-display font-bold font-wide lg:hidden"
+        className="press flex min-h-11 items-center gap-2 border-2 border-asphalt px-3 font-display font-bold font-wide lg:hidden"
       >
         <svg aria-hidden="true" viewBox="0 0 16 16" className="size-4" fill="none" stroke="currentColor" strokeWidth="2">
           {open ? <path d="M3 3l10 10M13 3L3 13" /> : <path d="M1 3.5h14M1 8h14M1 12.5h14" />}
@@ -95,7 +96,7 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
           <Link
             href={cta.href}
             onClick={() => setOpen(false)}
-            className="inline-flex min-h-12 items-center justify-center bg-marking px-6 font-display font-bold font-wide text-asphalt"
+            className="press inline-flex min-h-12 items-center justify-center bg-marking px-6 font-display font-bold font-wide text-asphalt hover:bg-marking-deep"
           >
             {cta.label}
           </Link>

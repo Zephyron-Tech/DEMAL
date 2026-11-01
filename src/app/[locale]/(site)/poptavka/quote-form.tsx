@@ -123,7 +123,7 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
         <button
           type="button"
           onClick={() => setSentAgain((n) => n + 1)}
-          className="mt-6 inline-flex min-h-12 items-center border-2 border-asphalt px-6 font-display font-bold font-wide hover:bg-asphalt hover:text-trailer"
+          className="press mt-6 inline-flex min-h-12 items-center border-2 border-asphalt px-6 font-display font-bold font-wide hover:bg-asphalt hover:text-trailer"
         >
           {t("success.again")}
         </button>
@@ -289,13 +289,13 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
           <button
             type="submit"
             disabled={pending}
-            className="inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt transition-colors hover:bg-marking-deep disabled:opacity-60"
+            className="inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt press hover:bg-marking-deep disabled:opacity-60"
           >
             {pending ? t("submitting") : t("submit")}
           </button>
           <p className="text-sm text-graphite">
             {t("privacy")}{" "}
-            <Link href="/ochrana-osobnich-udaju" className="underline underline-offset-4">
+            <Link href="/ochrana-osobnich-udaju" className="link-underline">
               {t("privacyLink")}
             </Link>
           </p>

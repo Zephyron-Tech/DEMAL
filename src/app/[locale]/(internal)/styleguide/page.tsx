@@ -51,13 +51,13 @@ export default function Styleguide() {
       <div className="mt-8 flex flex-wrap gap-4">
         <a
           href="#"
-          className="inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt transition-colors hover:bg-marking-deep"
+          className="inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt press hover:bg-marking-deep"
         >
           Poptat přepravu
         </a>
         <a
           href="#"
-          className="inline-flex min-h-12 items-center border-2 border-demal px-6 font-display font-semibold font-wide text-demal transition-colors hover:bg-demal hover:text-trailer"
+          className="inline-flex min-h-12 items-center border-2 border-demal px-6 font-display font-semibold font-wide text-demal press hover:bg-demal hover:text-trailer"
         >
           Dřevní materiál
         </a>

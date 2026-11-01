@@ -60,7 +60,7 @@ export async function Fleet() {
 
         <Link
           href="/vozovy-park"
-          className="mt-8 inline-flex min-h-12 items-center border-2 border-asphalt px-6 font-display font-bold font-wide transition-colors hover:bg-asphalt hover:text-trailer"
+          className="mt-8 inline-flex min-h-12 items-center border-2 border-asphalt px-6 font-display font-bold font-wide press hover:bg-asphalt hover:text-trailer"
         >
           {t("link")}
         </Link>

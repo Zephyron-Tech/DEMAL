@@ -33,7 +33,7 @@ export async function SiteFooter() {
   ];
 
   return (
-    <footer className="mt-auto bg-asphalt text-trailer">
+    <footer className="focus-on-dark mt-auto bg-asphalt text-trailer">
       <div className="mx-auto grid max-w-(--container-page) gap-10 px-4 py-14 sm:px-8 lg:grid-cols-[1fr_2fr]">
         <div>
           <p translate="no" className="font-display text-2xl font-extrabold italic font-wide">
@@ -60,7 +60,7 @@ export async function SiteFooter() {
             <Field label={t("phone")}>
               <a
                 href={company.dispatch.phoneHref}
-                className="tabular-nums underline-offset-4 hover:underline"
+                className="tabular-nums link-reveal"
               >
                 {company.dispatch.phone}
               </a>
@@ -68,7 +68,7 @@ export async function SiteFooter() {
             <Field label={t("email")}>
               <a
                 href={`mailto:${company.dispatch.email}`}
-                className="break-all underline-offset-4 hover:underline"
+                className="break-all link-reveal"
               >
                 {company.dispatch.email}
               </a>
@@ -77,7 +77,7 @@ export async function SiteFooter() {
               <ul className="flex flex-wrap gap-x-4 gap-y-1 font-normal">
                 {pages.map((page) => (
                   <li key={page.href}>
-                    <Link href={page.href} className="underline-offset-4 hover:underline">
+                    <Link href={page.href} className="link-reveal">
                       {page.label}
                     </Link>
                   </li>
@@ -96,13 +96,13 @@ export async function SiteFooter() {
           </div>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             <li>
-              <Link href="/ochrana-osobnich-udaju" className="underline-offset-4 hover:underline">
+              <Link href="/ochrana-osobnich-udaju" className="link-reveal">
                 {t("privacy")}
               </Link>
             </li>
             {/* Attribution required by the CC BY / CC BY-SA photographs lives on its own page. */}
             <li>
-              <Link href="/zdroje-fotografii" className="underline-offset-4 hover:underline">
+              <Link href="/zdroje-fotografii" className="link-reveal">
                 {t("photoSources")}
               </Link>
             </li>

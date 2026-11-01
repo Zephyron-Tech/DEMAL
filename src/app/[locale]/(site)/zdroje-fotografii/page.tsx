@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function PhotoCreditsPage() {
   const t = await getTranslations("PhotoCredits");
-  const link = "font-semibold text-demal underline underline-offset-4 hover:text-demal-deep";
+  const link = "font-semibold text-demal link-underline hover:text-demal-deep";
 
   return (
     <main className="mx-auto w-full max-w-(--container-page) px-4 pt-12 pb-24 sm:px-8 sm:pt-16">

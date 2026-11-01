@@ -38,7 +38,7 @@ export default async function ContactPage() {
               <dd>
                 <a
                   href={company.dispatch.phoneHref}
-                  className="font-display text-3xl font-bold font-wide whitespace-nowrap tabular-nums underline-offset-4 hover:underline max-[22rem]:text-2xl"
+                  className="font-display text-3xl font-bold font-wide whitespace-nowrap tabular-nums link-reveal max-[22rem]:text-2xl"
                 >
                   {company.dispatch.phone}
                 </a>
@@ -49,7 +49,7 @@ export default async function ContactPage() {
               <dd>
                 <a
                   href={`mailto:${company.dispatch.email}`}
-                  className="text-xl font-semibold break-all underline-offset-4 hover:underline"
+                  className="text-xl font-semibold break-all link-reveal"
                 >
                   {company.dispatch.email}
                 </a>
@@ -58,7 +58,7 @@ export default async function ContactPage() {
           </dl>
           <Link
             href="/poptavka"
-            className="mt-8 inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt transition-colors hover:bg-marking-deep"
+            className="mt-8 inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt press hover:bg-marking-deep"
           >
             {t("quoteCta")}
           </Link>
@@ -86,7 +86,7 @@ export default async function ContactPage() {
                   href={map.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-demal underline underline-offset-4"
+                  className="font-semibold text-demal link-underline"
                 >
                   {map.label}
                   <span className="sr-only"> {t("newTab")}</span>
