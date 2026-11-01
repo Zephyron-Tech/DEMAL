@@ -34,10 +34,16 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
     const html = document.documentElement;
     const previousOverflow = html.style.overflow;
     html.style.overflow = "hidden";
-    const header = buttonRef.current?.closest("header");
-    const covered = [...document.body.children].filter(
-      (el): el is HTMLElement => el instanceof HTMLElement && el !== header && !el.inert && el.tagName !== "SCRIPT",
-    );
+    // Everything beside the header and beside each of its ancestors up to <body>, so it also works
+    // where the header sits in a wrapper (app/global-not-found.tsx).
+    const covered: HTMLElement[] = [];
+    for (let node = buttonRef.current?.closest("header") ?? null; node && node !== document.body; node = node.parentElement) {
+      for (const sibling of node.parentElement?.children ?? []) {
+        if (sibling !== node && sibling instanceof HTMLElement && !sibling.inert && sibling.tagName !== "SCRIPT") {
+          covered.push(sibling);
+        }
+      }
+    }
     covered.forEach((el) => (el.inert = true));
     // Back on a wide screen the button is gone, so the menu must not stay open.
     const wide = window.matchMedia("(min-width: 1024px)");

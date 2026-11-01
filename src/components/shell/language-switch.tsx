@@ -11,6 +11,10 @@ const languages: Record<string, { short: string; name: string }> = {
   en: { short: "EN", name: "English" },
 };
 
+// A path the site has, or the homepage: on the 404 page the pathname is Next's internal /_not-found.
+const knownPath = (pathname: string): StaticPathname =>
+  pathname in routing.pathnames ? (pathname as StaticPathname) : "/";
+
 // Switches the language of the current page. The URL changes to the same page in the other language,
 // including its translated path; the link is a plain Link, so no cookie is set.
 // `dark` is for the footer's asphalt ground, where the light-ground colours would not pass contrast.
@@ -34,7 +38,7 @@ export function LanguageSwitch({
   const hrefFor = (l: string) =>
     slug
       ? getPathname({ locale: l, href: { pathname: "/drevni-material/[slug]", params: { slug } } })
-      : getPathname({ locale: l, href: pathname as StaticPathname });
+      : getPathname({ locale: l, href: knownPath(pathname) });
 
   return (
     <nav aria-label={t("switchLanguage")} className={className}>

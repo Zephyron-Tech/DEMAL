@@ -1,4 +1,6 @@
-import { getTranslations } from "next-intl/server";
+import type { Locale } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
+import { linkLocale } from "@/i18n/link-locale";
 import { Link } from "@/i18n/navigation";
 import { LanguageSwitch } from "./language-switch";
 import type { StaticPathname } from "@/i18n/routing";
@@ -21,10 +23,11 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   );
 }
 
-export async function SiteFooter() {
-  const t = await getTranslations("Footer");
-  const nav = await getTranslations("Nav");
-  const tCompany = await getTranslations("Company");
+// `locale` only for app/global-not-found.tsx, see src/i18n/link-locale.ts.
+export async function SiteFooter({ locale }: { locale?: Locale } = {}) {
+  const t = await getTranslations({ locale: locale ?? (await getLocale()), namespace: "Footer" });
+  const nav = await getTranslations({ locale: locale ?? (await getLocale()), namespace: "Nav" });
+  const tCompany = await getTranslations({ locale: locale ?? (await getLocale()), namespace: "Company" });
   const year = await currentYear();
 
   const pages: { href: StaticPathname; label: string }[] = [
@@ -50,6 +53,7 @@ export async function SiteFooter() {
               {pages.map((page) => (
                 <li key={page.href}>
                   <Link
+                    locale={linkLocale(locale)}
                     href={page.href}
                     className="link-reveal max-lg:inline-flex max-lg:min-h-11 max-lg:items-center"
                   >
@@ -95,6 +99,7 @@ export async function SiteFooter() {
           <ul className="flex flex-wrap gap-x-6 max-lg:gap-y-0 lg:gap-y-2">
             <li>
               <Link
+                locale={linkLocale(locale)}
                 href="/impressum"
                 className="link-reveal max-lg:inline-flex max-lg:min-h-11 max-lg:items-center"
               >
@@ -103,6 +108,7 @@ export async function SiteFooter() {
             </li>
             <li>
               <Link
+                locale={linkLocale(locale)}
                 href="/ochrana-osobnich-udaju"
                 className="link-reveal max-lg:inline-flex max-lg:min-h-11 max-lg:items-center"
               >
@@ -112,6 +118,7 @@ export async function SiteFooter() {
             {/* Attribution required by the CC BY / CC BY-SA photographs lives on its own page. */}
             <li>
               <Link
+                locale={linkLocale(locale)}
                 href="/zdroje-fotografii"
                 className="link-reveal max-lg:inline-flex max-lg:min-h-11 max-lg:items-center"
               >

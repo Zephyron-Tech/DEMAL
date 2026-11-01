@@ -6,6 +6,8 @@ const pages = [
   // German and English versions of the public pages, with their translated paths.
   "/de", "/de/anfrage", "/de/transport", "/de/ueber-uns", "/de/holzmaterial", "/de/datenschutz", "/de/bildquellen", "/de/impressum", "/impressum",
   "/en", "/en/quote", "/en/freight", "/en/about-us", "/en/wood-materials", "/en/privacy", "/en/photo-credits", "/en/imprint",
+  // Unknown paths: the 404 page in the language of the prefix.
+  "/de/gibt-es-nicht", "/en/does-not-exist",
 ];
 
 for (const path of pages) {

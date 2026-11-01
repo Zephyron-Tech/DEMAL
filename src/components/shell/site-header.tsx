@@ -1,5 +1,7 @@
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import type { Locale } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
+import { linkLocale } from "@/i18n/link-locale";
 import { Link } from "@/i18n/navigation";
 import { company } from "@/lib/company";
 import logo from "../../../public/logo_nobg.png";
@@ -9,13 +11,14 @@ import { LanguageSwitch } from "./language-switch";
 import { MainNav } from "./main-nav";
 import { SiteHeaderFrame } from "./site-header-frame";
 
-export async function SiteHeader() {
-  const t = await getTranslations("Shell");
-  const nav = await getTranslations("Nav");
+// `locale` only for app/global-not-found.tsx, see src/i18n/link-locale.ts.
+export async function SiteHeader({ locale }: { locale?: Locale } = {}) {
+  const t = await getTranslations({ locale: locale ?? (await getLocale()), namespace: "Shell" });
+  const nav = await getTranslations({ locale: locale ?? (await getLocale()), namespace: "Nav" });
 
   return (
     <SiteHeaderFrame>
-      <TopStrip />
+      <TopStrip locale={locale} />
       <div className="relative mx-auto flex h-18 max-w-(--container-page) items-center justify-between gap-2 px-4 lg:gap-6 sm:px-8">
         {/* The logo tab hangs below the bar. Its fillets, sides and rounded bottom are one SVG path
             in the bar's white, so bar and tab are a single shape with no seam. */}
@@ -64,6 +67,7 @@ export async function SiteHeader() {
 
           <Link
             href="/poptavka"
+            locale={linkLocale(locale)}
             className="hidden min-h-12 items-center bg-marking px-5 font-display font-bold font-wide whitespace-nowrap text-asphalt press hover:bg-marking-deep lg:inline-flex"
           >
             {t("cta")}

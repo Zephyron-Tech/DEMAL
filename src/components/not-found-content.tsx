@@ -1,12 +1,14 @@
-import { getTranslations } from "next-intl/server";
+import type { Locale } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
+import { linkLocale } from "@/i18n/link-locale";
 import { Link } from "@/i18n/navigation";
 import type { StaticPathname } from "@/i18n/routing";
 import { company } from "@/lib/company";
 
 // Shared by the segment not-found and app/global-not-found.tsx.
-export async function NotFoundContent() {
-  const t = await getTranslations("NotFound");
-  const nav = await getTranslations("Nav");
+export async function NotFoundContent({ locale }: { locale?: Locale } = {}) {
+  const t = await getTranslations({ locale: locale ?? (await getLocale()), namespace: "NotFound" });
+  const nav = await getTranslations({ locale: locale ?? (await getLocale()), namespace: "Nav" });
 
   const links: { href: StaticPathname; label: string }[] = [
     { href: "/", label: t("home") },
@@ -24,6 +26,7 @@ export async function NotFoundContent() {
         {links.map((link) => (
           <li key={link.href}>
             <Link
+              locale={linkLocale(locale)}
               href={link.href}
               className="inline-flex min-h-11 items-center border-2 border-asphalt px-4 font-display font-bold font-wide press hover:bg-asphalt hover:text-trailer"
             >

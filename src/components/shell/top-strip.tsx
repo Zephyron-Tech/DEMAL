@@ -1,4 +1,5 @@
-import { getTranslations } from "next-intl/server";
+import type { Locale } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 import { company } from "@/lib/company";
 import { LanguageSwitch } from "./language-switch";
 import { CopyEmail } from "@/components/copy-email";
@@ -6,8 +7,8 @@ import { CopyEmail } from "@/components/copy-email";
 // Utility strip at the top of the sticky header. On phones it is a thin stripe with no text; the
 // number is in the menu. On desktop it also carries the e-mail and the language choice, and it folds into a
 // stripe once the hero has scrolled away, on the same timing as the logo tab.
-export async function TopStrip() {
-  const t = await getTranslations("Shell");
+export async function TopStrip({ locale }: { locale?: Locale }) {
+  const t = await getTranslations({ locale: locale ?? (await getLocale()), namespace: "Shell" });
 
   return (
     <div className="h-1.5 overflow-hidden bg-asphalt text-trailer transition-[height] duration-600 ease-(--ease-out) motion-reduce:transition-none lg:h-11 lg:group-data-[compact=true]/header:h-1.5">
