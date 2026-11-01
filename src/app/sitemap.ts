@@ -1,12 +1,16 @@
 import type { MetadataRoute } from "next";
+import { materialSlugs } from "@/content/material-slugs";
 import { getPathname } from "@/i18n/navigation";
 import { routing, type StaticPathname } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site";
 
+type Href = Parameters<typeof getPathname>[0]["href"];
+
 // Public pages only; internal ones (/podklady, /styleguide) stay out.
-const pages: StaticPathname[] = [
+const staticPages: StaticPathname[] = [
   "/",
   "/doprava",
+  "/drevni-material",
   "/vozovy-park",
   "/o-nas",
   "/kontakt",
@@ -14,6 +18,11 @@ const pages: StaticPathname[] = [
   "/ochrana-osobnich-udaju",
   "/zdroje-fotografii",
   "/impressum",
+];
+
+const pages: Href[] = [
+  ...staticPages,
+  ...materialSlugs.map((slug) => ({ pathname: "/drevni-material/[slug]" as const, params: { slug } })),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -86,7 +86,9 @@ export async function Hero() {
             loading="eager"
             fetchPriority="high"
             placeholder="blur"
-            sizes="100vw"
+            // Phones crop the 3:2 photograph to a tall box (58svh), so it needs about 1.9 times the
+            // screen width to fill the height without upscaling.
+            sizes="(max-width: 1023px) 190vw, 100vw"
             className="object-cover object-[62%_45%] motion-safe:animate-hero-photo lg:object-[65%_55%]"
           />
           <div
