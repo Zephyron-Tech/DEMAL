@@ -9,22 +9,22 @@ export async function WhyDemal() {
   const t = await getTranslations("Home.why");
 
   return (
-    <section aria-labelledby="why-title" className="mt-24 bg-plate sm:mt-32">
-      <div className="mx-auto max-w-(--container-page) px-4 py-16 sm:px-8 sm:py-20">
+    <section aria-labelledby="why-title" className="mt-16 bg-plate sm:mt-32">
+      <div className="mx-auto max-w-(--container-page) px-4 py-12 sm:px-8 sm:py-20">
         <h2 id="why-title" className="text-3xl font-extrabold italic">
           {t("title")}
         </h2>
-        <ul className="mt-10 border-t-2 border-asphalt">
+        <ul className="mt-8 border-t-2 border-asphalt sm:mt-10">
           {reasons.map((reason) => (
             <li
               key={reason}
-              className="grid gap-4 border-b border-rule py-8 sm:py-10 lg:grid-cols-2 lg:items-center lg:gap-16"
+              className="grid gap-4 border-b border-rule py-6 sm:py-10 lg:grid-cols-2 lg:items-center lg:gap-16"
             >
               <div>
                 {reason === "direct" ? (
                   <a
                     href={company.dispatch.phoneHref}
-                    className="font-display text-3xl leading-none font-extrabold italic font-wide whitespace-nowrap text-demal tabular-nums link-reveal"
+                    className="font-display max-lg:inline-flex max-lg:min-h-11 max-lg:items-center text-2xl sm:text-3xl leading-none font-extrabold italic font-wide whitespace-nowrap text-demal tabular-nums link-reveal"
                   >
                     {company.dispatch.phone}
                   </a>
@@ -37,7 +37,7 @@ export async function WhyDemal() {
               </div>
               <div>
                 <h3 className="text-2xl font-bold italic">{t(`${reason}.claim`)}</h3>
-                <p className="mt-2 max-w-(--container-prose) text-lg">{t(`${reason}.body`)}</p>
+                <p className="mt-2 max-w-(--container-prose) text-base sm:text-lg">{t(`${reason}.body`)}</p>
               </div>
             </li>
           ))}
