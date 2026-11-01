@@ -10,7 +10,7 @@ export async function SiteHeader() {
   const nav = await getTranslations("Nav");
 
   return (
-    <header className="sticky top-0 z-40 border-b-2 border-asphalt bg-white">
+    <header className="sticky top-0 z-40 bg-white">
       <div className="relative mx-auto flex h-18 max-w-(--container-page) items-center justify-between gap-6 px-4 sm:px-8">
         {/* The logo sits in a white tab that drops below the bar, its lower corners rounded and
             joined to the bar by two small concave fillets. */}
@@ -19,9 +19,8 @@ export async function SiteHeader() {
             aria-hidden="true"
             className="absolute inset-0 h-[calc(100%_+_20px)] rounded-b-[20px] bg-white"
           >
-            {/* Fillets start under the bar's bottom border, so the border runs unbroken to the tab. */}
-            <span className="absolute -left-[18px] top-[calc(100%_-_18px)] size-[18px] bg-[radial-gradient(circle_at_0_100%,transparent_17.5px,#fff_18px)]" />
-            <span className="absolute -right-[18px] top-[calc(100%_-_18px)] size-[18px] bg-[radial-gradient(circle_at_100%_100%,transparent_17.5px,#fff_18px)]" />
+            <span className="absolute -left-5 top-[calc(100%_-_20px)] size-5 bg-[radial-gradient(circle_at_0_100%,transparent_19.5px,#fff_20px)]" />
+            <span className="absolute -right-5 top-[calc(100%_-_20px)] size-5 bg-[radial-gradient(circle_at_100%_100%,transparent_19.5px,#fff_20px)]" />
           </span>
           {/* The raster logo has a near-white background: contrast pushes it to pure white and
               multiply lets it merge into the tab. */}
