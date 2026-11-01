@@ -54,7 +54,6 @@ export async function SiteFooter() {
               ))}
             </ul>
           </nav>
-          <LanguageSwitch className="mt-4" dark />
         </div>
 
         <section aria-label={t("label")} className="mt-8">
@@ -86,6 +85,7 @@ export async function SiteFooter() {
           <p>
             {t("copyright", { year })} {t("register", { register: company.register, court: company.registerCourt })}
           </p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             <li>
               <Link href="/ochrana-osobnich-udaju" className="link-reveal">
@@ -99,6 +99,8 @@ export async function SiteFooter() {
               </Link>
             </li>
           </ul>
+          <LanguageSwitch dark />
+          </div>
         </div>
       </div>
     </footer>

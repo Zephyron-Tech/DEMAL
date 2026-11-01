@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { company } from "@/lib/company";
 import logo from "../../../public/logo_nobg.png";
 import { HomeLink } from "./home-link";
+import { LanguageMenu } from "./language-switch";
 import { MainNav } from "./main-nav";
 import { SiteHeaderFrame } from "./site-header-frame";
 
@@ -38,7 +39,7 @@ export async function SiteHeader() {
           />
         </HomeLink>
 
-        <div className="flex items-center gap-3 lg:gap-6 xl:gap-8">
+        <div className="flex items-center gap-3 lg:gap-6 xl:gap-5">
           <a
             href={company.dispatch.phoneHref}
             aria-label={`${t("dispatch")} ${company.dispatch.phone}`}
@@ -66,6 +67,8 @@ export async function SiteHeader() {
               href: company.dispatch.phoneHref,
             }}
           />
+
+          <LanguageMenu className="hidden xl:block" />
 
           <a
             href={company.dispatch.phoneHref}
