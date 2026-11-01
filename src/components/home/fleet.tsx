@@ -65,10 +65,13 @@ export async function Fleet() {
 
         <Link
           href="/vozovy-park"
-          className="mt-6 flex min-h-12 w-full items-center justify-between border-2 border-asphalt px-4 font-display font-bold font-wide press hover:bg-asphalt hover:text-trailer sm:mt-8 sm:inline-flex sm:w-auto sm:px-6"
+          className="mt-6 flex min-h-12 w-full items-center gap-3 border-2 border-asphalt px-4 font-display font-bold font-wide press hover:bg-asphalt hover:text-trailer sm:mt-8 sm:inline-flex sm:w-auto sm:px-6"
         >
           {t("link")}
-          <span aria-hidden="true" className="h-0.5 w-6 bg-current sm:hidden" />
+          <svg aria-hidden="true" viewBox="0 0 24 24" className="ml-auto size-5 shrink-0 sm:hidden" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
         </Link>
       </div>
     </section>
