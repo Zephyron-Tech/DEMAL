@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import type { Pathname } from "@/i18n/routing";
+import type { StaticPathname } from "@/i18n/routing";
 import { photoCredits } from "@/content/photo-credits";
 import { company } from "@/lib/company";
 
@@ -25,7 +25,7 @@ export async function SiteFooter() {
   const nav = await getTranslations("Nav");
   const year = await currentYear();
 
-  const pages: { href: Pathname; label: string }[] = [
+  const pages: { href: StaticPathname; label: string }[] = [
     { href: "/doprava", label: nav("doprava") },
     { href: "/drevni-material", label: nav("drevo") },
     { href: "/vozovy-park", label: nav("vozovyPark") },

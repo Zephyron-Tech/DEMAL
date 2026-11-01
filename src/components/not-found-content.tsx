@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import type { Pathname } from "@/i18n/routing";
+import type { StaticPathname } from "@/i18n/routing";
 import { company } from "@/lib/company";
 
 // Shared by the segment not-found and app/global-not-found.tsx.
@@ -8,7 +8,7 @@ export async function NotFoundContent() {
   const t = await getTranslations("NotFound");
   const nav = await getTranslations("Nav");
 
-  const links: { href: Pathname; label: string }[] = [
+  const links: { href: StaticPathname; label: string }[] = [
     { href: "/", label: t("home") },
     { href: "/doprava", label: nav("doprava") },
     { href: "/vozovy-park", label: nav("vozovyPark") },

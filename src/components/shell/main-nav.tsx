@@ -2,16 +2,16 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
-import type { Pathname } from "@/i18n/routing";
+import type { StaticPathname } from "@/i18n/routing";
 
-type NavItem = { href: Pathname; label: string };
+type NavItem = { href: StaticPathname; label: string };
 
 type Props = {
   items: NavItem[];
   label: string;
   openLabel: string;
   closeLabel: string;
-  cta: { label: string; href: Pathname };
+  cta: { label: string; href: StaticPathname };
   phone: { label: string; number: string; href: string };
 };
 
@@ -33,7 +33,7 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  const isActive = (href: Pathname) =>
+  const isActive = (href: StaticPathname) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
 
   return (

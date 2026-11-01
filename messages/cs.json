@@ -361,28 +361,50 @@
     "materials": {
       "title": "Co přepravujeme a obchodujeme",
       "lead": "Zajišťujeme nákup, prodej i dopravu dřevní hmoty pro teplárny, pily, výrobce pelet a další průmyslové odběratele.",
-      "link": "Dřevní materiál",
-      "items": {
-        "chips": {
-          "name": "Dřevní štěpka",
-          "note": "palivová i technologická",
-          "alt": "Detail čerstvé dřevní štěpky"
-        },
-        "sawdust": {
-          "name": "Piliny",
-          "note": "z pil a dřevozpracujících provozů",
-          "alt": "Hromada pilin v průmyslovém areálu"
-        },
-        "pellets": {
-          "name": "Pelety",
-          "note": "dřevní pelety pro vytápění",
-          "alt": "Detail dřevních pelet"
-        },
-        "byproducts": {
-          "name": "Vedlejší produkty",
-          "note": "kůra, odřezky a kulatina",
-          "alt": "Čela naskládané borové kulatiny"
-        }
+      "link": "Dřevní materiál"
+    }
+  },
+  "Materials": {
+    "title": "Dřevní materiál",
+    "metaDescription": "Nákup, prodej a doprava dřevní štěpky, pilin, pelet a vedlejších produktů dřevozpracujícího průmyslu.",
+    "lead": "Nakupujeme a prodáváme dřevní hmotu pro teplárny, pily, výrobce pelet a další odběratele. Odvoz zajistíme vlastními návěsy walking floor.",
+    "listTitle": "Co nabízíme",
+    "pendingTitle": "Podrobnosti připravujeme",
+    "pendingText": "Parametry, ceny a aktuální dostupnost vám zatím rád sdělí dispečink. Poptávku můžete poslat i přes formulář.",
+    "cta": "Poptat materiál",
+    "ctaItem": "Poptat {name}",
+    "call": "nebo volejte",
+    "open": "Zobrazit",
+    "otherTitle": "Další materiál",
+    "backLink": "Všechen dřevní materiál",
+    "items": {
+      "chips": {
+        "name": "Dřevní štěpka",
+        "note": "palivová i technologická",
+        "alt": "Detail čerstvé dřevní štěpky",
+        "description": "Nakrájené kousky dřeva z těžebních zbytků a pilařského odpadu. Používá se hlavně jako palivo v teplárnách a kotelnách a jako surovina pro další zpracování.",
+        "ctaName": "dřevní štěpku"
+      },
+      "sawdust": {
+        "name": "Piliny",
+        "note": "z pil a dřevozpracujících provozů",
+        "alt": "Hromada pilin v průmyslovém areálu",
+        "description": "Jemný vedlejší produkt řezání dřeva na pilách. Slouží jako surovina pro výrobu pelet a briket, jako palivo nebo podestýlka.",
+        "ctaName": "piliny"
+      },
+      "pellets": {
+        "name": "Pelety",
+        "note": "dřevní pelety pro vytápění",
+        "alt": "Detail dřevních pelet",
+        "description": "Válečky lisované z pilin a hoblin. Palivo pro kotle a kamna s vysokou výhřevností a malým množstvím popela.",
+        "ctaName": "pelety"
+      },
+      "byproducts": {
+        "name": "Vedlejší produkty",
+        "note": "kůra, odřezky a kulatina",
+        "alt": "Čela naskládané borové kulatiny",
+        "description": "Kůra, odřezky, krajiny a kulatina z dřevozpracujícího průmyslu, které se dál využijí jako palivo nebo surovina.",
+        "ctaName": "vedlejší produkty"
       }
     }
   }

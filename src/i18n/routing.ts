@@ -10,6 +10,7 @@ export const routing = defineRouting({
     "/": "/",
     "/doprava": "/doprava",
     "/drevni-material": "/drevni-material",
+    "/drevni-material/[slug]": "/drevni-material/[slug]",
     "/vozovy-park": "/vozovy-park",
     "/o-nas": "/o-nas",
     "/kontakt": "/kontakt",
@@ -19,3 +20,6 @@ export const routing = defineRouting({
 });
 
 export type Pathname = keyof typeof routing.pathnames;
+
+// Routes without dynamic segments: usable as a plain href.
+export type StaticPathname = Exclude<Pathname, `${string}[${string}`>;

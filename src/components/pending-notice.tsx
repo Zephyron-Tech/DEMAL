@@ -1,0 +1,34 @@
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import { company } from "@/lib/company";
+
+// Placeholder pages say plainly that details are coming and still lead to an enquiry.
+export async function PendingNotice({ ctaLabel }: { ctaLabel?: string }) {
+  const t = await getTranslations("Materials");
+
+  return (
+    <section aria-labelledby="pending-title" className="bg-plate px-6 py-8 sm:px-10 sm:py-10">
+      <h2 id="pending-title" className="text-2xl font-bold italic">
+        {t("pendingTitle")}
+      </h2>
+      <p className="mt-3 max-w-[56ch]">{t("pendingText")}</p>
+      <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4">
+        <Link
+          href={{ pathname: "/poptavka", query: { typ: "drevo" } }}
+          className="inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt transition-colors hover:bg-marking-deep"
+        >
+          {ctaLabel ?? t("cta")}
+        </Link>
+        <p className="text-graphite">
+          {t("call")}{" "}
+          <a
+            href={company.dispatch.phoneHref}
+            className="font-display font-bold font-wide whitespace-nowrap text-asphalt tabular-nums underline-offset-4 hover:underline"
+          >
+            {company.dispatch.phone}
+          </a>
+        </p>
+      </div>
+    </section>
+  );
+}
