@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { LanguageSwitch } from "./language-switch";
 import type { StaticPathname } from "@/i18n/routing";
 import { company } from "@/lib/company";
+import { CopyEmail } from "@/components/copy-email";
 
 // Resolved at prerender and refreshed with each deploy.
 async function currentYear() {
@@ -78,9 +79,7 @@ export async function SiteFooter() {
               </a>
             </Field>
             <Field label={t("email")}>
-              <a href={`mailto:${company.dispatch.email}`} className="break-all link-reveal max-lg:-my-2.5 max-lg:flex max-lg:min-h-11 max-lg:items-center">
-                {company.dispatch.email}
-              </a>
+              <CopyEmail email={company.dispatch.email} className="break-all max-lg:-my-2.5 max-lg:flex max-lg:min-h-11 max-lg:items-center" />
             </Field>
           </dl>
         </section>

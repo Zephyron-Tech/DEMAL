@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { company } from "@/lib/company";
 import { QuoteForm, QuoteFormFromUrl } from "./quote-form";
 import { alternatesFor } from "@/i18n/alternates";
+import { CopyEmail } from "@/components/copy-email";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Quote");
@@ -40,12 +41,7 @@ export default async function QuotePage() {
           >
             {company.dispatch.phone}
           </a>
-          <a
-            href={`mailto:${company.dispatch.email}`}
-            className="mt-3 block break-all link-reveal"
-          >
-            {company.dispatch.email}
-          </a>
+          <CopyEmail email={company.dispatch.email} className="mt-3 block max-w-full" />
         </div>
       </aside>
     </main>

@@ -1,3 +1,4 @@
+import { CopyEmail } from "@/components/copy-email";
 import { company } from "@/lib/company";
 
 // Czech privacy notice (GDPR art. 13). Drafted from how the site actually processes data;
@@ -16,7 +17,7 @@ export function PrivacyCs() {
       <p>
         Správcem osobních údajů je {company.name}, IČ {company.ico}, se sídlem {company.street},{" "}
         {company.city}. S&nbsp;dotazy k&nbsp;osobním údajům se obracejte na e-mail{" "}
-        <a href={`mailto:${company.dispatch.email}`}>{company.dispatch.email}</a> nebo na adresu
+        <CopyEmail email={company.dispatch.email} variant="inline" /> nebo na adresu
         sídla.
       </p>
 
@@ -77,7 +78,7 @@ export function PrivacyCs() {
         <li>vznést námitku proti zpracování na základě oprávněného zájmu.</li>
       </ul>
       <p>
-        Stačí napsat na <a href={`mailto:${company.dispatch.email}`}>{company.dispatch.email}</a>.
+        Stačí napsat na <CopyEmail email={company.dispatch.email} variant="inline" />.
         Odpovíme nejpozději do jednoho měsíce. Pokud nebudete spokojeni, můžete podat stížnost
         u&nbsp;Úřadu pro ochranu osobních údajů, Pplk. Sochora 27, 170&nbsp;00 Praha 7,{" "}
         <a href="https://uoou.gov.cz">uoou.gov.cz</a>.

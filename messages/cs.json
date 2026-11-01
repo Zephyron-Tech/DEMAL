@@ -12,7 +12,10 @@
     "toTop": "Zpět nahoru",
     "dispatch": "Dispečink",
     "cta": "Poptat přepravu",
-    "switchLanguage": "Jazyk"
+    "switchLanguage": "Jazyk",
+    "copyEmail": "Kliknutím zkopírovat e-mail",
+    "copied": "Zkopírováno",
+    "copyFailed": "Kopírování se nepovedlo"
   },
   "Nav": {
     "doprava": "Doprava",

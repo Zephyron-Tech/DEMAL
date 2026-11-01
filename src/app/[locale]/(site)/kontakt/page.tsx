@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { company } from "@/lib/company";
 import { alternatesFor } from "@/i18n/alternates";
+import { CopyEmail } from "@/components/copy-email";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Contact");
@@ -52,12 +53,7 @@ export default async function ContactPage() {
             <div className="min-w-0">
               <dt className="text-sm text-graphite">{t("email")}</dt>
               <dd>
-                <a
-                  href={`mailto:${company.dispatch.email}`}
-                  className="text-xl font-semibold break-all link-reveal"
-                >
-                  {company.dispatch.email}
-                </a>
+                <CopyEmail email={company.dispatch.email} className="text-xl font-semibold" />
               </dd>
             </div>
           </dl>

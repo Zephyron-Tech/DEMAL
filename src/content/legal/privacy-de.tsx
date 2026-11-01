@@ -1,3 +1,4 @@
+import { CopyEmail } from "@/components/copy-email";
 import { company } from "@/lib/company";
 
 // German privacy notice (GDPR art. 13). A translation of privacy-cs.tsx; the Czech text is the
@@ -16,7 +17,7 @@ export function PrivacyDe() {
       <p>
         Verantwortlicher für die personenbezogenen Daten ist die {company.name}, IČ {company.ico}, mit
         Sitz in {company.street}, {company.city}. Fragen zum Datenschutz richten Sie bitte an die
-        E-Mail-Adresse <a href={`mailto:${company.dispatch.email}`}>{company.dispatch.email}</a> oder an
+        E-Mail-Adresse <CopyEmail email={company.dispatch.email} variant="inline" /> oder an
         die Anschrift des Sitzes.
       </p>
 
@@ -80,7 +81,7 @@ export function PrivacyDe() {
         <li>der Verarbeitung auf Grundlage des berechtigten Interesses zu widersprechen.</li>
       </ul>
       <p>
-        Schreiben Sie einfach an <a href={`mailto:${company.dispatch.email}`}>{company.dispatch.email}</a>.
+        Schreiben Sie einfach an <CopyEmail email={company.dispatch.email} variant="inline" />.
         Wir antworten spätestens innerhalb eines Monats. Sind Sie mit unserer Antwort nicht zufrieden,
         können Sie Beschwerde beim tschechischen Amt für den Schutz personenbezogener Daten (Úřad pro
         ochranu osobních údajů, Pplk. Sochora 27, 170 00 Praha 7, <a href="https://uoou.gov.cz">uoou.gov.cz</a>)

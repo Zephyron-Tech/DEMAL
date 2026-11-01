@@ -12,7 +12,10 @@
     "toTop": "Back to top",
     "dispatch": "Dispatch",
     "cta": "Request transport",
-    "switchLanguage": "Language"
+    "switchLanguage": "Language",
+    "copyEmail": "Click to copy the e-mail address",
+    "copied": "Copied",
+    "copyFailed": "Copy failed"
   },
   "Nav": {
     "doprava": "Transport",

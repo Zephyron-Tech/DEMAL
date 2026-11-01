@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { company } from "@/lib/company";
 import { LanguageSwitch } from "./language-switch";
+import { CopyEmail } from "@/components/copy-email";
 
 // Utility strip at the top of the sticky header. On phones it is a thin stripe with no text; the
 // number is in the menu. On desktop it also carries the e-mail and the language choice, and it folds into a
@@ -16,9 +17,7 @@ export async function TopStrip() {
             <span className="text-rule max-sm:sr-only">{t("dispatch")}</span>
             <span className="font-semibold tabular-nums">{company.dispatch.phone}</span>
           </a>
-          <a href={`mailto:${company.dispatch.email}`} className="hidden link-reveal lg:inline">
-            {company.dispatch.email}
-          </a>
+          <CopyEmail email={company.dispatch.email} className="hidden lg:inline" />
         </div>
         <LanguageSwitch dark className="hidden lg:block" />
       </div>

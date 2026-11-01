@@ -1,3 +1,4 @@
+import { CopyEmail } from "@/components/copy-email";
 import { company } from "@/lib/company";
 
 // English privacy notice (GDPR art. 13). A translation of privacy-cs.tsx; the Czech text is the
@@ -16,7 +17,7 @@ export function PrivacyEn() {
       <p>
         The controller of personal data is {company.name}, company ID {company.ico}, with its registered
         seat at {company.street}, {company.city}, Czech Republic. For questions about data protection,
-        write to <a href={`mailto:${company.dispatch.email}`}>{company.dispatch.email}</a> or to the
+        write to <CopyEmail email={company.dispatch.email} variant="inline" /> or to the
         registered seat address.
       </p>
 
@@ -76,7 +77,7 @@ export function PrivacyEn() {
         <li>to object to processing based on our legitimate interest.</li>
       </ul>
       <p>
-        Simply write to <a href={`mailto:${company.dispatch.email}`}>{company.dispatch.email}</a>. We reply
+        Simply write to <CopyEmail email={company.dispatch.email} variant="inline" />. We reply
         within one month at the latest. If you are not satisfied with our reply, you can complain to the Czech
         Office for Personal Data Protection (Úřad pro ochranu osobních údajů, Pplk. Sochora 27, 170 00 Praha 7,
         <a href="https://uoou.gov.cz"> uoou.gov.cz</a>).

@@ -12,7 +12,10 @@
     "toTop": "Nach oben",
     "dispatch": "Disposition",
     "cta": "Transport anfragen",
-    "switchLanguage": "Sprache"
+    "switchLanguage": "Sprache",
+    "copyEmail": "Klicken, um die E-Mail zu kopieren",
+    "copied": "Kopiert",
+    "copyFailed": "Kopieren hat nicht geklappt"
   },
   "Nav": {
     "doprava": "Transport",
