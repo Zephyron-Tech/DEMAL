@@ -6,23 +6,48 @@ import road from "../../../public/images/foto/europabrucke-brenner-autobahn-a13.
 // Composition from the owner's brief (docs/reference/ai_preview.png): road photograph with the
 // trucks on the right, title and actions on the darker left, a band of facts underneath.
 // The photograph is an openly licensed stand-in (credited in the footer) until the fleet's own.
-const facts = [
+// Icons: Lucide (ISC licence), drawn on a 24px grid with round caps, as the rest of the site's
+// line icons. Each fact lists its shapes.
+type IconShape =
+  | { tag: "path"; d: string }
+  | { tag: "circle"; cx: number; cy: number; r: number };
+
+const facts: { key: string; icon: IconShape[] }[] = [
   {
     key: "fleet",
-    icon: "M3 7h11v9H3zM14 10h4l3 3v3h-7zM6.5 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM17.5 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z",
+    icon: [
+      { tag: "path", d: "M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" },
+      { tag: "path", d: "M15 18H9" },
+      { tag: "path", d: "M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" },
+      { tag: "circle", cx: 17, cy: 18, r: 2 },
+      { tag: "circle", cx: 7, cy: 18, r: 2 },
+    ],
   },
-  { key: "euro", icon: "M12 3c4 3 6 6 6 9a6 6 0 0 1-12 0c0-3 2-6 6-9zM12 21v-8" },
+  {
+    key: "euro",
+    icon: [
+      { tag: "path", d: "M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" },
+      { tag: "path", d: "M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" },
+    ],
+  },
   {
     key: "gps",
-    icon: "M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11zM12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z",
+    icon: [
+      { tag: "path", d: "M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" },
+      { tag: "circle", cx: 12, cy: 10, r: 3 },
+    ],
   },
   {
     key: "eu",
-    icon: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9S9.5 5.5 12 3z",
+    icon: [
+      { tag: "circle", cx: 12, cy: 12, r: 10 },
+      { tag: "path", d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" },
+      { tag: "path", d: "M2 12h20" },
+    ],
   },
-] as const;
+];
 
-function FactIcon({ d }: { d: string }) {
+function FactIcon({ shapes }: { shapes: IconShape[] }) {
   return (
     <svg
       aria-hidden="true"
@@ -30,10 +55,17 @@ function FactIcon({ d }: { d: string }) {
       className="size-7 shrink-0 lg:size-8"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.6"
+      strokeWidth="2"
+      strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path d={d} />
+      {shapes.map((shape, i) =>
+        shape.tag === "path" ? (
+          <path key={i} d={shape.d} />
+        ) : (
+          <circle key={i} cx={shape.cx} cy={shape.cy} r={shape.r} />
+        ),
+      )}
     </svg>
   );
 }
@@ -125,7 +157,7 @@ export async function Hero() {
               >
                 {facts.map((fact) => (
                   <li key={fact.key} className="flex shrink-0 items-center gap-3 whitespace-nowrap lg:gap-4">
-                    <FactIcon d={fact.icon} />
+                    <FactIcon shapes={fact.icon} />
                     <span>
                       <span className="block font-display font-bold font-wide">
                         {t(`facts.${fact.key}.title`)}
