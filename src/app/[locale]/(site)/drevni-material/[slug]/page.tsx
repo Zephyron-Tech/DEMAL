@@ -75,7 +75,7 @@ async function MaterialContent({ params }: { params: Promise<{ slug: string }> }
         >
           {t("backLink")}
         </Link>
-        <h1 className="mt-4 text-4xl font-extrabold italic uppercase">{name}</h1>
+        <h1 className="mt-4 break-words hyphens-auto text-3xl font-extrabold italic uppercase sm:text-4xl">{name}</h1>
         <p className="mt-2 font-display text-lg font-bold font-wide text-graphite">
           {t(`items.${material.key}.note`)}
         </p>
