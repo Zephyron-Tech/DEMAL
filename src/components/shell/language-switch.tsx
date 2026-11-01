@@ -1,7 +1,8 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
+import { useParams } from "next/navigation";
+import { getPathname, usePathname } from "@/i18n/navigation";
 import { routing, type StaticPathname } from "@/i18n/routing";
 
 const languages: Record<string, { short: string; name: string }> = {
@@ -26,19 +27,22 @@ export function LanguageSwitch({
   const t = useTranslations("Shell");
   const locale = useLocale();
   const pathname = usePathname();
-  const commodity = pathname.match(/^\/drevni-material\/([^/]+)$/);
-  const href = commodity
-    ? { pathname: "/drevni-material/[slug]" as const, params: { slug: commodity[1] } }
-    : (pathname as StaticPathname);
+  // On a commodity page the route is dynamic: its slug comes from the params, not from the pathname.
+  const slug = useParams<{ slug?: string }>().slug;
+  // Each language's address for this page, built the same way the sitemap builds them. A plain link
+  // keeps the default language unprefixed and the others under /de and /en.
+  const hrefFor = (l: string) =>
+    slug
+      ? getPathname({ locale: l, href: { pathname: "/drevni-material/[slug]", params: { slug } } })
+      : getPathname({ locale: l, href: pathname as StaticPathname });
 
   return (
     <nav aria-label={t("switchLanguage")} className={className}>
       <ul className={`flex items-center text-sm font-semibold ${bar ? "gap-0" : "gap-1"}`}>
         {routing.locales.map((l) => (
           <li key={l}>
-            <Link
-              href={href}
-              locale={l}
+            <a
+              href={hrefFor(l)}
               hrefLang={l}
               lang={l}
               aria-current={l === locale ? "true" : undefined}
@@ -56,7 +60,7 @@ export function LanguageSwitch({
             >
               {languages[l].short}
               <span className="sr-only">, {languages[l].name}</span>
-            </Link>
+            </a>
           </li>
         ))}
       </ul>
