@@ -22,6 +22,22 @@ const facts = [
   },
 ] as const;
 
+function FactIcon({ d }: { d: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="size-7 shrink-0 lg:size-8"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinejoin="round"
+    >
+      <path d={d} />
+    </svg>
+  );
+}
+
 export async function Hero() {
   const t = await getTranslations("Home.hero");
 
@@ -93,33 +109,42 @@ export async function Hero() {
         </div>
       </div>
 
-      <div className="bg-demal text-white">
-        <ul
-          aria-label={t("factsLabel")}
-          className="mx-auto grid max-w-(--container-page) grid-cols-2 gap-x-4 gap-y-6 px-4 py-7 sm:px-8 lg:grid-cols-4 lg:gap-x-6"
-        >
-          {facts.map((fact) => (
-            <li key={fact.key} className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-4">
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="size-7 shrink-0 lg:size-8"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinejoin="round"
+      {/* Phones: the four facts take turns in a single slot, sliding along a track. Desktop: a row. */}
+      <div className="overflow-hidden bg-demal text-white">
+        <div className="mx-auto max-w-(--container-page) lg:px-8">
+          <ul
+            aria-label={t("factsLabel")}
+            className="flex w-[500%] motion-safe:animate-fact-ticker lg:grid lg:w-auto lg:animate-none lg:grid-cols-4 lg:gap-x-6"
+          >
+            {facts.map((fact) => (
+              <li
+                key={fact.key}
+                className="flex w-1/5 shrink-0 flex-col gap-2 px-4 py-7 sm:px-8 lg:w-auto lg:flex-row lg:items-center lg:gap-4 lg:px-0"
               >
-                <path d={fact.icon} />
-              </svg>
+                <FactIcon d={fact.icon} />
+                <span>
+                  <span className="block font-display font-bold font-wide">
+                    {t(`facts.${fact.key}.title`)}
+                  </span>
+                  <span className="text-sm text-white/85">{t(`facts.${fact.key}.text`)}</span>
+                </span>
+              </li>
+            ))}
+            {/* The first fact again, so the loop closes without a visible jump. */}
+            <li
+              aria-hidden="true"
+              className="flex w-1/5 shrink-0 flex-col gap-2 px-4 py-7 sm:px-8 lg:hidden"
+            >
+              <FactIcon d={facts[0].icon} />
               <span>
                 <span className="block font-display font-bold font-wide">
-                  {t(`facts.${fact.key}.title`)}
+                  {t(`facts.${facts[0].key}.title`)}
                 </span>
-                <span className="text-sm text-white/85">{t(`facts.${fact.key}.text`)}</span>
+                <span className="text-sm text-white/85">{t(`facts.${facts[0].key}.text`)}</span>
               </span>
             </li>
-          ))}
-        </ul>
+          </ul>
+        </div>
       </div>
     </section>
   );
