@@ -28,8 +28,9 @@ export async function Hero() {
   return (
     <section aria-labelledby="hero-title">
       <div className="focus-on-dark relative isolate bg-asphalt text-white">
-        {/* Phones: the photograph sits above the text. Desktop: it fills the hero behind it. */}
-        <div className="relative h-[40svh] min-h-60 overflow-hidden lg:absolute lg:inset-0 lg:-z-20 lg:h-auto">
+        {/* Phones: a tall photograph whose lower edge fades into the panel, the title set across that
+            fade. Desktop: the photograph fills the hero behind the text. */}
+        <div className="relative h-[58svh] min-h-80 overflow-hidden lg:absolute lg:inset-0 lg:-z-20 lg:h-auto">
           <Image
             src={road}
             alt={t("photoAlt")}
@@ -38,7 +39,11 @@ export async function Hero() {
             fetchPriority="high"
             placeholder="blur"
             sizes="100vw"
-            className="object-cover object-[65%_55%] motion-safe:animate-hero-photo"
+            className="object-cover object-[62%_45%] motion-safe:animate-hero-photo lg:object-[65%_55%]"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-0 h-3/5 bg-[linear-gradient(0deg,var(--color-asphalt)_8%,rgb(30_34_38/0.7)_45%,rgb(30_34_38/0)_100%)] lg:hidden"
           />
         </div>
         {/* Neutral scrim under the text only; the trucks on the right stay clear. */}
@@ -46,7 +51,7 @@ export async function Hero() {
           aria-hidden="true"
           className="absolute inset-0 -z-10 hidden bg-[linear-gradient(90deg,rgb(30_34_38/0.88)_0%,rgb(30_34_38/0.7)_38%,rgb(30_34_38/0)_68%)] lg:block"
         />
-        <div className="@container mx-auto flex max-w-(--container-page) flex-col justify-center px-4 py-10 sm:px-8 sm:py-14 lg:min-h-[min(68svh,46rem)] lg:py-24">
+        <div className="@container relative mx-auto -mt-36 flex max-w-(--container-page) flex-col justify-center px-4 pb-10 sm:-mt-40 sm:px-8 sm:pb-14 lg:mt-0 lg:min-h-[min(68svh,46rem)] lg:py-24">
           <div className="max-w-[50rem]">
             {/* "Kamionová doprava" is 12.3em wide: sizing by the column keeps two lines. */}
             <h1
@@ -62,24 +67,24 @@ export async function Hero() {
               {t("subtitle")}
             </p>
             <p
-              className="mt-4 max-w-[46ch] text-lg text-white/90 motion-safe:animate-hero-rise"
+              className="mt-4 max-w-[46ch] text-white/90 motion-safe:animate-hero-rise sm:text-lg"
               style={{ animationDelay: "450ms" }}
             >
               {t("lead")}
             </p>
             <div
-              className="mt-8 flex flex-wrap gap-3 motion-safe:animate-hero-rise sm:gap-4"
+              className="mt-7 grid gap-3 motion-safe:animate-hero-rise sm:mt-8 sm:flex sm:flex-wrap sm:gap-4"
               style={{ animationDelay: "540ms" }}
             >
               <Link
                 href="/poptavka"
-                className="inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt press hover:bg-marking-deep"
+                className="inline-flex min-h-12 items-center justify-center bg-marking px-6 font-display font-bold font-wide text-asphalt press hover:bg-marking-deep"
               >
                 {t("ctaTransport")}
               </Link>
               <Link
                 href={{ pathname: "/poptavka", query: { typ: "drevo" } }}
-                className="inline-flex min-h-12 items-center border-2 border-white px-6 font-display font-bold font-wide press hover:bg-white hover:text-asphalt"
+                className="inline-flex min-h-12 items-center justify-center border-2 border-white px-6 font-display font-bold font-wide press hover:bg-white hover:text-asphalt"
               >
                 {t("ctaWood")}
               </Link>

@@ -350,13 +350,26 @@
       "title": "Potřebujete něco odvézt?",
       "cta": "Poptat přepravu",
       "orCall": "nebo volejte dispečink",
-      "needsTitle": "K cenové nabídce potřebujeme",
+      "needsTitle": "Do poptávky stačí napsat",
       "needs": {
-        "route": "místo nakládky a vykládky",
-        "date": "termín nakládky",
-        "cargo": "druh zboží, hmotnost nebo objem",
-        "temp": "požadovanou teplotu, pokud jde o chlazené zboží"
-      }
+        "route": {
+          "label": "Odkud a kam",
+          "example": "Všemyslice → Bari"
+        },
+        "date": {
+          "label": "Kdy nakládat",
+          "example": "úterý 12. 11., dopoledne"
+        },
+        "cargo": {
+          "label": "Co a kolik",
+          "example": "33 palet, 24 t"
+        },
+        "temp": {
+          "label": "Teplota u chlazeného",
+          "example": "+2 až +4 °C"
+        }
+      },
+      "examplePrefix": "např."
     },
     "materials": {
       "title": "Co přepravujeme a obchodujeme",

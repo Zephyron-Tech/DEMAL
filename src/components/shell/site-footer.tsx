@@ -9,12 +9,12 @@ async function currentYear() {
   return new Date().getFullYear();
 }
 
-// Company details set as labelled boxes, the way a CMR consignment note lays out its fields.
+// Company details as filled boxes of a consignment note: separated by tone, no rules.
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div className="-mb-px -mr-px border-r border-b border-graphite px-4 py-3">
+    <div className="min-w-0 bg-white/[0.06] px-4 py-3">
       <dt className="text-xs text-rule">{label}</dt>
-      <dd className="mt-1 font-semibold text-trailer">{children}</dd>
+      <dd className="mt-0.5 font-semibold text-trailer">{children}</dd>
     </div>
   );
 }
@@ -34,66 +34,56 @@ export async function SiteFooter() {
 
   return (
     <footer className="focus-on-dark mt-auto bg-asphalt text-trailer">
-      <div className="mx-auto grid max-w-(--container-page) gap-10 px-4 py-14 sm:px-8 lg:grid-cols-[1fr_2fr]">
-        <div>
-          <p translate="no" className="font-display text-2xl font-extrabold italic font-wide">
-            DEMAL SPEDITION
-          </p>
-          <p className="mt-3 max-w-xs text-rule">{t("tagline")}</p>
+      <div className="mx-auto max-w-(--container-page) px-4 pt-10 pb-8 sm:px-8">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p translate="no" className="font-display text-2xl font-extrabold italic font-wide">
+              DEMAL SPEDITION
+            </p>
+            <p className="mt-1 text-rule">{t("tagline")}</p>
+          </div>
+          <nav aria-label={t("pages")}>
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 font-semibold">
+              {pages.map((page) => (
+                <li key={page.href}>
+                  <Link href={page.href} className="link-reveal">
+                    {page.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
 
-        <section aria-label={t("label")}>
-          <dl className="grid border border-graphite sm:grid-cols-2 lg:grid-cols-3">
-            <Field label={t("carrier")}>{company.name}</Field>
+        <section aria-label={t("label")} className="mt-8">
+          <dl className="grid gap-1 sm:grid-cols-2 lg:grid-cols-4">
             <Field label={t("seat")}>
-              {company.street}
-              <br />
-              {company.city}
+              {company.street}, {company.city}
             </Field>
             <Field label={t("icoDic")}>
               <span className="tabular-nums">
-                {company.ico}
-                <br />
-                {company.dic}
+                {company.ico} / {company.dic}
               </span>
             </Field>
             <Field label={t("phone")}>
-              <a
-                href={company.dispatch.phoneHref}
-                className="tabular-nums link-reveal"
-              >
+              <a href={company.dispatch.phoneHref} className="tabular-nums link-reveal">
                 {company.dispatch.phone}
               </a>
             </Field>
             <Field label={t("email")}>
-              <a
-                href={`mailto:${company.dispatch.email}`}
-                className="break-all link-reveal"
-              >
+              <a href={`mailto:${company.dispatch.email}`} className="break-all link-reveal">
                 {company.dispatch.email}
               </a>
-            </Field>
-            <Field label={t("pages")}>
-              <ul className="flex flex-wrap gap-x-4 gap-y-1 font-normal">
-                {pages.map((page) => (
-                  <li key={page.href}>
-                    <Link href={page.href} className="link-reveal">
-                      {page.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
             </Field>
           </dl>
         </section>
       </div>
 
-      <div className="border-t border-graphite">
-        <div className="mx-auto flex max-w-(--container-page) flex-wrap justify-between gap-x-6 gap-y-2 px-4 py-5 text-sm text-rule sm:px-8">
-          <div>
-            <p>{t("copyright", { year })}</p>
-            <p>{t("register", { register: company.register, court: company.registerCourt })}</p>
-          </div>
+      <div className="mx-auto max-w-(--container-page) px-4 sm:px-8">
+        <div className="flex flex-wrap justify-between gap-x-6 gap-y-2 border-t border-white/10 py-5 text-sm text-rule">
+          <p>
+            {t("copyright", { year })} {t("register", { register: company.register, court: company.registerCourt })}
+          </p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             <li>
               <Link href="/ochrana-osobnich-udaju" className="link-reveal">

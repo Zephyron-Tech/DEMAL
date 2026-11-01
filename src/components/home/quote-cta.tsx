@@ -32,18 +32,22 @@ export async function QuoteCta() {
           </p>
         </div>
 
-        <div>
+        {/* The note a dispatcher fills in: four filled boxes, each with a sample entry. */}
+        <div className="bg-plate p-5 sm:p-6">
           <h3 className="font-sans text-base font-semibold">{t("needsTitle")}</h3>
-          <ul className="mt-4 border-t border-rule">
+          <dl className="mt-4 grid gap-1 sm:grid-cols-2">
             {needs.map((need) => (
-              <li
-                key={need}
-                className="flex items-baseline gap-3 border-b border-rule py-3 text-lg before:size-3.5 before:shrink-0 before:translate-y-0.5 before:border-2 before:border-asphalt before:content-['']"
-              >
-                {t(`needs.${need}`)}
-              </li>
+              <div key={need} className="bg-white px-4 py-4 sm:px-5">
+                <dt className="font-display text-lg font-bold font-wide">
+                  {t(`needs.${need}.label`)}
+                </dt>
+                <dd className="mt-1 text-graphite">
+                  <span className="text-steel">{t("examplePrefix")}</span>{" "}
+                  {t(`needs.${need}.example`)}
+                </dd>
+              </div>
             ))}
-          </ul>
+          </dl>
         </div>
       </div>
     </section>
