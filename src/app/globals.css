@@ -76,6 +76,7 @@
   --animate-hero-photo: hero-photo 1200ms var(--ease-soft) backwards;
   --animate-hero-title: hero-title 720ms var(--ease-in-out) 100ms backwards;
   --animate-hero-rise: hero-rise 520ms var(--ease-out) backwards;
+  --animate-page-in: page-in 520ms var(--ease-out) backwards;
 
   @keyframes hero-photo {
     from {
@@ -92,6 +93,13 @@
       translate: 0 0;
     }
   }
+  @keyframes page-in {
+    from {
+      opacity: 0;
+      translate: 0 14px;
+    }
+  }
+
   @keyframes hero-rise {
     from {
       opacity: 0;
