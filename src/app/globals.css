@@ -100,16 +100,6 @@
     }
   }
 
-  --animate-fact-ticker: fact-ticker 24s linear infinite;
-
-  /* The facts run twice on the track; moving it by half its width loops it without a seam, the same
-     constant drift as the partner logos. */
-  @keyframes fact-ticker {
-    to {
-      translate: -50% 0;
-    }
-  }
-
   @keyframes hero-rise {
     from {
       opacity: 0;
@@ -285,5 +275,26 @@
     &:hover {
       text-decoration-thickness: 2px;
     }
+  }
+}
+
+/* Mobile fact band. Plain CSS, not an @theme animation token: the token's keyframes were missing
+   from the production stylesheet, so the band stood still there. The facts run twice on the track;
+   moving it by half its width loops it without a seam, the same constant drift as the partner logos. */
+@media (prefers-reduced-motion: no-preference) {
+  .fact-ticker {
+    animation: fact-ticker 24s linear infinite;
+  }
+}
+
+@media (min-width: 64rem) {
+  .fact-ticker {
+    animation: none;
+  }
+}
+
+@keyframes fact-ticker {
+  to {
+    translate: -50% 0;
   }
 }

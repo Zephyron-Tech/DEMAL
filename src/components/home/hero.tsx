@@ -145,7 +145,7 @@ export async function Hero() {
           Desktop: a row of four. */}
       <div className="overflow-hidden bg-demal text-white">
         <div className="mx-auto max-w-(--container-page) py-6 lg:px-8 lg:py-7">
-          <div className="flex w-max motion-safe:animate-fact-ticker lg:w-full lg:animate-none">
+          <div className="fact-ticker flex w-max lg:w-full">
             {[0, 1].map((copy) => (
               <ul
                 key={copy}
