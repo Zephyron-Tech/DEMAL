@@ -46,17 +46,6 @@ export const questions: Question[] = [
     known: "Web dnes jako hlavní kontakt uvádí erik.pisacka@demal.cz a +420 606 602 570.",
   },
   {
-    id: "jednatel",
-    title: "Jednatel pro Impressum",
-    ask: "Jak se jmenuje jednatel (Geschäftsführer), který firmu navenek zastupuje? Potřebujeme ho do Impressum v češtině, němčině a angličtině, v němčině je to povinný údaj. Stačí jméno a příjmení.",
-    known: "Impressum na webu zatím chybí; na stránce je dočasný zástupný text.",
-  },
-  {
-    id: "drevo-dvakrat",
-    title: "Dřevo na úvodní stránce dvakrát",
-    ask: "Na úvodní stránce se dřevo objevuje ve dvou sekcích: v části „Kamionová doprava a dřevní materiál“ (dvě velké karty pod hero) a v části „Co přepravujeme a obchodujeme“ (dlaždice se štěpkou, pilinami, pelety a vedlejšími produkty). Má zůstat v obou, nebo jen v jedné? A pokud v jedné, které?",
-  },
-  {
     id: "nabor",
     title: "Hledáte řidiče?",
     ask: "Nabíráte řidiče nebo dispečery? Pokud ano, jaké podmínky můžeme zveřejnit (typ práce, relace, mzda, výhody)? Link na inzerát co máš napsanej",
@@ -78,11 +67,6 @@ export const questions: Question[] = [
     id: "jazyky",
     title: "Jazyky webu",
     ask: "Web bude nejdřív česky, potom německy a anglicky. To stačí asi, ne?",
-  },
-  {
-    id: "analytika",
-    title: "Měření návštěvnosti",
-    ask: "Chcete vidět, kolik lidí web navštěvuje a odkud přicházejí? Vyplň prostě \"ANO\", je to jen pro mě, abych na to nezapomněl.",
   },
   {
     id: "reference",
