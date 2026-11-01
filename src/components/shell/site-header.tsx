@@ -21,7 +21,7 @@ export async function SiteHeader() {
           <svg
             aria-hidden="true"
             viewBox="0 -1 168 25"
-            className="pointer-events-none absolute -left-3.5 top-[71px] h-[25px] w-[168px] transition-[translate] duration-500 ease-(--ease-out) motion-reduce:transition-none group-data-[compact=true]/header:-translate-y-6"
+            className="pointer-events-none absolute -left-3.5 top-[71px] h-[25px] w-[168px] origin-top transition-[scale] duration-600 ease-(--ease-out) motion-reduce:transition-none group-data-[compact=true]/header:scale-x-[0.88] group-data-[compact=true]/header:scale-y-0"
           >
             <path
               fill="#fff"
