@@ -29,7 +29,7 @@ export async function Hero() {
     <section aria-labelledby="hero-title">
       <div className="focus-on-dark relative isolate bg-asphalt text-white">
         {/* Phones: the photograph sits above the text. Desktop: it fills the hero behind it. */}
-        <div className="relative h-[40svh] min-h-60 lg:absolute lg:inset-0 lg:-z-20 lg:h-auto">
+        <div className="relative h-[40svh] min-h-60 overflow-hidden lg:absolute lg:inset-0 lg:-z-20 lg:h-auto">
           <Image
             src={road}
             alt={t("photoAlt")}
@@ -38,7 +38,7 @@ export async function Hero() {
             fetchPriority="high"
             placeholder="blur"
             sizes="100vw"
-            className="object-cover object-[65%_55%]"
+            className="object-cover object-[65%_55%] motion-safe:animate-hero-photo"
           />
         </div>
         {/* Neutral scrim under the text only; the trucks on the right stay clear. */}
@@ -51,15 +51,26 @@ export async function Hero() {
             {/* "Kamionová doprava" is 12.3em wide: sizing by the column keeps two lines. */}
             <h1
               id="hero-title"
-              className="text-[min(calc(100cqi/12.6),4rem)] leading-[0.98] font-extrabold italic"
+              className="text-[min(calc(100cqi/12.6),4rem)] leading-[0.98] font-extrabold italic motion-safe:animate-hero-title"
             >
               {t("title")}
             </h1>
-            <p className="mt-4 font-display text-base font-bold font-wide sm:mt-5 sm:text-xl">
+            <p
+              className="mt-4 font-display text-base font-bold font-wide motion-safe:animate-hero-rise sm:mt-5 sm:text-xl"
+              style={{ animationDelay: "380ms" }}
+            >
               {t("subtitle")}
             </p>
-            <p className="mt-4 max-w-[46ch] text-lg text-white/90">{t("lead")}</p>
-            <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
+            <p
+              className="mt-4 max-w-[46ch] text-lg text-white/90 motion-safe:animate-hero-rise"
+              style={{ animationDelay: "450ms" }}
+            >
+              {t("lead")}
+            </p>
+            <div
+              className="mt-8 flex flex-wrap gap-3 motion-safe:animate-hero-rise sm:gap-4"
+              style={{ animationDelay: "540ms" }}
+            >
               <Link
                 href="/poptavka"
                 className="inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt press hover:bg-marking-deep"
