@@ -87,7 +87,7 @@ export async function SiteFooter() {
       </div>
 
       <div className="mx-auto max-w-(--container-page) px-4 sm:px-8">
-        <div className="flex flex-col gap-y-3 border-t border-white/10 pt-5 pb-20 text-sm text-rule sm:flex-row sm:flex-wrap sm:justify-between sm:gap-x-6 sm:gap-y-2 sm:py-5">
+        <div className="flex flex-col gap-y-3 border-t border-white/10 pt-5 pb-6 text-sm text-rule sm:flex-row sm:flex-wrap sm:justify-between sm:gap-x-6 sm:gap-y-2 sm:py-5">
           <p>
             {t("copyright", { year })} {t("register", { register: company.register, court: company.registerCourt })}
           </p>
