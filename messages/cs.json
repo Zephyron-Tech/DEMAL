@@ -249,6 +249,13 @@
       "title": "Poptávku jsme přijali",
       "text": "Dispečer se vám ozve na uvedený e-mail nebo telefon. Pokud spěcháte, volejte {phone}.",
       "again": "Poslat další poptávku"
+    },
+    "date": {
+      "choose": "Vyberte datum",
+      "prev": "Předchozí měsíc",
+      "next": "Další měsíc",
+      "clear": "Vymazat",
+      "today": "Dnes"
     }
   },
   "Home": {

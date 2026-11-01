@@ -5,13 +5,12 @@ import { useActionState, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { company } from "@/lib/company";
+import { DateField } from "@/components/form/date-field";
+import { Listbox } from "@/components/form/listbox";
+import { fieldClass as inputClass } from "@/components/form/field-styles";
 import { submitQuote, type QuoteState, type QuoteType } from "./actions";
 
 const initialState: QuoteState = { status: "idle", message: "" };
-
-// The bottom rule darkens under the pointer and turns blue on focus, the outline sitting on the field.
-const inputClass =
-  "w-full border border-rule border-b-2 border-b-graphite bg-white px-3 py-2.5 transition-colors hover:border-b-asphalt focus-visible:border-b-demal focus-visible:outline-offset-0 aria-[invalid=true]:border-alert aria-[invalid=true]:border-b-alert";
 
 type FieldProps = {
   name: string;
@@ -33,7 +32,7 @@ function Field({ name, label, hint, optionalLabel, error, children, className = 
   const describedBy = [hint && `${id}-hint`, error && `${id}-error`].filter(Boolean).join(" ");
   return (
     <div className={`grid content-start gap-1.5 ${className}`}>
-      <label htmlFor={id} className="font-semibold">
+      <label id={`${id}-label`} htmlFor={id} className="font-semibold">
         {label}
         {optionalLabel ? <span className="font-normal text-steel"> ({optionalLabel})</span> : null}
       </label>
@@ -100,7 +99,11 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
   const t = useTranslations("Quote");
   const locale = useLocale();
   const [state, formAction, pending] = useActionState(submitQuote, initialState);
+  // `type` is the chosen variant, `shown` the one on the page. The page swaps them after a short
+  // fade-out, so the old fields leave before the new ones rise in.
   const [type, setType] = useState<QuoteType>(initialType);
+  const [shown, setShown] = useState<QuoteType>(initialType);
+  const [leaving, setLeaving] = useState(false);
   const [kind, setKind] = useState(state.values?.kind ?? "reefer");
   const [sentAgain, setSentAgain] = useState(0);
   // Fields that appear in answer to a choice slide in; on the first render they are simply there.
@@ -123,6 +126,26 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
   }, [state, sentAgain]);
 
   const appear = answered ? "motion-safe:animate-field-in" : "";
+
+  function switchType(next: QuoteType) {
+    if (next === type) return;
+    setType(next);
+    setAnswered(true);
+    setLeaving(true);
+    window.setTimeout(() => {
+      setShown(next);
+      setLeaving(false);
+    }, 160);
+  }
+
+  const dateLabels = {
+    choose: t("date.choose"),
+    prev: t("date.prev"),
+    next: t("date.next"),
+    clear: t("date.clear"),
+    today: t("date.today"),
+  };
+  const fade = leaving ? "pointer-events-none opacity-0" : "opacity-100";
 
   const v = (name: string) => state.values?.[name] ?? "";
   const err = (name: string) => state.fieldErrors?.[name];
@@ -168,26 +191,23 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
             value="transport"
             label={t("typeTransport")}
             checked={type === "transport"}
-            onChange={() => {
-              setType("transport");
-              setAnswered(true);
-            }}
+            onChange={() => switchType("transport")}
           />
           <Choice
             name="type"
             value="wood"
             label={t("typeWood")}
             checked={type === "wood"}
-            onChange={() => {
-              setType("wood");
-              setAnswered(true);
-            }}
+            onChange={() => switchType("wood")}
           />
         </div>
       </fieldset>
 
-      {type === "transport" ? (
-        <fieldset key="transport" className={`grid gap-6 border-t-2 border-asphalt pt-6 sm:grid-cols-2 ${appear}`}>
+      {shown === "transport" ? (
+        <fieldset
+          key="transport"
+          className={`grid gap-6 border-t-2 border-asphalt pt-6 transition-opacity duration-160 ease-in sm:grid-cols-2 ${fade} ${appear}`}
+        >
           <legend className="sr-only">{t("transport.legend")}</legend>
           <Field name="from" label={t("transport.from")} hint={t("transport.fromHint")} error={err("from")}>
             {(p) => <input {...p} defaultValue={v("from")} autoComplete="off" required className={inputClass} />}
@@ -208,23 +228,23 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
             {(p) => <input {...p} defaultValue={v("amount")} autoComplete="off" className={inputClass} />}
           </Field>
           <Field name="date" label={t("transport.date")} optionalLabel={opt} error={err("date")}>
-            {(p) => <input {...p} type="date" defaultValue={v("date")} className={inputClass} />}
+            {(p) => <DateField {...p} locale={locale} labels={dateLabels} defaultValue={v("date")} />}
           </Field>
           <Field name="kind" label={t("transport.kind")} error={err("kind")}>
             {(p) => (
-              <select
+              <Listbox
                 {...p}
-                value={kind}
-                onChange={(e) => {
-                  setKind(e.target.value);
+                defaultValue={kind}
+                options={[
+                  { value: "reefer", label: t("transport.kindReefer") },
+                  { value: "walking", label: t("transport.kindWalking") },
+                  { value: "other", label: t("transport.kindOther") },
+                ]}
+                onChange={(next) => {
+                  setKind(next);
                   setAnswered(true);
                 }}
-                className={inputClass}
-              >
-                <option value="reefer">{t("transport.kindReefer")}</option>
-                <option value="walking">{t("transport.kindWalking")}</option>
-                <option value="other">{t("transport.kindOther")}</option>
-              </select>
+              />
             )}
           </Field>
           {kind === "reefer" ? (
@@ -241,25 +261,36 @@ export function QuoteForm({ initialType }: { initialType: QuoteType }) {
           ) : null}
         </fieldset>
       ) : (
-        <fieldset key="wood" className={`grid gap-6 border-t-2 border-asphalt pt-6 sm:grid-cols-2 ${appear}`}>
+        <fieldset
+          key="wood"
+          className={`grid gap-6 border-t-2 border-asphalt pt-6 transition-opacity duration-160 ease-in sm:grid-cols-2 ${fade} ${appear}`}
+        >
           <legend className="sr-only">{t("wood.legend")}</legend>
           <Field name="direction" label={t("wood.direction")} error={err("direction")}>
             {(p) => (
-              <select {...p} defaultValue={v("direction") || "buy"} className={inputClass}>
-                <option value="buy">{t("wood.buy")}</option>
-                <option value="sell">{t("wood.sell")}</option>
-              </select>
+              <Listbox
+                {...p}
+                defaultValue={v("direction") || "buy"}
+                options={[
+                  { value: "buy", label: t("wood.buy") },
+                  { value: "sell", label: t("wood.sell") },
+                ]}
+              />
             )}
           </Field>
           <Field name="commodity" label={t("wood.commodity")} error={err("commodity")}>
             {(p) => (
-              <select {...p} defaultValue={v("commodity") || "chips"} className={inputClass}>
-                <option value="chips">{t("wood.chips")}</option>
-                <option value="sawdust">{t("wood.sawdust")}</option>
-                <option value="pellets">{t("wood.pellets")}</option>
-                <option value="byproducts">{t("wood.byproducts")}</option>
-                <option value="other">{t("wood.other")}</option>
-              </select>
+              <Listbox
+                {...p}
+                defaultValue={v("commodity") || "chips"}
+                options={[
+                  { value: "chips", label: t("wood.chips") },
+                  { value: "sawdust", label: t("wood.sawdust") },
+                  { value: "pellets", label: t("wood.pellets") },
+                  { value: "byproducts", label: t("wood.byproducts") },
+                  { value: "other", label: t("wood.other") },
+                ]}
+              />
             )}
           </Field>
           <Field name="amount" label={t("wood.amount")} hint={t("wood.amountHint")} error={err("amount")}>
