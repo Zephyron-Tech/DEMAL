@@ -5,6 +5,7 @@ import { QuoteCta } from "@/components/home/quote-cta";
 import { SpecPlate } from "@/components/spec-plate";
 import trailers from "../../../../../public/images/navesy-demal.jpg";
 import tractors from "../../../../../public/images/tahace-scania.jpg";
+import { alternatesFor } from "@/i18n/alternates";
 
 // Everything here comes from the current demalspedition.cz; technical parameters
 // (pallets, volume, temperature range) are left out until the owner supplies them.
@@ -12,7 +13,11 @@ const plateKeys = ["sets", "euro", "tractors", "reefer", "walking", "gps"] as co
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Fleet");
-  return { title: t("title"), description: t("metaDescription") };
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    alternates: await alternatesFor("/vozovy-park"),
+  };
 }
 
 export default async function FleetPage() {

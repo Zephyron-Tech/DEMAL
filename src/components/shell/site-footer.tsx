@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { LanguageSwitch } from "./language-switch";
 import type { StaticPathname } from "@/i18n/routing";
 import { company } from "@/lib/company";
 
@@ -53,6 +54,7 @@ export async function SiteFooter() {
               ))}
             </ul>
           </nav>
+          <LanguageSwitch className="mt-4" dark />
         </div>
 
         <section aria-label={t("label")} className="mt-8">

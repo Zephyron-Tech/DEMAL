@@ -4,13 +4,18 @@ import { getTranslations } from "next-intl/server";
 import { QuoteCta } from "@/components/home/quote-cta";
 import { Link } from "@/i18n/navigation";
 import tractors from "../../../../../public/images/tahace-scania.jpg";
+import { alternatesFor } from "@/i18n/alternates";
 
 // Founding year from ARES (19. 7. 2012); the rest from the current demalspedition.cz "O nás".
 const milestones = ["2012", "2016", "dnes"] as const;
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("About");
-  return { title: t("title"), description: t("metaDescription") };
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    alternates: await alternatesFor("/o-nas"),
+  };
 }
 
 export default async function AboutPage() {

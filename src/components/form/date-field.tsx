@@ -144,12 +144,12 @@ export function DateField({
         aria-haspopup="dialog"
         aria-expanded={open}
         aria-controls={dialogId}
-        aria-labelledby={`${id}-label`}
+        aria-labelledby={`${id}-label ${id}-value`}
         aria-describedby={describedBy}
         onClick={() => (open ? close() : show())}
         className={`${fieldClass} flex cursor-pointer items-center justify-between gap-3 text-left ${invalid ? "border-alert border-b-alert" : ""}`}
       >
-        <span className={selected ? "" : "text-steel"}>
+        <span id={`${id}-value`} className={selected ? "" : "text-steel"}>
           {selected ? dayFormat.format(selected) : labels.choose}
         </span>
         <svg aria-hidden="true" viewBox="0 0 24 24" className="size-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2">

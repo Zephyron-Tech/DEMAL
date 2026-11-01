@@ -1,5 +1,6 @@
 "use client";
 
+import { LanguageSwitch } from "./language-switch";
 import { useEffect, useId, useRef, useState } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 import type { StaticPathname } from "@/i18n/routing";
@@ -45,7 +46,7 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
             <Link
               href={item.href}
               aria-current={isActive(item.href) ? "page" : undefined}
-              className="relative flex min-h-11 items-center px-3 xl:px-4 font-semibold text-asphalt transition-colors after:absolute after:inset-x-3 xl:after:inset-x-4 after:bottom-1 after:h-[3px] after:origin-left after:scale-x-0 after:bg-demal after:transition-transform after:duration-(--duration-ui) after:ease-out hover:text-demal hover:after:scale-x-100 aria-[current=page]:text-demal aria-[current=page]:after:scale-x-100"
+              className="relative flex min-h-11 items-center px-3 xl:px-4 font-semibold whitespace-nowrap text-asphalt transition-colors after:absolute after:inset-x-3 xl:after:inset-x-4 after:bottom-1 after:h-[3px] after:origin-left after:scale-x-0 after:bg-demal after:transition-transform after:duration-(--duration-ui) after:ease-out hover:text-demal hover:after:scale-x-100 aria-[current=page]:text-demal aria-[current=page]:after:scale-x-100"
             >
               {item.label}
             </Link>
@@ -114,6 +115,9 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
           >
             {cta.label}
           </Link>
+        </div>
+        <div className="mx-auto max-w-(--container-page) border-t border-rule px-4 py-3 sm:px-8">
+          <LanguageSwitch />
         </div>
       </div>
     </nav>

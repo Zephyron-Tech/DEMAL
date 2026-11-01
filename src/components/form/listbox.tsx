@@ -110,7 +110,7 @@ export function Listbox({
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={listId}
-        aria-labelledby={`${id}-label`}
+        aria-labelledby={`${id}-label ${id}-value`}
         aria-activedescendant={open ? `${listId}-${active}` : undefined}
         aria-invalid={invalid}
         aria-describedby={describedBy}
@@ -118,7 +118,7 @@ export function Listbox({
         onKeyDown={onKeyDown}
         className={`${fieldClass} flex cursor-pointer items-center justify-between gap-3 text-left`}
       >
-        <span>{options[selected].label}</span>
+        <span id={`${id}-value`}>{options[selected].label}</span>
         <svg
           aria-hidden="true"
           viewBox="0 0 24 24"

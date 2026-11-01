@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { photoCredits } from "@/content/photo-credits";
+import { alternatesFor } from "@/i18n/alternates";
 
 // Attribution for the openly licensed photographs (CC BY / CC BY-SA require it), linked from the footer.
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("PhotoCredits");
-  return { title: t("title"), description: t("metaDescription") };
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    alternates: await alternatesFor("/zdroje-fotografii"),
+  };
 }
 
 export default async function PhotoCreditsPage() {
@@ -30,7 +35,7 @@ export default async function PhotoCreditsPage() {
           <tbody>
             {photoCredits.map((credit) => (
               <tr key={credit.page} className="border-b border-rule align-top">
-                <th scope="row" className="py-4 pr-4 font-semibold">{credit.subject}</th>
+                <th scope="row" className="py-4 pr-4 font-semibold">{t(`subjects.${credit.subject}`)}</th>
                 <td className="py-4 pr-4">{credit.creator}</td>
                 <td className="py-4 pr-4">
                   <a href={credit.licenseUrl} className={link}>

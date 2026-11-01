@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { QuoteCta } from "@/components/home/quote-cta";
 import { Link } from "@/i18n/navigation";
 import { company } from "@/lib/company";
+import { alternatesFor } from "@/i18n/alternates";
 
 // One page with anchored sections (decided in docs/sitemap.md); content from the current
 // demalspedition.cz home and "O nás" pages.
@@ -16,7 +17,11 @@ const sections = [
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Transport");
-  return { title: t("title"), description: t("metaDescription") };
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    alternates: await alternatesFor("/doprava"),
+  };
 }
 
 export default async function TransportPage() {

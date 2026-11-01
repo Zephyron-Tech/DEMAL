@@ -2,10 +2,15 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { company } from "@/lib/company";
+import { alternatesFor } from "@/i18n/alternates";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Contact");
-  return { title: t("title"), description: t("metaDescription") };
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    alternates: await alternatesFor("/kontakt"),
+  };
 }
 
 export default async function ContactPage() {

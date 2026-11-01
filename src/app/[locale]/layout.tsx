@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
+import { ogLocale } from "@/i18n/alternates";
 import { routing } from "@/i18n/routing";
 import { isIndexable, siteUrl } from "@/lib/site";
 import { archivo, publicSans } from "../fonts";
@@ -15,6 +16,7 @@ export const viewport: Viewport = { themeColor: "#ffffff" };
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Metadata");
+  const locale = await getLocale();
   return {
     metadataBase: new URL(siteUrl),
     title: { default: t("title"), template: "%s | DEMAL SPEDITION" },
@@ -22,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       type: "website",
       siteName: "DEMAL SPEDITION s.r.o.",
-      locale: "cs_CZ",
+      locale: ogLocale[locale] ?? ogLocale.cs,
     },
     robots: isIndexable ? undefined : { index: false, follow: false },
   };

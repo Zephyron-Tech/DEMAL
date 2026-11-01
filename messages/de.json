@@ -1,0 +1,451 @@
+{
+  "Metadata": {
+    "title": "DEMAL SPEDITION s.r.o. – Internationaler LKW-Transport und Holzhandel",
+    "description": "Internationaler LKW-Transport und Spedition, Transporte mit kontrollierter Temperatur und Walking-Floor-Auflieger, Handel mit Holzmaterial. Tschechische Republik und Italien."
+  },
+  "Shell": {
+    "skipToContent": "Zum Inhalt springen",
+    "homeLink": "DEMAL SPEDITION s.r.o., Startseite",
+    "mainNav": "Hauptnavigation",
+    "openMenu": "Menü",
+    "closeMenu": "Schließen",
+    "toTop": "Nach oben",
+    "dispatch": "Disposition",
+    "cta": "Transport anfragen",
+    "switchLanguage": "Sprache"
+  },
+  "Nav": {
+    "doprava": "Transport",
+    "drevo": "Holzmaterial",
+    "vozovyPark": "Fuhrpark",
+    "oNas": "Über uns",
+    "kontakt": "Kontakt"
+  },
+  "Footer": {
+    "label": "Firmendaten",
+    "tagline": "Internationaler LKW-Transport und Handel mit Holzmaterial.",
+    "carrier": "Frachtführer",
+    "seat": "Sitz",
+    "ico": "IČ",
+    "phone": "Disposition",
+    "email": "E-Mail",
+    "pages": "Seiten",
+    "privacy": "Datenschutz",
+    "copyright": "© {year} DEMAL SPEDITION s.r.o.",
+    "register": "Eingetragen im Handelsregister, Aktenzeichen {register}, {court}",
+    "icoDic": "IČ / DIČ",
+    "photoSources": "Bildquellen"
+  },
+  "NotFound": {
+    "metaTitle": "Seite nicht gefunden",
+    "code": "Fehler 404",
+    "title": "Diese Seite gibt es nicht",
+    "text": "Die Adresse ist fehlerhaft, oder wir haben die Seite beim Umbau der Website verschoben. Versuchen Sie eine unserer Hauptseiten oder rufen Sie die Disposition an.",
+    "home": "Startseite"
+  },
+  "About": {
+    "title": "Über uns",
+    "metaDescription": "DEMAL SPEDITION s.r.o. ist ein Transportunternehmen aus Všemyslice bei České Budějovice. Seit 2012 fahren wir in der EU, am häufigsten nach Süditalien.",
+    "lead": "Wir sind ein Transportunternehmen aus Všemyslice bei České Budějovice. Wir bieten internationalen LKW-Transport und Spedition an, fahren in der gesamten Europäischen Union und am häufigsten nach Süditalien.",
+    "historyTitle": "Unsere Entwicklung",
+    "history": {
+      "2012": {
+        "year": "2012",
+        "title": "Gründung der DEMAL SPEDITION s.r.o.",
+        "text": "Am 19. Juli 2012 wird die Gesellschaft im Handelsregister beim Kreisgericht in České Budějovice eingetragen."
+      },
+      "2016": {
+        "year": "2016",
+        "title": "Erste Walking-Floor-Auflieger",
+        "text": "Neben gekühlter Ware beginnen wir, auch lose Schüttgüter zu transportieren."
+      },
+      "dnes": {
+        "year": "Heute",
+        "title": "14 eigene Züge",
+        "text": "Zugmaschinen nach Euro-6-Norm, Kühl- und Walking-Floor-Auflieger, alle mit GPS."
+      }
+    },
+    "peopleTitle": "Menschen",
+    "peopleCount": "17 Mitarbeiter",
+    "peopleText": "Fahrer und Disponenten absolvieren regelmäßig die Schulungen, die die Vorschriften verlangen und die wir für einen guten Service brauchen.",
+    "photoAlt": "Scania-Zugmaschinen von DEMAL SPEDITION auf dem Betriebsgelände",
+    "more": "Was wir tun",
+    "moreTransport": "LKW-Transport",
+    "moreFleet": "Fuhrpark"
+  },
+  "Transport": {
+    "title": "LKW-Transport",
+    "metaDescription": "Internationaler LKW-Transport in der EU, vor allem Tschechien – Süditalien. Kühltransporte nach HACCP, Walking Floor für Schüttgut, Spedition und CMR-Versicherung.",
+    "lead": "Internationalen LKW-Transport und Spedition betreiben wir seit 2012. Wir fahren mit eigenen Zügen in der gesamten Europäischen Union.",
+    "tocLabel": "Auf dieser Seite",
+    "sections": {
+      "relace": {
+        "title": "Strecken",
+        "p1": "Wir fahren in alle Länder der Europäischen Union, am häufigsten zwischen Tschechien und Süditalien.",
+        "p2": "Die Sendung holen wir am Ort der Beladung ab und liefern sie zum vereinbarten Zeitpunkt zu."
+      },
+      "chlazene": {
+        "title": "Kühltransporte",
+        "p1": "Wir sind auf Waren mit kontrollierter Temperatur spezialisiert, vor allem Lebensmittel. Die Transporte führen wir im Rahmen der HACCP-Zertifizierung durch.",
+        "points": {
+          "a": "HACCP ist ein Qualitätsmanagementsystem für die Lebensmittelsicherheit.",
+          "b": "Für den Transport haben wir festgelegte kritische Kontrollpunkte.",
+          "c": "Die Temperatur im Auflieger überwachen wir online über dessen eigene GPS-Einheit."
+        },
+        "link": "Kühlauflieger im Fuhrpark"
+      },
+      "walking": {
+        "title": "Walking Floor",
+        "p1": "Seit 2016 transportieren wir auch lose Schüttgüter in Aufliegern mit beweglichem Boden. Die Ladung wird ohne Kippen entladen, Sie brauchen beim Abladen also keine Umschlagtechnik.",
+        "p2": "Typischerweise handelt es sich um Holzhackschnitzel, Sägemehl und andere Schüttgüter.",
+        "link": "Handel mit Holzmaterial"
+      },
+      "spedice": {
+        "title": "Spedition",
+        "subtitle": "für Frachtführer",
+        "p1": "Haben Sie freie Fahrzeuge auf der Strecke Tschechien – Italien? Dank unserer Vertragspartner in beiden Ländern helfen wir Ihnen, sie auszulasten, vor allem mit Ware unter kontrollierter Temperatur.",
+        "call": "Rufen Sie die Disposition an"
+      },
+      "pojisteni": {
+        "title": "Versicherung",
+        "points": {
+          "a": "Der Transport ist nach dem internationalen CMR-Übereinkommen versichert.",
+          "b": "Die Versicherung bei der tschechischen Unternehmerversicherung mit Deckung bis 10 Mio. gilt im gesamten Gebiet der EU.",
+          "c": "Die Spedition deckt die Haftpflichtversicherung des Spediteurs für Schäden ab."
+        }
+      }
+    }
+  },
+  "Fleet": {
+    "title": "Fuhrpark",
+    "metaDescription": "Scania- und DAF-Zugmaschinen nach Euro-6-Norm, Kühlauflieger Schmitz und Krone, Walking Floor Stas und Reich. Alle Fahrzeuge mit GPS.",
+    "lead": "Wir fahren mit eigenen Zügen: Zugmaschinen von Scania und DAF mit Kühl- und Walking-Floor-Aufliegern. Alle Fahrzeuge verfügen über Navigation und GPS mit Online-Verfolgung.",
+    "plateLabel": "Der Fuhrpark in Zahlen",
+    "plate": {
+      "setsLabel": "Eigene Züge",
+      "sets": "14",
+      "euroLabel": "Emissionsnorm der Zugmaschinen",
+      "euro": "EURO 6",
+      "tractorsLabel": "Zugmaschinen",
+      "tractors": "Scania, DAF",
+      "reeferLabel": "Kühlauflieger",
+      "reefer": "Schmitz, Krone",
+      "walkingLabel": "Walking Floor",
+      "walking": "Stas, Reich",
+      "gpsLabel": "Verfolgung",
+      "gps": "GPS online"
+    },
+    "tractors": {
+      "title": "Zugmaschinen",
+      "makes": "Scania, DAF",
+      "text": "Die Zugmaschinen erfüllen die Emissionsnorm EURO 6. Jede verfügt über Navigation, eine GPS-Einheit und ein Telefon, sodass der Fahrer ständig mit der Disposition verbunden ist.",
+      "photoAlt": "Drei weiße Scania-Zugmaschinen von DEMAL SPEDITION auf dem Betriebsgelände geparkt"
+    },
+    "trailers": {
+      "title": "Auflieger",
+      "photoAlt": "Reihe von Kühl- und Walking-Floor-Aufliegern von DEMAL SPEDITION, Blick von hinten",
+      "reefer": "Kühlauflieger",
+      "reeferMakes": "Schmitz, Krone",
+      "reeferText": "Für Waren, die kontrolliert temperiert transportiert werden müssen, vor allem Lebensmittel. Die Transporte führen wir nach HACCP-Grundsätzen durch.",
+      "walking": "Walking-Floor-Auflieger",
+      "walkingMakes": "Stas, Reich, seit 2016",
+      "walkingText": "Der bewegliche Boden entlädt die Ladung selbst, ohne Kippen und ohne Umschlagtechnik. Darin transportieren wir lose Schüttgüter: Holzhackschnitzel, Sägemehl und andere Schüttware."
+    },
+    "tracking": {
+      "title": "Wir wissen, wo Ihre Sendung ist",
+      "position": "Position",
+      "positionText": "Dank GPS und Datenübertragung werden die Fahrzeuge ständig von der Disposition überwacht.",
+      "temperature": "Temperatur",
+      "temperatureText": "Die Kühlauflieger verfügen über eine eigene GPS-Einheit, die den Temperaturverlauf der Ladung in Echtzeit übermittelt."
+    }
+  },
+  "Contact": {
+    "title": "Kontakt",
+    "metaDescription": "Disposition der DEMAL SPEDITION s.r.o., Sitz in Všemyslice und Rechnungsangaben.",
+    "dispatchTitle": "Disposition",
+    "dispatchText": "Transport oder Holzmaterial fragen Sie am schnellsten telefonisch an. Schriftlich über das Formular oder per E-Mail.",
+    "quoteCta": "Transport anfragen",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "seatTitle": "Sitz",
+    "openMapy": "In Mapy.com öffnen",
+    "openGoogle": "In Google Maps öffnen",
+    "newTab": "(öffnet sich in einem neuen Fenster)",
+    "billingTitle": "Rechnungsangaben",
+    "billingName": "Firmenname",
+    "billingSeat": "Sitz",
+    "billingIco": "IČ",
+    "billingDic": "DIČ",
+    "billingRegister": "Eintragung im Handelsregister",
+    "registerValue": "Aktenzeichen {register}, {court}"
+  },
+  "Privacy": {
+    "title": "Datenschutz",
+    "metaDescription": "Wie die DEMAL SPEDITION s.r.o. personenbezogene Daten aus Anfragen verarbeitet und welche Rechte Sie haben.",
+    "updated": "Gültig ab {date}"
+  },
+  "Quote": {
+    "metaTitle": "Anfrage für Transport und Holzmaterial",
+    "metaDescription": "Senden Sie eine Anfrage für LKW-Transport oder Holzmaterial. Ein Disponent der DEMAL SPEDITION meldet sich mit einem Angebot bei Ihnen.",
+    "title": "Anfrage",
+    "lead": "Füllen Sie aus, was Sie wissen. Je genauer die Angaben, desto schneller erstellen wir Ihnen ein Angebot.",
+    "asideTitle": "Lieber anrufen?",
+    "asideText": "Disposition",
+    "typeLegend": "Was möchten Sie anfragen?",
+    "typeTransport": "Transport",
+    "typeWood": "Holzmaterial",
+    "transport": {
+      "legend": "Transport",
+      "from": "Beladeort",
+      "fromHint": "Stadt und Land, gegebenenfalls PLZ",
+      "to": "Entladeort",
+      "date": "Ladetermin",
+      "kind": "Transportart",
+      "kindReefer": "gekühlt, mit kontrollierter Temperatur",
+      "kindWalking": "Schüttgut, Walking Floor",
+      "kindOther": "anders oder unsicher",
+      "temp": "Gewünschte Temperatur",
+      "tempHint": "zum Beispiel +2 bis +4 °C",
+      "cargo": "Art der Ware",
+      "amount": "Gewicht oder Volumen",
+      "amountHint": "zum Beispiel 24 t oder 90 m³"
+    },
+    "wood": {
+      "legend": "Holzmaterial",
+      "direction": "Sie möchten",
+      "buy": "kaufen",
+      "sell": "verkaufen",
+      "commodity": "Material",
+      "chips": "Holzhackschnitzel",
+      "sawdust": "Sägemehl",
+      "pellets": "Pellets",
+      "byproducts": "Nebenprodukte",
+      "other": "anderes",
+      "amount": "Menge",
+      "amountHint": "zum Beispiel 100 t pro Monat",
+      "place": "Liefer- oder Abholort",
+      "when": "Ab wann und wie oft"
+    },
+    "contact": {
+      "legend": "Kontakt",
+      "name": "Vor- und Nachname",
+      "company": "Firma",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "note": "Anmerkung",
+      "optional": "optional"
+    },
+    "privacy": "Wir verwenden Ihre Angaben nur zur Bearbeitung der Anfrage.",
+    "privacyLink": "Datenschutzerklärung",
+    "submit": "Anfrage senden",
+    "submitting": "Wird gesendet…",
+    "errors": {
+      "required": "Bitte füllen Sie dieses Feld aus.",
+      "email": "Geben Sie eine E-Mail-Adresse im Format name@firma.cz ein.",
+      "tooLong": "Der Text ist zu lang.",
+      "form": "Das Formular enthält Fehler. Korrigieren Sie die markierten Felder.",
+      "server": "Die Anfrage konnte nicht gesendet werden. Versuchen Sie es erneut oder rufen Sie die Disposition unter {phone} an."
+    },
+    "success": {
+      "title": "Wir haben Ihre Anfrage erhalten",
+      "text": "Ein Disponent meldet sich bei Ihnen unter der angegebenen E-Mail-Adresse oder Telefonnummer. Wenn es eilt, rufen Sie {phone} an.",
+      "again": "Weitere Anfrage senden"
+    },
+    "date": {
+      "choose": "Datum wählen",
+      "prev": "Vorheriger Monat",
+      "next": "Nächster Monat",
+      "clear": "Löschen",
+      "today": "Heute"
+    }
+  },
+  "Home": {
+    "hero": {
+      "title": "LKW-Transport und Holzmaterial",
+      "subtitle": "Zuverlässig durch Tschechien und ganz Europa",
+      "lead": "Mit eigenen Zügen transportieren wir Ware mit kontrollierter Temperatur und Schüttgut in der gesamten Europäischen Union. Wir kaufen und verkaufen Holzhackschnitzel, Sägemehl und Pellets.",
+      "ctaTransport": "Transport anfragen",
+      "ctaWood": "Material anbieten / anfragen",
+      "photoAlt": "LKW auf der Europabrücke, Brennerautobahn bei Innsbruck",
+      "factsLabel": "DEMAL SPEDITION auf einen Blick",
+      "facts": {
+        "fleet": {
+          "title": "Eigener Fuhrpark",
+          "text": "14 Züge, Scania und DAF"
+        },
+        "euro": {
+          "title": "EURO 6",
+          "text": "alle Zugmaschinen"
+        },
+        "gps": {
+          "title": "GPS online",
+          "text": "Position und Temperatur der Sendung"
+        },
+        "eu": {
+          "title": "CZ + Europa",
+          "text": "am häufigsten Süditalien"
+        }
+      }
+    },
+    "branches": {
+      "label": "Was wir tun",
+      "transport": {
+        "title": "LKW-Transport",
+        "lead": "Mit eigenen Zügen fahren wir in der gesamten Europäischen Union, am häufigsten zwischen Tschechien und Süditalien. Ware unter Temperatur transportieren wir nach HACCP-Grundsätzen.",
+        "items": {
+          "reefer": "Kühltransporte",
+          "reeferNote": "kontrollierte Temperatur mit Online-Protokoll",
+          "walking": "Walking Floor",
+          "walkingNote": "Schüttgut und lose Materialien",
+          "spedition": "Spedition",
+          "speditionNote": "Auslastung der Fahrzeuge unserer Partner in Tschechien und Italien",
+          "tracking": "Verfolgung",
+          "trackingNote": "GPS in allen Fahrzeugen"
+        },
+        "link": "Mehr zum Transport"
+      },
+      "wood": {
+        "title": "Holzmaterial",
+        "lead": "Wir kaufen und verkaufen Holzmasse für Heizkraftwerke, Sägewerke und weitere Abnehmer. Den Abtransport erledigen wir mit eigenen Aufliegern.",
+        "items": {
+          "chips": "Holzhackschnitzel",
+          "sawdust": "Sägemehl",
+          "pellets": "Pellets",
+          "byproducts": "Nebenprodukte der Holzverarbeitung"
+        },
+        "link": "Mehr zum Material"
+      }
+    },
+    "fleet": {
+      "title": "Fuhrpark",
+      "lead": "Alle Fahrzeuge verfügen über Navigation und GPS mit Online-Verfolgung, sodass wir wissen, wo Ihre Sendung ist.",
+      "photoAlt": "Drei weiße Scania-Zugmaschinen von DEMAL SPEDITION auf dem Betriebsgelände geparkt",
+      "tableCaption": "Fahrzeugtypen und wofür sie geeignet sind",
+      "colVehicle": "Fahrzeug",
+      "colUse": "Wofür",
+      "rows": {
+        "reefer": "Kühlauflieger",
+        "reeferMakes": "Schmitz, Krone",
+        "reeferUse": "Ware mit kontrollierter Temperatur, Lebensmittel nach HACCP",
+        "walking": "Walking-Floor-Auflieger",
+        "walkingMakes": "Stas, Reich",
+        "walkingUse": "Hackschnitzel, Sägemehl und andere Schüttgüter",
+        "tractors": "Zugmaschinen",
+        "tractorsMakes": "Scania, DAF",
+        "tractorsUse": "Norm EURO 6, GPS in jedem Fahrzeug"
+      },
+      "link": "Der gesamte Fuhrpark"
+    },
+    "why": {
+      "title": "Warum DEMAL",
+      "own": {
+        "figure": "14",
+        "caption": "eigene Züge, seit 2012 auf dem Markt",
+        "claim": "Wir fahren mit eigenen Fahrzeugen",
+        "body": "Wir sind nicht nur Vermittler. Ihre Sendungen fahren wir mit eigenen Zügen, und für den Transport haften wir selbst."
+      },
+      "insured": {
+        "figure": "CMR",
+        "caption": "Tschechische Unternehmerversicherung, Deckung bis 10 Mio.",
+        "claim": "Die Ware ist versichert",
+        "body": "Der Transport ist nach dem CMR-Übereinkommen im gesamten Gebiet der Europäischen Union versichert. Die Spedition deckt die Haftpflicht des Spediteurs ab."
+      },
+      "direct": {
+        "caption": "Disposition, direkte Leitung",
+        "claim": "Sie rufen den Disponenten direkt an",
+        "body": "Am Telefon meldet sich ein Mensch, der Ihren Transport plant und weiß, wo sich der Zug gerade befindet."
+      }
+    },
+    "quote": {
+      "title": "Brauchen Sie einen Transport?",
+      "cta": "Transport anfragen",
+      "orCall": "oder rufen Sie die Disposition an",
+      "needsTitle": "Für die Anfrage genügt eine Nachricht",
+      "needs": {
+        "route": {
+          "label": "Von wo nach wo",
+          "example": "Všemyslice → Bari"
+        },
+        "date": {
+          "label": "Wann beladen",
+          "example": "Dienstag, 12. 11., vormittags"
+        },
+        "cargo": {
+          "label": "Was und wie viel",
+          "example": "33 Paletten, 24 t"
+        },
+        "temp": {
+          "label": "Temperatur bei Kühlware",
+          "example": "+2 bis +4 °C"
+        }
+      },
+      "examplePrefix": "z. B."
+    },
+    "materials": {
+      "title": "Was wir transportieren und handeln",
+      "lead": "Wir organisieren Einkauf, Verkauf und Transport von Holzmasse für Heizkraftwerke, Sägewerke, Pellethersteller und weitere Industriekunden.",
+      "link": "Holzmaterial"
+    }
+  },
+  "Materials": {
+    "title": "Holzmaterial",
+    "metaDescription": "Einkauf, Verkauf und Transport von Holzhackschnitzeln, Sägemehl, Pellets und Nebenprodukten der Holzverarbeitung.",
+    "lead": "Wir kaufen und verkaufen Holzmasse für Heizkraftwerke, Sägewerke, Pelletproduzenten und weitere Abnehmer. Den Abtransport erledigen wir mit eigenen Walking-Floor-Aufliegern.",
+    "listTitle": "Was wir anbieten",
+    "pendingTitle": "Details werden vorbereitet",
+    "pendingText": "Parameter, Preise und aktuelle Verfügbarkeit teilt Ihnen die Disposition gern mit. Sie können auch über das Formular anfragen.",
+    "cta": "Material anfragen",
+    "ctaItem": "{name} anfragen",
+    "call": "oder rufen Sie an",
+    "open": "Ansehen",
+    "otherTitle": "Weiteres Material",
+    "backLink": "Alles Holzmaterial",
+    "items": {
+      "chips": {
+        "name": "Holzhackschnitzel",
+        "note": "Brennstoff und Technik",
+        "alt": "Detail frischer Holzhackschnitzel",
+        "description": "Zerkleinerte Holzstücke aus Waldrestholz und Sägeabfällen. Vor allem als Brennstoff in Heizkraftwerken und Heizhäusern und als Rohstoff für die weitere Verarbeitung.",
+        "ctaName": "Holzhackschnitzel"
+      },
+      "sawdust": {
+        "name": "Sägemehl",
+        "note": "aus Sägewerken und Holzbetrieben",
+        "alt": "Sägemehlhaufen auf einem Industriegelände",
+        "description": "Feines Nebenprodukt beim Sägen von Holz. Dient als Rohstoff für Pellets und Briketts, als Brennstoff oder als Einstreu.",
+        "ctaName": "Sägemehl"
+      },
+      "pellets": {
+        "name": "Pellets",
+        "note": "Holzpellets zum Heizen",
+        "alt": "Detailaufnahme von Holzpellets",
+        "description": "Aus Sägemehl und Hobelspänen gepresste Zylinder. Brennstoff für Kessel und Öfen mit hohem Heizwert und wenig Asche.",
+        "ctaName": "Pellets"
+      },
+      "byproducts": {
+        "name": "Nebenprodukte",
+        "note": "Rinde, Abschnitte und Rundholz",
+        "alt": "Stirnseiten aufgestapelten Kiefernrundholzes",
+        "description": "Rinde, Abschnitte, Spreißel und Rundholz aus der Holzverarbeitung, die weiter als Brennstoff oder Rohstoff genutzt werden.",
+        "ctaName": "Nebenprodukte"
+      }
+    }
+  },
+  "PhotoCredits": {
+    "title": "Bildquellen",
+    "metaDescription": "Urheber und Lizenzen der Fotos auf der Website der DEMAL SPEDITION s.r.o.",
+    "lead": "Einige Fotos auf dieser Website stammen von Wikimedia Commons und sind unter offenen Lizenzen veröffentlicht. Ihre Urheber sind unten angegeben.",
+    "colPhoto": "Foto",
+    "colAuthor": "Urheber",
+    "colLicense": "Lizenz",
+    "colSource": "Quelle",
+    "source": "Wikimedia Commons",
+    "subjects": {
+      "europa": "Europabrücke, Brenner",
+      "chips": "Holzhackschnitzel",
+      "sawdust": "Sägemehl",
+      "pellets": "Pellets",
+      "byproducts": "Rundholz"
+    }
+  }
+}

@@ -1,22 +1,42 @@
 import { defineRouting } from "next-intl/routing";
 
+// Czech stays unprefixed at the domain root; German and English live under /de/ and /en/ with
+// translated paths. Internal keys (the pathname map's left side) are the Czech folder names.
 export const routing = defineRouting({
-  // DE and EN follow later; Czech stays unprefixed at the domain root.
-  locales: ["cs"],
+  locales: ["cs", "de", "en"],
   defaultLocale: "cs",
   localePrefix: "as-needed",
-  // Internal keys are the Czech paths; DE/EN get translated slugs here later.
+  // No language cookie and no redirect by browser language: the site shows the language in the
+  // URL the visitor chose, so the privacy notice can say that no cookies are set.
+  localeCookie: false,
+  localeDetection: false,
   pathnames: {
     "/": "/",
-    "/doprava": "/doprava",
-    "/drevni-material": "/drevni-material",
-    "/drevni-material/[slug]": "/drevni-material/[slug]",
-    "/vozovy-park": "/vozovy-park",
-    "/o-nas": "/o-nas",
-    "/kontakt": "/kontakt",
-    "/poptavka": "/poptavka",
-    "/ochrana-osobnich-udaju": "/ochrana-osobnich-udaju",
-    "/zdroje-fotografii": "/zdroje-fotografii",
+    "/doprava": { cs: "/doprava", de: "/transport", en: "/freight" },
+    "/drevni-material": {
+      cs: "/drevni-material",
+      de: "/holzmaterial",
+      en: "/wood-materials",
+    },
+    "/drevni-material/[slug]": {
+      cs: "/drevni-material/[slug]",
+      de: "/holzmaterial/[slug]",
+      en: "/wood-materials/[slug]",
+    },
+    "/vozovy-park": { cs: "/vozovy-park", de: "/fuhrpark", en: "/fleet" },
+    "/o-nas": { cs: "/o-nas", de: "/ueber-uns", en: "/about-us" },
+    "/kontakt": { cs: "/kontakt", de: "/kontakt", en: "/contact" },
+    "/poptavka": { cs: "/poptavka", de: "/anfrage", en: "/quote" },
+    "/ochrana-osobnich-udaju": {
+      cs: "/ochrana-osobnich-udaju",
+      de: "/datenschutz",
+      en: "/privacy",
+    },
+    "/zdroje-fotografii": {
+      cs: "/zdroje-fotografii",
+      de: "/bildquellen",
+      en: "/photo-credits",
+    },
   },
 });
 

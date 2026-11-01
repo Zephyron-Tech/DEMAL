@@ -3,10 +3,15 @@ import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 import { company } from "@/lib/company";
 import { QuoteForm, QuoteFormFromUrl } from "./quote-form";
+import { alternatesFor } from "@/i18n/alternates";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Quote");
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: await alternatesFor("/poptavka"),
+  };
 }
 
 export default async function QuotePage() {

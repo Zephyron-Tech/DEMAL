@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { MaterialTiles } from "@/components/material-tiles";
 import { PendingNotice } from "@/components/pending-notice";
+import { alternatesFor } from "@/i18n/alternates";
 
 // Skeleton until the owner describes the wood trade (/podklady, question 1); kept out of search.
 export async function generateMetadata(): Promise<Metadata> {
@@ -9,6 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: t("title"),
     description: t("metaDescription"),
+    alternates: await alternatesFor("/drevni-material"),
     robots: { index: false, follow: true },
   };
 }

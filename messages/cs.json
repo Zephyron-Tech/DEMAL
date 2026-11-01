@@ -11,7 +11,8 @@
     "closeMenu": "Zavřít",
     "toTop": "Zpět nahoru",
     "dispatch": "Dispečink",
-    "cta": "Poptat přepravu"
+    "cta": "Poptat přepravu",
+    "switchLanguage": "Jazyk"
   },
   "Nav": {
     "doprava": "Doprava",
@@ -438,6 +439,13 @@
     "colAuthor": "Autor",
     "colLicense": "Licence",
     "colSource": "Zdroj",
-    "source": "Wikimedia Commons"
+    "source": "Wikimedia Commons",
+    "subjects": {
+      "europa": "Europabrücke, Brenner",
+      "chips": "Dřevní štěpka",
+      "sawdust": "Piliny",
+      "pellets": "Pelety",
+      "byproducts": "Kulatina"
+    }
   }
 }

@@ -1,0 +1,451 @@
+{
+  "Metadata": {
+    "title": "DEMAL SPEDITION s.r.o. – International road haulage and timber trade",
+    "description": "International road haulage and freight forwarding, temperature-controlled and walking-floor transport, timber trade. Czech Republic and Italy."
+  },
+  "Shell": {
+    "skipToContent": "Skip to content",
+    "homeLink": "DEMAL SPEDITION s.r.o., home page",
+    "mainNav": "Main navigation",
+    "openMenu": "Menu",
+    "closeMenu": "Close",
+    "toTop": "Back to top",
+    "dispatch": "Dispatch",
+    "cta": "Request transport",
+    "switchLanguage": "Language"
+  },
+  "Nav": {
+    "doprava": "Transport",
+    "drevo": "Wood materials",
+    "vozovyPark": "Fleet",
+    "oNas": "About us",
+    "kontakt": "Contact"
+  },
+  "Footer": {
+    "label": "Company details",
+    "tagline": "International road haulage and trade in wood materials.",
+    "carrier": "Carrier",
+    "seat": "Registered seat",
+    "ico": "Company ID",
+    "phone": "Dispatch",
+    "email": "E-mail",
+    "pages": "Pages",
+    "privacy": "Privacy policy",
+    "copyright": "© {year} DEMAL SPEDITION s.r.o.",
+    "register": "Registered in the Commercial Register, file number {register}, {court}",
+    "icoDic": "Company ID / VAT ID",
+    "photoSources": "Photo credits"
+  },
+  "NotFound": {
+    "metaTitle": "Page not found",
+    "code": "Error 404",
+    "title": "This page does not exist",
+    "text": "The address is wrong, or we moved the page while rebuilding the website. Try one of the main pages, or call our dispatch.",
+    "home": "Home page"
+  },
+  "About": {
+    "title": "About us",
+    "metaDescription": "DEMAL SPEDITION s.r.o. is a haulage company from Všemyslice near České Budějovice. Since 2012 we have been driving across the EU, most often to southern Italy.",
+    "lead": "We are a haulage company from Všemyslice near České Budějovice. We provide international road haulage and freight forwarding, drive across the whole European Union and most often go to southern Italy.",
+    "historyTitle": "How we grew",
+    "history": {
+      "2012": {
+        "year": "2012",
+        "title": "DEMAL SPEDITION s.r.o. is founded",
+        "text": "On 19 July 2012 the company is entered in the Commercial Register at the Regional Court in České Budějovice."
+      },
+      "2016": {
+        "year": "2016",
+        "title": "First walking-floor trailers",
+        "text": "Alongside chilled goods we start carrying loose bulk materials too."
+      },
+      "dnes": {
+        "year": "Today",
+        "title": "14 own trucks",
+        "text": "Tractor units meeting EURO 6, refrigerated and walking-floor trailers, all with GPS."
+      }
+    },
+    "peopleTitle": "People",
+    "peopleCount": "17 employees",
+    "peopleText": "Drivers and dispatchers regularly complete the training that regulations require and that we need for a good service.",
+    "photoAlt": "Scania tractor units of DEMAL SPEDITION on the company yard",
+    "more": "What we do",
+    "moreTransport": "Road haulage",
+    "moreFleet": "Fleet"
+  },
+  "Transport": {
+    "title": "Road haulage",
+    "metaDescription": "International road haulage across the EU, mainly Czech Republic – southern Italy. Chilled transport under HACCP, walking floor for bulk goods, freight forwarding and CMR insurance.",
+    "lead": "We have been doing international road haulage and freight forwarding since 2012. We drive our own trucks across the whole European Union.",
+    "tocLabel": "On this page",
+    "sections": {
+      "relace": {
+        "title": "Routes",
+        "p1": "We drive to every country of the European Union, most often between the Czech Republic and southern Italy.",
+        "p2": "We collect the consignment at the loading point and deliver it at the agreed time."
+      },
+      "chlazene": {
+        "title": "Chilled transport",
+        "p1": "We specialise in goods that must stay at a controlled temperature, mainly food. We carry these loads under HACCP certification.",
+        "points": {
+          "a": "HACCP is a quality management system focused on food safety.",
+          "b": "We have defined critical control points for transport.",
+          "c": "We monitor the temperature in the trailer online through its own GPS unit."
+        },
+        "link": "Refrigerated trailers in our fleet"
+      },
+      "walking": {
+        "title": "Walking floor",
+        "p1": "Since 2016 we have also carried loose bulk goods in trailers with a moving floor. The load is unloaded without tipping, so you need no handling equipment at the drop-off.",
+        "p2": "Typically this means wood chips, sawdust and other bulk materials.",
+        "link": "Trade in wood materials"
+      },
+      "spedice": {
+        "title": "Freight forwarding",
+        "subtitle": "for carriers",
+        "p1": "Do you have free vehicles on the Czech Republic – Italy route? Thanks to our contract partners in both countries we can help you fill them, mainly with goods under controlled temperature.",
+        "call": "Call dispatch"
+      },
+      "pojisteni": {
+        "title": "Insurance",
+        "points": {
+          "a": "Transport is insured under the international CMR convention.",
+          "b": "Insurance with the Czech business insurer, covering up to 10 million, applies across the whole EU.",
+          "c": "Freight forwarding is covered by the forwarder's liability insurance for damage."
+        }
+      }
+    }
+  },
+  "Fleet": {
+    "title": "Fleet",
+    "metaDescription": "Scania and DAF tractor units meeting EURO 6, Schmitz and Krone refrigerated trailers, Stas and Reich walking-floor trailers. All vehicles have GPS.",
+    "lead": "We drive our own trucks: Scania and DAF tractor units with refrigerated and walking-floor trailers. Every vehicle has navigation and GPS with online tracking.",
+    "plateLabel": "The fleet in numbers",
+    "plate": {
+      "setsLabel": "Own trucks",
+      "sets": "14",
+      "euroLabel": "Emission standard of tractor units",
+      "euro": "EURO 6",
+      "tractorsLabel": "Tractor units",
+      "tractors": "Scania, DAF",
+      "reeferLabel": "Refrigerated trailers",
+      "reefer": "Schmitz, Krone",
+      "walkingLabel": "Walking-floor trailers",
+      "walking": "Stas, Reich",
+      "gpsLabel": "Tracking",
+      "gps": "GPS online"
+    },
+    "tractors": {
+      "title": "Tractor units",
+      "makes": "Scania, DAF",
+      "text": "The tractor units meet the EURO 6 emission standard. Each one has navigation, a GPS unit and a phone, so the driver stays in touch with dispatch at all times.",
+      "photoAlt": "Three white Scania tractor units of DEMAL SPEDITION parked on the yard"
+    },
+    "trailers": {
+      "title": "Trailers",
+      "photoAlt": "Row of refrigerated and walking-floor trailers of DEMAL SPEDITION, seen from the back",
+      "reefer": "Refrigerated trailers",
+      "reeferMakes": "Schmitz, Krone",
+      "reeferText": "For goods that must travel at a controlled temperature, mainly food. We carry these loads according to HACCP principles.",
+      "walking": "Walking-floor trailers",
+      "walkingMakes": "Stas, Reich, since 2016",
+      "walkingText": "The moving floor unloads the load by itself, without tipping and without handling equipment. We carry loose bulk materials in them: wood chips, sawdust and other bulk goods."
+    },
+    "tracking": {
+      "title": "We know where your consignment is",
+      "position": "Position",
+      "positionText": "Thanks to GPS and data transmission, the vehicles are under constant supervision from dispatch.",
+      "temperature": "Temperature",
+      "temperatureText": "The refrigerated trailers have their own GPS unit, which sends the temperature history of the cargo in real time."
+    }
+  },
+  "Contact": {
+    "title": "Contact",
+    "metaDescription": "Dispatch of DEMAL SPEDITION s.r.o., registered seat in Všemyslice and billing details.",
+    "dispatchTitle": "Dispatch",
+    "dispatchText": "The quickest way to request transport or wood materials is by phone. In writing, use the form or e-mail.",
+    "quoteCta": "Request transport",
+    "phone": "Phone",
+    "email": "E-mail",
+    "seatTitle": "Registered seat",
+    "openMapy": "Open in Mapy.com",
+    "openGoogle": "Open in Google Maps",
+    "newTab": "(opens in a new window)",
+    "billingTitle": "Billing details",
+    "billingName": "Company name",
+    "billingSeat": "Registered seat",
+    "billingIco": "Company ID",
+    "billingDic": "VAT ID",
+    "billingRegister": "Entry in the Commercial Register",
+    "registerValue": "file number {register}, {court}"
+  },
+  "Privacy": {
+    "title": "Privacy policy",
+    "metaDescription": "How DEMAL SPEDITION s.r.o. processes personal data from enquiries, and what rights you have.",
+    "updated": "Valid from {date}"
+  },
+  "Quote": {
+    "metaTitle": "Request for transport and wood materials",
+    "metaDescription": "Send a request for road haulage or wood materials. A DEMAL SPEDITION dispatcher will get back to you with a quote.",
+    "title": "Request",
+    "lead": "Fill in what you know. The more precise the details, the faster we prepare a quote.",
+    "asideTitle": "Prefer to call?",
+    "asideText": "Dispatch",
+    "typeLegend": "What would you like to request?",
+    "typeTransport": "Transport",
+    "typeWood": "Wood materials",
+    "transport": {
+      "legend": "Transport",
+      "from": "Loading place",
+      "fromHint": "city and country, postcode if you have it",
+      "to": "Unloading place",
+      "date": "Loading date",
+      "kind": "Type of transport",
+      "kindReefer": "chilled, at a controlled temperature",
+      "kindWalking": "bulk material, walking floor",
+      "kindOther": "other or not sure",
+      "temp": "Required temperature",
+      "tempHint": "for example +2 to +4 °C",
+      "cargo": "Type of goods",
+      "amount": "Weight or volume",
+      "amountHint": "for example 24 t or 90 m³"
+    },
+    "wood": {
+      "legend": "Wood materials",
+      "direction": "You want to",
+      "buy": "buy",
+      "sell": "sell",
+      "commodity": "Material",
+      "chips": "wood chips",
+      "sawdust": "sawdust",
+      "pellets": "pellets",
+      "byproducts": "by-products",
+      "other": "other",
+      "amount": "Quantity",
+      "amountHint": "for example 100 t per month",
+      "place": "Delivery or pick-up place",
+      "when": "From when and how often"
+    },
+    "contact": {
+      "legend": "Contact",
+      "name": "First and last name",
+      "company": "Company",
+      "email": "E-mail",
+      "phone": "Phone",
+      "note": "Note",
+      "optional": "optional"
+    },
+    "privacy": "We use your details only to handle the request.",
+    "privacyLink": "Privacy policy",
+    "submit": "Send request",
+    "submitting": "Sending…",
+    "errors": {
+      "required": "Please fill in this field.",
+      "email": "Enter an e-mail address in the form name@company.cz.",
+      "tooLong": "The text is too long.",
+      "form": "The form contains errors. Please correct the marked fields.",
+      "server": "The request could not be sent. Try again, or call dispatch on {phone}."
+    },
+    "success": {
+      "title": "We have received your request",
+      "text": "A dispatcher will get back to you at the e-mail address or phone number you gave. If you are in a hurry, call {phone}.",
+      "again": "Send another request"
+    },
+    "date": {
+      "choose": "Choose a date",
+      "prev": "Previous month",
+      "next": "Next month",
+      "clear": "Clear",
+      "today": "Today"
+    }
+  },
+  "Home": {
+    "hero": {
+      "title": "Road haulage and wood materials",
+      "subtitle": "Reliable across the Czech Republic and all of Europe",
+      "lead": "With our own trucks we carry temperature-controlled goods and bulk materials across the whole European Union. We buy and sell wood chips, sawdust and pellets.",
+      "ctaTransport": "Request transport",
+      "ctaWood": "Offer / request material",
+      "photoAlt": "Trucks on the Europabrücke, Brenner motorway near Innsbruck",
+      "factsLabel": "DEMAL SPEDITION at a glance",
+      "facts": {
+        "fleet": {
+          "title": "Own fleet",
+          "text": "14 trucks, Scania and DAF"
+        },
+        "euro": {
+          "title": "EURO 6",
+          "text": "all tractor units"
+        },
+        "gps": {
+          "title": "GPS online",
+          "text": "position and temperature of the load"
+        },
+        "eu": {
+          "title": "CZ + Europe",
+          "text": "most often southern Italy"
+        }
+      }
+    },
+    "branches": {
+      "label": "What we do",
+      "transport": {
+        "title": "Road haulage",
+        "lead": "With our own trucks we drive across the whole European Union, most often between the Czech Republic and southern Italy. We carry temperature-controlled goods under HACCP principles.",
+        "items": {
+          "reefer": "Chilled transport",
+          "reeferNote": "controlled temperature with an online record",
+          "walking": "Walking floor",
+          "walkingNote": "bulk and loose materials",
+          "spedition": "Freight forwarding",
+          "speditionNote": "filling vehicles of our partners in the Czech Republic and Italy",
+          "tracking": "Tracking",
+          "trackingNote": "GPS in every vehicle"
+        },
+        "link": "More about transport"
+      },
+      "wood": {
+        "title": "Wood materials",
+        "lead": "We buy and sell wood mass for combined heat and power plants, sawmills and other customers. We collect it with our own trailers.",
+        "items": {
+          "chips": "Wood chips",
+          "sawdust": "Sawdust",
+          "pellets": "Pellets",
+          "byproducts": "By-products of the wood industry"
+        },
+        "link": "More about materials"
+      }
+    },
+    "fleet": {
+      "title": "Fleet",
+      "lead": "Every vehicle has navigation and GPS with online tracking, so we know where your consignment is.",
+      "photoAlt": "Three white Scania tractor units of DEMAL SPEDITION parked on the yard",
+      "tableCaption": "Vehicle types and what they are good for",
+      "colVehicle": "Vehicle",
+      "colUse": "Use",
+      "rows": {
+        "reefer": "Refrigerated trailers",
+        "reeferMakes": "Schmitz, Krone",
+        "reeferUse": "goods at a controlled temperature, food according to HACCP",
+        "walking": "Walking-floor trailers",
+        "walkingMakes": "Stas, Reich",
+        "walkingUse": "wood chips, sawdust and other bulk materials",
+        "tractors": "Tractor units",
+        "tractorsMakes": "Scania, DAF",
+        "tractorsUse": "EURO 6 standard, GPS in every vehicle"
+      },
+      "link": "The whole fleet"
+    },
+    "why": {
+      "title": "Why DEMAL",
+      "own": {
+        "figure": "14",
+        "caption": "own trucks, on the market since 2012",
+        "claim": "We drive our own vehicles",
+        "body": "We are not just a broker. We carry your consignments in our own trucks and we answer for the transport ourselves."
+      },
+      "insured": {
+        "figure": "CMR",
+        "caption": "Czech business insurer, cover up to 10 million",
+        "claim": "The goods are insured",
+        "body": "Transport is insured under the CMR convention across the whole European Union. Freight forwarding is covered by the forwarder's liability insurance."
+      },
+      "direct": {
+        "caption": "dispatch, direct line",
+        "claim": "You call the dispatcher directly",
+        "body": "A real person answers the phone, plans your transport and knows where the truck is right now."
+      }
+    },
+    "quote": {
+      "title": "Do you need something moved?",
+      "cta": "Request transport",
+      "orCall": "or call dispatch",
+      "needsTitle": "A short message is enough",
+      "needs": {
+        "route": {
+          "label": "From where to where",
+          "example": "Všemyslice → Bari"
+        },
+        "date": {
+          "label": "When to load",
+          "example": "Tuesday, 12 Nov, morning"
+        },
+        "cargo": {
+          "label": "What and how much",
+          "example": "33 pallets, 24 t"
+        },
+        "temp": {
+          "label": "Temperature for chilled goods",
+          "example": "+2 to +4 °C"
+        }
+      },
+      "examplePrefix": "e.g."
+    },
+    "materials": {
+      "title": "What we transport and trade",
+      "lead": "We arrange the purchase, sale and transport of wood mass for combined heat and power plants, sawmills, pellet makers and other industrial customers.",
+      "link": "Wood materials"
+    }
+  },
+  "Materials": {
+    "title": "Wood materials",
+    "metaDescription": "Purchase, sale and transport of wood chips, sawdust, pellets and by-products of the wood industry.",
+    "lead": "We buy and sell wood mass for combined heat and power plants, sawmills, pellet makers and other customers. We collect it with our own walking-floor trailers.",
+    "listTitle": "What we offer",
+    "pendingTitle": "Details are being prepared",
+    "pendingText": "Dispatch is happy to tell you the specifications, prices and current availability. You can also send a request through the form.",
+    "cta": "Request material",
+    "ctaItem": "Request {name}",
+    "call": "or call",
+    "open": "View",
+    "otherTitle": "More materials",
+    "backLink": "All wood materials",
+    "items": {
+      "chips": {
+        "name": "Wood chips",
+        "note": "fuel and technical grade",
+        "alt": "Detail of fresh wood chips",
+        "description": "Chopped wood pieces from forestry residues and sawmill waste. Used mainly as fuel in heat plants and boiler rooms, and as a raw material for further processing.",
+        "ctaName": "wood chips"
+      },
+      "sawdust": {
+        "name": "Sawdust",
+        "note": "from sawmills and wood processing plants",
+        "alt": "Pile of sawdust in an industrial yard",
+        "description": "The fine by-product of cutting wood at sawmills. Used as a raw material for pellets and briquettes, as fuel or as bedding.",
+        "ctaName": "sawdust"
+      },
+      "pellets": {
+        "name": "Pellets",
+        "note": "wood pellets for heating",
+        "alt": "Detail of wood pellets",
+        "description": "Cylinders pressed from sawdust and shavings. A fuel for boilers and stoves with high calorific value and little ash.",
+        "ctaName": "pellets"
+      },
+      "byproducts": {
+        "name": "By-products",
+        "note": "bark, offcuts and roundwood",
+        "alt": "Ends of pine roundwood stacked up",
+        "description": "Bark, offcuts, slabs and roundwood from the wood industry, which are used further as fuel or as a raw material.",
+        "ctaName": "by-products"
+      }
+    }
+  },
+  "PhotoCredits": {
+    "title": "Photo credits",
+    "metaDescription": "Authors and licences of the photographs used on the website of DEMAL SPEDITION s.r.o.",
+    "lead": "Some photographs on this website come from Wikimedia Commons and are published under open licences. Their authors are listed below.",
+    "colPhoto": "Photo",
+    "colAuthor": "Author",
+    "colLicense": "Licence",
+    "colSource": "Source",
+    "source": "Wikimedia Commons",
+    "subjects": {
+      "europa": "Europabrücke, Brenner",
+      "chips": "Wood chips",
+      "sawdust": "Sawdust",
+      "pellets": "Pellets",
+      "byproducts": "Roundwood"
+    }
+  }
+}

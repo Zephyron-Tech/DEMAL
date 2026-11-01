@@ -10,19 +10,32 @@ const knownMaterials = new Set<string>(materialSlugs);
 export default function proxy(request: NextRequest) {
   // Admin pages need a valid session; the login page itself stays open.
   const { pathname } = request.nextUrl;
-  const adminPath = pathname.match(/^\/(?:cs\/)?admin(\/.*)?$/);
-  if (adminPath && !(adminPath[1] ?? "").startsWith("/prihlaseni")) {
-    if (!isValidSessionToken(request.cookies.get(ADMIN_COOKIE)?.value)) {
+  // Administration is Czech only: /de/admin and /en/admin go to the Czech path.
+  const adminPath = pathname.match(/^\/(?:(cs|de|en)\/)?admin(\/.*)?$/);
+  if (adminPath) {
+    const [, prefix, rest = ""] = adminPath;
+    if (prefix === "de" || prefix === "en") {
+      return NextResponse.redirect(new URL(`/admin${rest}`, request.url));
+    }
+    if (!rest.startsWith("/prihlaseni") && !isValidSessionToken(request.cookies.get(ADMIN_COOKIE)?.value)) {
       return NextResponse.redirect(new URL("/admin/prihlaseni", request.url));
     }
+  }
+
+  // Internal pages exist in Czech only: their German and English paths go to the Czech one.
+  const internal = pathname.match(/^\/(?:de|en)\/(podklady|styleguide)(\/.*)?$/);
+  if (internal) {
+    return NextResponse.redirect(new URL(`/${internal[1]}${internal[2] ?? ""}`, request.url));
   }
 
   // With cacheComponents a page cannot reject unknown params itself (no dynamicParams), and
   // notFound() there would answer 200. Unknown commodities are sent to a path with no route,
   // which Next.js answers with app/global-not-found.tsx and a 404 status; the URL stays.
-  const material = pathname.match(/^\/(?:cs\/)?drevni-material\/([^/]+)\/?$/);
-  if (material && !knownMaterials.has(material[1])) {
-    return NextResponse.rewrite(new URL(`/cs/drevni-material/${material[1]}/-`, request.url));
+  // The commodity folder keeps its Czech name internally; each locale's path is mapped to it.
+  const material = pathname.match(/^\/(?:(cs|de|en)\/)?(?:drevni-material|holzmaterial|wood-materials)\/([^/]+)\/?$/);
+  if (material && !knownMaterials.has(material[2])) {
+    const locale = material[1] ?? "cs";
+    return NextResponse.rewrite(new URL(`/${locale}/drevni-material/${material[2]}/-`, request.url));
   }
   return intl(request);
 }
