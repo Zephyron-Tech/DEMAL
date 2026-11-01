@@ -25,7 +25,7 @@ export async function MaterialTiles({ exclude, headingLevel = "h3" }: Props) {
         <li key={item.slug} className="flex">
           <Link
             href={{ pathname: "/drevni-material/[slug]", params: { slug: item.slug } }}
-            className="group flex w-full flex-col bg-white transition-colors hover:bg-asphalt hover:text-trailer"
+            className="group flex w-full flex-col bg-white transition-[background-color,color] duration-500 ease-(--ease-out) motion-reduce:transition-none hover:bg-asphalt hover:text-trailer"
           >
             {/* Same name as the photo at the top of the material's page: it travels there. */}
             <ViewTransition name={`material-${item.slug}`} share="material-photo" default="none">
@@ -44,7 +44,7 @@ export async function MaterialTiles({ exclude, headingLevel = "h3" }: Props) {
                 <Heading className="font-display text-base font-bold not-italic font-wide sm:text-lg">
                   {t(`items.${item.key}.name`)}
                 </Heading>
-                <p className="text-sm break-words hyphens-auto text-graphite group-hover:text-rule">
+                <p className="text-sm break-words hyphens-auto text-graphite transition-colors duration-500 ease-(--ease-out) group-hover:text-rule">
                   {t(`items.${item.key}.note`)}
                 </p>
               </div>
@@ -52,7 +52,7 @@ export async function MaterialTiles({ exclude, headingLevel = "h3" }: Props) {
                   Phones leave it out: two tiles side by side have no room for it next to the note. */}
               <span
                 aria-hidden="true"
-                className="hidden size-10 shrink-0 items-center justify-center self-end bg-asphalt text-trailer transition-colors group-hover:bg-marking group-hover:text-asphalt sm:flex"
+                className="hidden size-10 shrink-0 items-center justify-center self-end bg-asphalt text-trailer transition-[background-color,color] duration-500 ease-(--ease-out) group-hover:bg-marking group-hover:text-asphalt sm:flex"
               >
                 <svg
                   viewBox="0 0 16 16"
