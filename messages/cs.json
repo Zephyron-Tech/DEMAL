@@ -32,7 +32,7 @@
     "copyright": "© {year} DEMAL SPEDITION s.r.o.",
     "register": "Zapsáno v obchodním rejstříku, spisová značka {register}, {court}",
     "icoDic": "IČ / DIČ",
-    "photos": "Fotografie:"
+    "photoSources": "Zdroje fotografií"
   },
   "NotFound": {
     "metaTitle": "Stránka nenalezena",
@@ -407,5 +407,15 @@
         "ctaName": "vedlejší produkty"
       }
     }
+  },
+  "PhotoCredits": {
+    "title": "Zdroje fotografií",
+    "metaDescription": "Autoři a licence fotografií použitých na webu DEMAL SPEDITION s.r.o.",
+    "lead": "Některé fotografie na tomto webu pocházejí z Wikimedia Commons a jsou zveřejněné pod otevřenými licencemi. Jejich autoři jsou uvedeni níže.",
+    "colPhoto": "Fotografie",
+    "colAuthor": "Autor",
+    "colLicense": "Licence",
+    "colSource": "Zdroj",
+    "source": "Wikimedia Commons"
   }
 }

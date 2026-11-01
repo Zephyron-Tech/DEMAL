@@ -16,6 +16,7 @@ export const routing = defineRouting({
     "/kontakt": "/kontakt",
     "/poptavka": "/poptavka",
     "/ochrana-osobnich-udaju": "/ochrana-osobnich-udaju",
+    "/zdroje-fotografii": "/zdroje-fotografii",
   },
 });
 

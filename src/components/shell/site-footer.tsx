@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import type { StaticPathname } from "@/i18n/routing";
-import { photoCredits } from "@/content/photo-credits";
 import { company } from "@/lib/company";
 
 // Resolved at prerender and refreshed with each deploy.
@@ -95,25 +94,19 @@ export async function SiteFooter() {
             <p>{t("copyright", { year })}</p>
             <p>{t("register", { register: company.register, court: company.registerCourt })}</p>
           </div>
-          <Link href="/ochrana-osobnich-udaju" className="underline-offset-4 hover:underline">
-            {t("privacy")}
-          </Link>
-          {/* Attribution required by the CC BY / CC BY-SA photographs, via Wikimedia Commons. */}
-          <p className="basis-full text-xs">
-            {t("photos")}{" "}
-            {photoCredits.map((credit, i) => (
-              <span key={credit.page}>
-                <a href={credit.page} className="underline underline-offset-2 hover:text-trailer">
-                  {credit.subject}
-                </a>{" "}
-                ({credit.creator},{" "}
-                <a href={credit.licenseUrl} className="underline underline-offset-2 hover:text-trailer">
-                  {credit.license}
-                </a>
-                ){i < photoCredits.length - 1 ? ", " : ", Wikimedia Commons."}
-              </span>
-            ))}
-          </p>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            <li>
+              <Link href="/ochrana-osobnich-udaju" className="underline-offset-4 hover:underline">
+                {t("privacy")}
+              </Link>
+            </li>
+            {/* Attribution required by the CC BY / CC BY-SA photographs lives on its own page. */}
+            <li>
+              <Link href="/zdroje-fotografii" className="underline-offset-4 hover:underline">
+                {t("photoSources")}
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </footer>
