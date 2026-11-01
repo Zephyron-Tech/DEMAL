@@ -12,10 +12,10 @@ export async function PendingNotice({ ctaLabel }: { ctaLabel?: string }) {
         {t("pendingTitle")}
       </h2>
       <p className="mt-3 max-w-[56ch]">{t("pendingText")}</p>
-      <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4">
+      <div className="mt-6 flex flex-col items-stretch gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8 sm:gap-y-4">
         <Link
           href={{ pathname: "/poptavka", query: { typ: "drevo" } }}
-          className="inline-flex min-h-12 items-center bg-marking px-6 font-display font-bold font-wide text-asphalt press hover:bg-marking-deep"
+          className="inline-flex min-h-12 w-full items-center justify-center bg-marking px-6 py-2 text-center text-balance font-display font-bold font-wide text-asphalt press hover:bg-marking-deep sm:w-auto"
         >
           {ctaLabel ?? t("cta")}
         </Link>
