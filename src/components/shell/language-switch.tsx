@@ -13,7 +13,16 @@ const languages: Record<string, { short: string; name: string }> = {
 // Switches the language of the current page. The URL changes to the same page in the other language,
 // including its translated path; the link is a plain Link, so no cookie is set.
 // `dark` is for the footer's asphalt ground, where the light-ground colours would not pass contrast.
-export function LanguageSwitch({ className = "", dark = false }: { className?: string; dark?: boolean }) {
+// `bar` is the mobile header bar: plain codes, 44px touch targets side by side, active one in bold.
+export function LanguageSwitch({
+  className = "",
+  dark = false,
+  bar = false,
+}: {
+  className?: string;
+  dark?: boolean;
+  bar?: boolean;
+}) {
   const t = useTranslations("Shell");
   const locale = useLocale();
   const pathname = usePathname();
@@ -24,7 +33,7 @@ export function LanguageSwitch({ className = "", dark = false }: { className?: s
 
   return (
     <nav aria-label={t("switchLanguage")} className={className}>
-      <ul className="flex items-center gap-1 text-sm font-semibold">
+      <ul className={`flex items-center text-sm font-semibold ${bar ? "gap-0" : "gap-1"}`}>
         {routing.locales.map((l) => (
           <li key={l}>
             <Link
@@ -33,7 +42,9 @@ export function LanguageSwitch({ className = "", dark = false }: { className?: s
               hrefLang={l}
               lang={l}
               aria-current={l === locale ? "true" : undefined}
-              className={`inline-flex min-h-11 items-center px-2 link-reveal ${
+              className={`inline-flex min-h-11 items-center ${
+                bar ? "min-w-11 justify-center px-1 font-bold no-underline" : "px-2 link-reveal"
+              } ${
                 dark
                   ? l === locale
                     ? "text-marking"

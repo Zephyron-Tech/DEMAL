@@ -59,11 +59,12 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
         type="button"
         aria-expanded={open}
         aria-controls={panelId}
+        aria-label={open ? closeLabel : openLabel}
         onClick={() => setOpen((value) => !value)}
-        className="press group flex min-h-11 items-center gap-2 border-2 border-asphalt px-3 font-display font-bold font-wide lg:hidden"
+        className="press group flex size-11 items-center justify-center text-asphalt lg:hidden"
       >
         {/* Three bars fold into a cross: the outer two meet in the middle and turn, the middle one goes. */}
-        <svg aria-hidden="true" viewBox="0 0 16 16" className="size-4" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg aria-hidden="true" viewBox="0 0 16 16" className="size-6" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path
             d="M1 3.5h14"
             className="origin-[8px_8px] transition-transform duration-(--duration-ui) ease-out group-aria-expanded:[transform:rotate(45deg)_translateY(4.5px)]"
@@ -77,7 +78,6 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
             className="origin-[8px_8px] transition-transform duration-(--duration-ui) ease-out group-aria-expanded:[transform:rotate(-45deg)_translateY(-4.5px)]"
           />
         </svg>
-        {open ? closeLabel : openLabel}
       </button>
 
       {/* Drops 8px into place as it opens and leaves a little faster; @starting-style and a discrete

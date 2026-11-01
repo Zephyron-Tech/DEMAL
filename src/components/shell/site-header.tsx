@@ -5,6 +5,7 @@ import { company } from "@/lib/company";
 import logo from "../../../public/logo_nobg.png";
 import { HomeLink } from "./home-link";
 import { TopStrip } from "./top-strip";
+import { LanguageSwitch } from "./language-switch";
 import { MainNav } from "./main-nav";
 import { SiteHeaderFrame } from "./site-header-frame";
 
@@ -15,7 +16,7 @@ export async function SiteHeader() {
   return (
     <SiteHeaderFrame>
       <TopStrip />
-      <div className="relative mx-auto flex h-18 max-w-(--container-page) items-center justify-between gap-6 px-4 sm:px-8">
+      <div className="relative mx-auto flex h-18 max-w-(--container-page) items-center justify-between gap-2 px-4 lg:gap-6 sm:px-8">
         {/* The logo tab hangs below the bar. Its fillets, sides and rounded bottom are one SVG path
             in the bar's white, so bar and tab are a single shape with no seam. */}
         {/* The tab drops 24px below the bar. The logo stays in the bar box and moves with transforms:
@@ -40,16 +41,8 @@ export async function SiteHeader() {
           />
         </HomeLink>
 
-        <div className="flex items-center gap-3 lg:gap-6 xl:gap-8">
-          <a
-            href={company.dispatch.phoneHref}
-            aria-label={`${t("dispatch")} ${company.dispatch.phone}`}
-            className="press flex size-11 items-center justify-center border-2 border-asphalt lg:hidden"
-          >
-            <svg aria-hidden="true" viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2" />
-            </svg>
-          </a>
+        <div className="flex items-center gap-2 lg:gap-6 xl:gap-8">
+          <LanguageSwitch bar className="lg:hidden" />
           <MainNav
             label={t("mainNav")}
             openLabel={t("openMenu")}
