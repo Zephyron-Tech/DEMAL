@@ -9,7 +9,7 @@ import { submitQuote, type QuoteState, type QuoteType } from "./actions";
 
 const initialState: QuoteState = { status: "idle", message: "" };
 
-// The bottom rule darkens under the pointer and turns blue with the focus ring sitting on the field.
+// The bottom rule darkens under the pointer and turns blue on focus, the outline sitting on the field.
 const inputClass =
   "w-full border border-rule border-b-2 border-b-graphite bg-white px-3 py-2.5 transition-colors hover:border-b-asphalt focus-visible:border-b-demal focus-visible:outline-offset-0 aria-[invalid=true]:border-alert aria-[invalid=true]:border-b-alert";
 
