@@ -14,15 +14,16 @@ export async function SiteHeader() {
       <div className="relative mx-auto flex h-18 max-w-(--container-page) items-center justify-between gap-6 px-4 sm:px-8">
         {/* The logo tab hangs below the bar. Its fillets, sides and rounded bottom are one SVG path
             in the bar's white, so bar and tab are a single shape with no seam. */}
-        <Link href="/" className="relative flex w-[150px] shrink-0 self-stretch items-center justify-center" aria-label={t("homeLink")}>
+        {/* The tab is 96px tall (bar 72px + 24px drop); the logo is centred in that whole shape. */}
+        <Link href="/" className="relative flex h-24 w-[140px] shrink-0 items-center justify-center self-start" aria-label={t("homeLink")}>
           <svg
             aria-hidden="true"
-            viewBox="0 -1 178 29"
-            className="pointer-events-none absolute -left-3.5 top-[71px] h-[29px] w-[178px]"
+            viewBox="0 -1 168 25"
+            className="pointer-events-none absolute -left-3.5 top-[71px] h-[25px] w-[168px]"
           >
             <path
               fill="#fff"
-              d="M0,-1 L0,0 A14,14 0 0 1 14,14 V18 A10,10 0 0 0 24,28 H154 A10,10 0 0 0 164,18 V14 A14,14 0 0 1 178,0 L178,-1 Z"
+              d="M0,-1 L0,0 A14,14 0 0 1 14,14 V16 A8,8 0 0 0 22,24 H146 A8,8 0 0 0 154,16 V14 A14,14 0 0 1 168,0 L168,-1 Z"
             />
           </svg>
           {/* The raster logo has a near-white background: contrast pushes it to pure white and
