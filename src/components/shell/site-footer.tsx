@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import type { Pathname } from "@/i18n/routing";
+import { photoCredits } from "@/content/photo-credits";
 import { company } from "@/lib/company";
 
 // Resolved at prerender and refreshed with each deploy.
@@ -97,6 +98,22 @@ export async function SiteFooter() {
           <Link href="/ochrana-osobnich-udaju" className="underline-offset-4 hover:underline">
             {t("privacy")}
           </Link>
+          {/* Attribution required by the CC BY / CC BY-SA photographs, via Wikimedia Commons. */}
+          <p className="basis-full text-xs">
+            {t("photos")}{" "}
+            {photoCredits.map((credit, i) => (
+              <span key={credit.page}>
+                <a href={credit.page} className="underline underline-offset-2 hover:text-trailer">
+                  {credit.subject}
+                </a>{" "}
+                ({credit.creator},{" "}
+                <a href={credit.licenseUrl} className="underline underline-offset-2 hover:text-trailer">
+                  {credit.license}
+                </a>
+                ){i < photoCredits.length - 1 ? ", " : ", Wikimedia Commons."}
+              </span>
+            ))}
+          </p>
         </div>
       </div>
     </footer>

@@ -31,7 +31,8 @@
     "privacy": "Ochrana osobních údajů",
     "copyright": "© {year} DEMAL SPEDITION s.r.o.",
     "register": "Zapsáno v obchodním rejstříku, spisová značka {register}, {court}",
-    "icoDic": "IČ / DIČ"
+    "icoDic": "IČ / DIČ",
+    "photos": "Fotografie:"
   },
   "NotFound": {
     "metaTitle": "Stránka nenalezena",
@@ -251,25 +252,30 @@
   },
   "Home": {
     "hero": {
-      "title": "Mezinárodní kamionová doprava a obchod se dřevem",
-      "lead": "Čtrnáct vlastních souprav jezdí z Česka po celé Evropské unii, nejčastěji do jižní Itálie. Vozíme zboží s kontrolovanou teplotou i sypké materiály v návěsech walking floor.",
+      "title": "Kamionová doprava a dřevní materiál",
+      "subtitle": "Spolehlivě po Česku i celé Evropě",
+      "lead": "Vlastními soupravami vozíme zboží s kontrolovanou teplotou i sypké materiály po celé Evropské unii. Nakupujeme a prodáváme dřevní štěpku, piliny a pelety.",
       "ctaTransport": "Poptat přepravu",
-      "ctaWood": "Dřevní materiál",
-      "photoAlt": "Řada chladírenských a walking floor návěsů DEMAL SPEDITION na parkovišti, pohled zezadu",
-      "plateLabel": "Vozový park v číslech",
-      "plate": {
-        "setsLabel": "Vlastní soupravy",
-        "sets": "14",
-        "euroLabel": "Emisní norma tahačů",
-        "euro": "EURO 6",
-        "walkingLabel": "Walking floor",
-        "walking": "od roku 2016",
-        "routeLabel": "Hlavní relace",
-        "route": "ČR – jižní Itálie",
-        "reeferLabel": "Chlazené návěsy",
-        "reefer": "teplota online",
-        "gpsLabel": "Sledování zásilek",
-        "gps": "GPS online"
+      "ctaWood": "Nabídnout / poptat materiál",
+      "photoAlt": "Kamiony na Europabrücke, Brennerská dálnice u Innsbrucku",
+      "factsLabel": "DEMAL SPEDITION v kostce",
+      "facts": {
+        "fleet": {
+          "title": "Vlastní vozový park",
+          "text": "14 souprav, Scania a DAF"
+        },
+        "euro": {
+          "title": "EURO 6",
+          "text": "všechny tahače"
+        },
+        "gps": {
+          "title": "GPS online",
+          "text": "poloha i teplota zásilky"
+        },
+        "eu": {
+          "title": "ČR + Evropa",
+          "text": "nejčastěji jižní Itálie"
+        }
       }
     },
     "branches": {
@@ -350,6 +356,33 @@
         "date": "termín nakládky",
         "cargo": "druh zboží, hmotnost nebo objem",
         "temp": "požadovanou teplotu, pokud jde o chlazené zboží"
+      }
+    },
+    "materials": {
+      "title": "Co přepravujeme a obchodujeme",
+      "lead": "Zajišťujeme nákup, prodej i dopravu dřevní hmoty pro teplárny, pily, výrobce pelet a další průmyslové odběratele.",
+      "link": "Dřevní materiál",
+      "items": {
+        "chips": {
+          "name": "Dřevní štěpka",
+          "note": "palivová i technologická",
+          "alt": "Detail čerstvé dřevní štěpky"
+        },
+        "sawdust": {
+          "name": "Piliny",
+          "note": "z pil a dřevozpracujících provozů",
+          "alt": "Hromada pilin v průmyslovém areálu"
+        },
+        "pellets": {
+          "name": "Pelety",
+          "note": "dřevní pelety pro vytápění",
+          "alt": "Detail dřevních pelet"
+        },
+        "byproducts": {
+          "name": "Vedlejší produkty",
+          "note": "kůra, odřezky a kulatina",
+          "alt": "Čela naskládané borové kulatiny"
+        }
       }
     }
   }
