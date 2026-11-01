@@ -1,7 +1,8 @@
 "use client";
 
 import { LanguageSwitch } from "./language-switch";
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef } from "react";
+import { useHeaderMenu } from "./site-header-frame";
 import { Link, usePathname } from "@/i18n/navigation";
 import type { StaticPathname } from "@/i18n/routing";
 
@@ -18,7 +19,7 @@ type Props = {
 
 export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Props) {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const { menuOpen: open, setMenuOpen: setOpen } = useHeaderMenu();
   const panelId = useId();
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -30,9 +31,27 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
       // Focus would otherwise stay on a link inside the now hidden panel.
       buttonRef.current?.focus();
     };
+    // The menu covers the screen: the page below neither scrolls nor takes focus or clicks.
+    const html = document.documentElement;
+    const previousOverflow = html.style.overflow;
+    html.style.overflow = "hidden";
+    const header = buttonRef.current?.closest("header");
+    const covered = [...document.body.children].filter(
+      (el): el is HTMLElement => el instanceof HTMLElement && el !== header && !el.inert && el.tagName !== "SCRIPT",
+    );
+    covered.forEach((el) => (el.inert = true));
+    // Back on a wide screen the button is gone, so the menu must not stay open.
+    const wide = window.matchMedia("(min-width: 1024px)");
+    const onWide = () => wide.matches && setOpen(false);
+    wide.addEventListener("change", onWide);
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [open]);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      wide.removeEventListener("change", onWide);
+      html.style.overflow = previousOverflow;
+      covered.forEach((el) => (el.inert = false));
+    };
+  }, [open, setOpen]);
 
   const isActive = (href: StaticPathname) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
@@ -80,44 +99,55 @@ export function MainNav({ items, label, openLabel, closeLabel, cta, phone }: Pro
         </svg>
       </button>
 
-      {/* Drops 8px into place as it opens and leaves a little faster; @starting-style and a discrete
-          display transition, so browsers without them simply show and hide it. */}
+      {/* Fills the screen under the 72px bar. Opens as a reveal from the top on the logo tab's timing and
+          leaves a little faster; @starting-style and a discrete display transition, so browsers
+          without them simply show and hide it. */}
       <div
         id={panelId}
         hidden={!open}
-        className="absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain border-t border-rule border-b-2 border-b-asphalt bg-white transition-[opacity,translate,display] transition-discrete duration-(--duration-ui) ease-out starting:-translate-y-2 starting:opacity-0 lg:hidden [&[hidden]]:-translate-y-2 [&[hidden]]:opacity-0 [&[hidden]]:duration-150 [&[hidden]]:ease-exit"
+        className="absolute inset-x-0 top-full h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain bg-white transition-[clip-path,display] transition-discrete duration-600 ease-(--ease-out) [clip-path:inset(0)] starting:[clip-path:inset(0_0_100%_0)] motion-reduce:transition-none lg:hidden [&[hidden]]:[clip-path:inset(0_0_100%_0)] [&[hidden]]:duration-300 [&[hidden]]:ease-exit"
       >
-        <ul className="mx-auto max-w-(--container-page) px-4 py-2 sm:px-8">
-          {items.map((item) => (
-            <li key={item.href} className="border-b border-rule last:border-b-0">
-              <Link
-                href={item.href}
-                onClick={() => setOpen(false)}
-                aria-current={isActive(item.href) ? "page" : undefined}
-                className="flex min-h-14 items-center font-display text-xl font-bold font-wide transition-colors hover:text-demal aria-[current=page]:text-demal"
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div className="mx-auto grid max-w-(--container-page) gap-3 border-t-2 border-asphalt px-4 py-5 sm:grid-cols-2 sm:px-8">
-          <a href={phone.href} className="flex min-h-12 flex-col justify-center">
-            <span className="text-sm text-graphite">{phone.label}</span>
-            <span className="font-display text-lg font-bold font-wide tabular-nums">
-              {phone.number}
-            </span>
-          </a>
-          <Link
-            href={cta.href}
-            onClick={() => setOpen(false)}
-            className="press inline-flex min-h-12 items-center justify-center bg-marking px-6 font-display font-bold font-wide text-asphalt hover:bg-marking-deep"
-          >
-            {cta.label}
-          </Link>
-        </div>
-        <div className="mx-auto max-w-(--container-page) border-t border-rule px-4 py-3 sm:px-8">
-          <LanguageSwitch />
+        <div className="mx-auto flex min-h-full max-w-(--container-page) flex-col px-4 sm:px-8">
+          <ul className="border-t-2 border-asphalt">
+            {items.map((item) => (
+              <li key={item.href} className="border-b border-rule">
+                <Link
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  aria-current={isActive(item.href) ? "page" : undefined}
+                  className="group/item flex min-h-18 items-center justify-between font-display text-3xl font-bold font-wide transition-colors hover:text-demal aria-[current=page]:text-demal"
+                >
+                  {item.label}
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="size-6 text-graphite transition-[translate,color] duration-(--duration-ui) ease-out group-hover/item:translate-x-1 group-hover/item:text-demal group-aria-[current=page]/item:text-demal"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M5 12h14m-6-6 6 6-6 6" />
+                  </svg>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-auto grid gap-3 border-t-2 border-asphalt py-5 sm:grid-cols-2">
+            <a href={phone.href} className="flex min-h-12 flex-col justify-center">
+              <span className="text-sm text-graphite">{phone.label}</span>
+              <span className="font-display text-xl font-bold font-wide tabular-nums">{phone.number}</span>
+            </a>
+            <Link
+              href={cta.href}
+              onClick={() => setOpen(false)}
+              className="press inline-flex min-h-12 items-center justify-center bg-marking px-6 font-display font-bold font-wide text-asphalt hover:bg-marking-deep"
+            >
+              {cta.label}
+            </Link>
+          </div>
+          <div className="border-t border-rule py-2">
+            <LanguageSwitch />
+          </div>
         </div>
       </div>
     </nav>

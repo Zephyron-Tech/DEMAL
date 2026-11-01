@@ -1,14 +1,24 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
 
 const BAR_HEIGHT = 72;
+
+// The mobile menu shares its state with the frame: while it is open the header folds exactly as it
+// does on scroll, so the logo tab retracts and the logo sits centred in the bar.
+const HeaderMenuContext = createContext<{ menuOpen: boolean; setMenuOpen: Dispatch<SetStateAction<boolean>> }>({
+  menuOpen: false,
+  setMenuOpen: () => {},
+});
+
+export const useHeaderMenu = () => useContext(HeaderMenuContext);
 
 // Sticky header frame. Rendered folded, so the bar reads as one piece. Once mounted, a page at the
 // top unfolds: the logo tab grows out of the bar and the logo grows into place. Once the hero has
 // scrolled away the header stays folded. A shadow falls under the frame from the first pixel.
 export function SiteHeaderFrame({ children }: { children: ReactNode }) {
   const [compact, setCompact] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const update = () => {
@@ -35,10 +45,10 @@ export function SiteHeaderFrame({ children }: { children: ReactNode }) {
   return (
     <>
       <header
-        data-compact={compact}
+        data-compact={compact || menuOpen}
         className="group/header sticky top-0 z-40 bg-white drop-shadow-[0_6px_10px_rgb(30_34_38/0.28)]"
       >
-        {children}
+        <HeaderMenuContext value={{ menuOpen, setMenuOpen }}>{children}</HeaderMenuContext>
       </header>
       {/* Stands in for the strip's collapsed height, so the page below never moves while it folds. */}
       <div
