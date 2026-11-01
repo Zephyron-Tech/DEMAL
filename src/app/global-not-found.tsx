@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import { NotFoundContent } from "@/components/not-found-content";
 import { SiteFooter } from "@/components/shell/site-footer";
 import { SiteHeader } from "@/components/shell/site-header";
+import { clientMessages } from "@/i18n/client-messages";
 import { routing } from "@/i18n/routing";
 import { archivo, publicSans } from "./fonts";
 import "./globals.css";
@@ -17,14 +18,14 @@ export async function generateMetadata(): Promise<Metadata> {
   return { title: `${t("metaTitle")} | DEMAL SPEDITION` };
 }
 
-export default function GlobalNotFound() {
+export default async function GlobalNotFound() {
   return (
     <html
       lang={locale}
       className={`${archivo.variable} ${publicSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <NextIntlClientProvider locale={locale}>
+        <NextIntlClientProvider locale={locale} messages={clientMessages(await getMessages({ locale }))}>
           <SiteHeader />
           <NotFoundContent />
           <SiteFooter />

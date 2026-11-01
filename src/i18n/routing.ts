@@ -10,6 +10,9 @@ export const routing = defineRouting({
   // URL the visitor chose, so the privacy notice can say that no cookies are set.
   localeCookie: false,
   localeDetection: false,
+  // hreflang comes from each page's metadata (src/i18n/alternates.ts) with the canonical origin;
+  // the middleware's Link header would repeat it with whatever host served the request.
+  alternateLinks: false,
   pathnames: {
     "/": "/",
     "/doprava": { cs: "/doprava", de: "/transport", en: "/freight" },

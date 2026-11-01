@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getLocale, getMessages, getTranslations } from "next-intl/server";
+import ogImage from "@/content/og-image.jpg";
 import { ogLocale } from "@/i18n/alternates";
+import { clientMessages } from "@/i18n/client-messages";
 import { routing } from "@/i18n/routing";
 import { isIndexable, siteUrl } from "@/lib/site";
 import { archivo, publicSans } from "../fonts";
@@ -18,6 +20,7 @@ export const viewport: Viewport = { themeColor: "#ffffff" };
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Metadata");
   const locale = await getLocale();
+  const image = { url: ogImage.src, width: ogImage.width, height: ogImage.height, alt: t("ogImageAlt") };
   return {
     metadataBase: new URL(siteUrl),
     title: { default: t("title"), template: "%s | DEMAL SPEDITION" },
@@ -26,7 +29,9 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       siteName: "DEMAL SPEDITION s.r.o.",
       locale: ogLocale[locale] ?? ogLocale.cs,
+      images: [image],
     },
+    twitter: { card: "summary_large_image", images: [image] },
     robots: isIndexable ? undefined : { index: false, follow: false },
   };
 }
@@ -43,7 +48,7 @@ export default async function LocaleLayout({
       className={`${archivo.variable} ${publicSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={clientMessages(await getMessages())}>{children}</NextIntlClientProvider>
         {/* Cookieless page-view counts only; no consent banner needed. See the privacy page. */}
         <Analytics />
       </body>
