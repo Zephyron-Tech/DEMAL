@@ -119,6 +119,15 @@
 }
 
 @layer base {
+  /* Pointer over anything that acts on click. Utilities (for example cursor-progress) still win. */
+  :where(a[href], button, label[for], summary, [role="button"], [role="combobox"], [role="option"]) {
+    cursor: pointer;
+  }
+
+  :where(button:disabled, [aria-disabled="true"]) {
+    cursor: not-allowed;
+  }
+
   html {
     background: var(--color-trailer);
     color: var(--color-asphalt);
