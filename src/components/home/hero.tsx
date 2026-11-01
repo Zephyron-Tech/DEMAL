@@ -156,7 +156,7 @@ export async function Hero() {
                 }`}
               >
                 {facts.map((fact) => (
-                  <li key={fact.key} className="flex shrink-0 items-center gap-3 whitespace-nowrap lg:gap-4">
+                  <li key={fact.key} className="flex shrink-0 items-center gap-3 whitespace-nowrap lg:min-w-0 lg:shrink lg:gap-4 lg:whitespace-normal">
                     <FactIcon shapes={fact.icon} />
                     <span>
                       <span className="block font-display font-bold font-wide">
