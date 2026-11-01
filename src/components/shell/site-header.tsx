@@ -16,11 +16,11 @@ export async function SiteHeader() {
         {/* The logo tab hangs below the bar. Its fillets, sides and rounded bottom are one SVG path
             in the bar's white, so bar and tab are a single shape with no seam. */}
         {/* The tab is 96px tall (bar 72px + 24px drop); the logo is centred in that whole shape. */}
-        <Link href="/" className="relative flex h-24 w-[140px] shrink-0 items-center justify-center self-start" aria-label={t("homeLink")}>
+        <Link href="/" className="relative flex h-24 w-[140px] shrink-0 items-center justify-center self-start transition-[height,width] duration-300 ease-out motion-reduce:transition-none group-data-[compact=true]/header:h-18 group-data-[compact=true]/header:w-26" aria-label={t("homeLink")}>
           <svg
             aria-hidden="true"
             viewBox="0 -1 168 25"
-            className="pointer-events-none absolute -left-3.5 top-[71px] h-[25px] w-[168px]"
+            className="pointer-events-none absolute -left-3.5 top-[71px] h-[25px] w-[168px] transition-[transform,opacity] duration-300 ease-out motion-reduce:transition-none group-data-[compact=true]/header:-translate-y-6 group-data-[compact=true]/header:opacity-0"
           >
             <path
               fill="#fff"
@@ -34,7 +34,7 @@ export async function SiteHeader() {
             alt=""
             loading="eager"
             sizes="150px"
-            className="relative h-17 w-auto contrast-[1.15] mix-blend-multiply"
+            className="relative h-17 w-auto transition-[height] duration-300 ease-out motion-reduce:transition-none group-data-[compact=true]/header:h-12 contrast-[1.15] mix-blend-multiply"
           />
         </Link>
 
