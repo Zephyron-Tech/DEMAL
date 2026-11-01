@@ -44,10 +44,13 @@ export async function SiteFooter() {
             <p className="mt-1 text-rule">{t("tagline")}</p>
           </div>
           <nav aria-label={t("pages")}>
-            <ul className="flex flex-wrap gap-x-6 gap-y-2 font-semibold">
+            <ul className="flex flex-wrap gap-x-6 font-semibold max-lg:gap-y-0 lg:gap-y-2">
               {pages.map((page) => (
                 <li key={page.href}>
-                  <Link href={page.href} className="link-reveal">
+                  <Link
+                    href={page.href}
+                    className="link-reveal max-lg:inline-flex max-lg:min-h-11 max-lg:items-center"
+                  >
                     {page.label}
                   </Link>
                 </li>
@@ -67,12 +70,15 @@ export async function SiteFooter() {
               </span>
             </Field>
             <Field label={t("phone")}>
-              <a href={company.dispatch.phoneHref} className="tabular-nums link-reveal">
+              <a
+                href={company.dispatch.phoneHref}
+                className="tabular-nums link-reveal max-lg:-my-2.5 max-lg:flex max-lg:min-h-11 max-lg:items-center"
+              >
                 {company.dispatch.phone}
               </a>
             </Field>
             <Field label={t("email")}>
-              <a href={`mailto:${company.dispatch.email}`} className="break-all link-reveal">
+              <a href={`mailto:${company.dispatch.email}`} className="break-all link-reveal max-lg:-my-2.5 max-lg:flex max-lg:min-h-11 max-lg:items-center">
                 {company.dispatch.email}
               </a>
             </Field>
@@ -81,25 +87,31 @@ export async function SiteFooter() {
       </div>
 
       <div className="mx-auto max-w-(--container-page) px-4 sm:px-8">
-        <div className="flex flex-wrap justify-between gap-x-6 gap-y-2 border-t border-white/10 py-5 text-sm text-rule">
+        <div className="flex flex-col gap-y-3 border-t border-white/10 pt-5 pb-20 text-sm text-rule sm:flex-row sm:flex-wrap sm:justify-between sm:gap-x-6 sm:gap-y-2 sm:py-5">
           <p>
             {t("copyright", { year })} {t("register", { register: company.register, court: company.registerCourt })}
           </p>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+          <div className="flex flex-col items-start sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-2">
+          <ul className="flex flex-wrap gap-x-6 max-lg:gap-y-0 lg:gap-y-2">
             <li>
-              <Link href="/ochrana-osobnich-udaju" className="link-reveal">
+              <Link
+                href="/ochrana-osobnich-udaju"
+                className="link-reveal max-lg:inline-flex max-lg:min-h-11 max-lg:items-center"
+              >
                 {t("privacy")}
               </Link>
             </li>
             {/* Attribution required by the CC BY / CC BY-SA photographs lives on its own page. */}
             <li>
-              <Link href="/zdroje-fotografii" className="link-reveal">
+              <Link
+                href="/zdroje-fotografii"
+                className="link-reveal max-lg:inline-flex max-lg:min-h-11 max-lg:items-center"
+              >
                 {t("photoSources")}
               </Link>
             </li>
           </ul>
-          <LanguageSwitch dark />
+          <LanguageSwitch dark className="max-sm:-ml-2" />
           </div>
         </div>
       </div>
