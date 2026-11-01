@@ -12,23 +12,26 @@ export async function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 bg-white">
       <div className="relative mx-auto flex h-18 max-w-(--container-page) items-center justify-between gap-6 px-4 sm:px-8">
-        {/* The logo sits in a white tab that drops below the bar, its lower corners rounded and
-            joined to the bar by two small concave fillets. */}
-        <Link href="/" className="relative flex shrink-0 self-stretch items-center px-4" aria-label={t("homeLink")}>
-          <span
+        {/* The logo tab hangs below the bar. Its fillets, sides and rounded bottom are one SVG path
+            in the bar's white, so bar and tab are a single shape with no seam. */}
+        <Link href="/" className="relative flex w-[150px] shrink-0 self-stretch items-center justify-center" aria-label={t("homeLink")}>
+          <svg
             aria-hidden="true"
-            className="absolute inset-0 h-[calc(100%_+_20px)] rounded-b-[20px] bg-white"
+            viewBox="0 -1 178 29"
+            className="pointer-events-none absolute -left-3.5 top-[71px] h-[29px] w-[178px]"
           >
-            <span className="absolute -left-5 top-[calc(100%_-_20px)] size-5 bg-[radial-gradient(circle_at_0_100%,transparent_19.5px,#fff_20px)]" />
-            <span className="absolute -right-5 top-[calc(100%_-_20px)] size-5 bg-[radial-gradient(circle_at_100%_100%,transparent_19.5px,#fff_20px)]" />
-          </span>
+            <path
+              fill="#fff"
+              d="M0,-1 L0,0 A14,14 0 0 1 14,14 V18 A10,10 0 0 0 24,28 H154 A10,10 0 0 0 164,18 V14 A14,14 0 0 1 178,0 L178,-1 Z"
+            />
+          </svg>
           {/* The raster logo has a near-white background: contrast pushes it to pure white and
               multiply lets it merge into the tab. */}
           <Image
             src={logo}
             alt=""
             loading="eager"
-            sizes="140px"
+            sizes="150px"
             className="relative h-16 w-auto contrast-[1.15] mix-blend-multiply"
           />
         </Link>
