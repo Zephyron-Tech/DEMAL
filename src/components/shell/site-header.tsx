@@ -2,7 +2,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { company } from "@/lib/company";
-import logo from "../../../public/logo.png";
+import logo from "../../../public/logo_nobg.png";
 import { MainNav } from "./main-nav";
 import { SiteHeaderFrame } from "./site-header-frame";
 
@@ -15,26 +15,25 @@ export async function SiteHeader() {
       <div className="relative mx-auto flex h-18 max-w-(--container-page) items-center justify-between gap-6 px-4 sm:px-8">
         {/* The logo tab hangs below the bar. Its fillets, sides and rounded bottom are one SVG path
             in the bar's white, so bar and tab are a single shape with no seam. */}
-        {/* The tab is 96px tall (bar 72px + 24px drop); the logo is centred in that whole shape. */}
-        <Link href="/" className="relative flex h-24 w-[140px] shrink-0 items-center justify-center self-start transition-[height,width] duration-500 ease-(--ease-out) motion-reduce:transition-none group-data-[compact=true]/header:h-18 group-data-[compact=true]/header:w-26" aria-label={t("homeLink")}>
+        {/* The tab drops 24px below the bar. The logo stays in the bar box and moves with transforms:
+            expanded it sits 12px lower and full size, compact it is centred in the bar at 0.706 scale. */}
+        <Link href="/" className="relative flex h-18 w-[140px] shrink-0 items-center justify-center self-start" aria-label={t("homeLink")}>
           <svg
             aria-hidden="true"
             viewBox="0 -1 168 25"
-            className="pointer-events-none absolute -left-3.5 top-[71px] h-[25px] w-[168px] transition-[transform,opacity] duration-500 ease-(--ease-out) motion-reduce:transition-none group-data-[compact=true]/header:-translate-y-6 group-data-[compact=true]/header:opacity-0"
+            className="pointer-events-none absolute -left-3.5 top-[71px] h-[25px] w-[168px] transition-[translate,opacity] duration-500 ease-(--ease-out) motion-reduce:transition-none group-data-[compact=true]/header:-translate-y-6 group-data-[compact=true]/header:opacity-0"
           >
             <path
               fill="#fff"
               d="M0,-1 L0,0 A14,14 0 0 1 14,14 V16 A8,8 0 0 0 22,24 H146 A8,8 0 0 0 154,16 V14 A14,14 0 0 1 168,0 L168,-1 Z"
             />
           </svg>
-          {/* The raster logo has a near-white background: contrast pushes it to pure white and
-              multiply lets it merge into the tab. */}
           <Image
             src={logo}
             alt=""
             loading="eager"
             sizes="150px"
-            className="relative h-17 w-auto transition-[height] duration-500 ease-(--ease-out) motion-reduce:transition-none group-data-[compact=true]/header:h-12 contrast-[1.15] mix-blend-multiply"
+            className="relative h-17 w-auto translate-y-3 transition-[translate,scale] duration-500 ease-(--ease-out) motion-reduce:transition-none group-data-[compact=true]/header:translate-x-[-18px] group-data-[compact=true]/header:translate-y-0 group-data-[compact=true]/header:scale-[0.706]"
           />
         </Link>
 
