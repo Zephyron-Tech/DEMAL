@@ -20,19 +20,24 @@ export function SiteHeaderFrame({ children }: { children: ReactNode }) {
       setScrolled(y > 0);
       setCompact(y > Math.max(0, heroEnd - BAR_HEIGHT));
     };
-    update();
+    // First pass on the next frame, so a page reloaded mid-scroll paints expanded and then folds
+    // up instead of snapping. The scroll event that follows scroll restoration does the rest.
+    const frame = requestAnimationFrame(update);
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
+    window.addEventListener("pageshow", update);
     return () => {
+      cancelAnimationFrame(frame);
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
+      window.removeEventListener("pageshow", update);
     };
   }, []);
 
   return (
     <header
       data-compact={compact}
-      className={`group/header sticky top-0 z-40 bg-white transition-[filter] duration-(--duration-ui) ease-out ${
+      className={`group/header sticky top-0 z-40 bg-white transition-[filter] duration-500 ease-(--ease-out) motion-reduce:transition-none ${
         scrolled ? "drop-shadow-[0_6px_10px_rgb(30_34_38/0.28)]" : ""
       }`}
     >
