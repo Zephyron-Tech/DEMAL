@@ -462,7 +462,7 @@
     "legalForm": "Gesellschaft mit beschränkter Haftung nach tschechischem Recht (s.r.o.)",
     "seat": "Sitz",
     "representative": "Vertreten durch den Geschäftsführer",
-    "representativeValue": "[Name des Geschäftsführers wird ergänzt]",
+    "representativeValue": "Erik Písačka",
     "contact": "Kontakt",
     "register": "Handelsregister",
     "registerValue": "Aktenzeichen {register}, geführt beim {court}",

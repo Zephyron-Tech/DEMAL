@@ -462,7 +462,7 @@
     "legalForm": "Společnost s ručením omezeným, zapsaná v obchodním rejstříku",
     "seat": "Sídlo",
     "representative": "Jednatel",
-    "representativeValue": "[jméno jednatele doplní majitel]",
+    "representativeValue": "Erik Písačka",
     "contact": "Kontakt",
     "register": "Zápis v obchodním rejstříku",
     "registerValue": "spisová značka {register}, vedená u {court}",

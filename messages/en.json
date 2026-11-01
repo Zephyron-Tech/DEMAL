@@ -462,7 +462,7 @@
     "legalForm": "Limited liability company under Czech law (s.r.o.)",
     "seat": "Registered seat",
     "representative": "Represented by the managing director",
-    "representativeValue": "[name of the managing director to be added]",
+    "representativeValue": "Erik Písačka",
     "contact": "Contact",
     "register": "Commercial Register",
     "registerValue": "file number {register}, kept by the {court}",
