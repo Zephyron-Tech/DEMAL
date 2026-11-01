@@ -10,6 +10,12 @@ export function AdminBar() {
           DEMAL administrace
         </Link>
         <div className="flex items-center gap-6 text-sm">
+          <Link href="/admin/poptavky" className="link-reveal">
+            Poptávky
+          </Link>
+          <Link href="/admin/podklady" className="link-reveal">
+            Podklady
+          </Link>
           <Link href="/" className="link-reveal">
             Web
           </Link>

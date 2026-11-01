@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
-import { ViewTransition } from "react";
+import { Suspense, ViewTransition } from "react";
 import { MaterialTiles } from "@/components/material-tiles";
 import { PendingNotice } from "@/components/pending-notice";
 import { findMaterial, materials } from "@/content/materials";
@@ -28,7 +28,24 @@ export async function generateMetadata({
   };
 }
 
-export default async function MaterialPage({ params }: PageProps<"/[locale]/drevni-material/[slug]">) {
+// The slug is URL data, so it is read inside Suspense: the shell renders instantly, the page follows.
+export default function MaterialPage({ params }: PageProps<"/[locale]/drevni-material/[slug]">) {
+  return (
+    <Suspense fallback={<MaterialSkeleton />}>
+      <MaterialContent params={params} />
+    </Suspense>
+  );
+}
+
+function MaterialSkeleton() {
+  return (
+    <main className="pb-24" aria-busy="true">
+      <div className="h-[34svh] min-h-56 w-full bg-plate sm:h-[42svh]" />
+    </main>
+  );
+}
+
+async function MaterialContent({ params }: { params: Promise<{ slug: string }> }) {
   const material = findMaterial((await params).slug);
   if (!material) notFound();
   const t = await getTranslations("Materials");

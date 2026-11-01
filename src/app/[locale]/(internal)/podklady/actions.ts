@@ -20,7 +20,6 @@ export async function submitAnswers(
     return { status: "saved", message: "Odpovědi jsou uložené." };
   }
 
-  const name = String(formData.get("name") ?? "").trim().slice(0, 200);
   const answers: Record<string, string> = {};
   for (const q of questions) {
     const value = String(formData.get(q.id) ?? "").trim();
@@ -41,7 +40,7 @@ export async function submitAnswers(
   try {
     await put(
       `podklady/odpovedi-${savedAt.replace(/[:.]/g, "-")}.json`,
-      JSON.stringify({ savedAt, name, answers }, null, 2),
+      JSON.stringify({ savedAt, answers }, null, 2),
       { access: "private", contentType: "application/json", addRandomSuffix: true },
     );
   } catch (error) {

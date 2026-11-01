@@ -46,7 +46,7 @@ export function AnswersForm() {
     const form = event.currentTarget;
     setAnswered(countAnswered(form));
     const draft: Record<string, string> = {};
-    for (const name of ["name", ...questions.map((q) => q.id)]) {
+    for (const name of questions.map((q) => q.id)) {
       const field = form.elements.namedItem(name);
       if (field instanceof HTMLTextAreaElement || field instanceof HTMLInputElement) {
         if (field.value) draft[name] = field.value;
@@ -110,17 +110,6 @@ export function AnswersForm() {
       </ol>
 
       <div className="grid gap-4 border-t-2 border-asphalt pt-6 sm:grid-cols-[1fr_auto] sm:items-end">
-        <div className="grid gap-1">
-          <label htmlFor="name" className="font-semibold">
-            Kdo vyplňoval
-          </label>
-          <input
-            id="name"
-            name="name"
-            autoComplete="name"
-            className="w-full max-w-sm border border-rule border-b-2 border-b-graphite bg-white px-3 py-2"
-          />
-        </div>
         <button
           type="submit"
           disabled={pending}

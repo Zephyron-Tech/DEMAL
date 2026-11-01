@@ -26,8 +26,8 @@ export async function Hero() {
   const t = await getTranslations("Home.hero");
 
   return (
-    <section aria-labelledby="hero-title">
-      <div className="focus-on-dark relative isolate bg-asphalt text-white">
+    <section aria-labelledby="hero-title" className="lg:flex lg:min-h-[max(36rem,calc(100svh_-_4.625rem))] lg:flex-col">
+      <div className="focus-on-dark relative isolate flex-1 bg-asphalt text-white lg:flex lg:flex-col">
         {/* Phones: a tall photograph whose lower edge fades into the panel, the title set across that
             fade. Desktop: the photograph fills the hero behind the text. */}
         <div className="relative h-[58svh] min-h-80 overflow-hidden lg:absolute lg:inset-0 lg:-z-20 lg:h-auto">
@@ -51,7 +51,7 @@ export async function Hero() {
           aria-hidden="true"
           className="absolute inset-0 -z-10 hidden bg-[linear-gradient(90deg,rgb(30_34_38/0.88)_0%,rgb(30_34_38/0.7)_38%,rgb(30_34_38/0)_68%)] lg:block"
         />
-        <div className="@container relative mx-auto -mt-36 flex max-w-(--container-page) flex-col justify-center px-4 pb-10 sm:-mt-40 sm:px-8 sm:pb-14 lg:mt-0 lg:min-h-[min(68svh,46rem)] lg:py-24">
+        <div className="@container relative mx-auto -mt-36 flex max-w-(--container-page) flex-col justify-center px-4 pb-10 sm:-mt-40 sm:px-8 sm:pb-14 lg:mt-0 lg:w-full lg:flex-1 lg:py-24">
           <div className="max-w-[50rem]">
             {/* "Kamionová doprava" is 12.3em wide: sizing by the column keeps two lines. */}
             <h1
