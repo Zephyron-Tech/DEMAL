@@ -1,0 +1,25 @@
+name: Deploy to Gust
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  id-token: write # the OIDC token Gust checks instead of a deploy secret
+
+concurrency:
+  group: gust-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: Zephyron-Tech/gust/.github/actions/deploy@main
+        with:
+          gust-url: https://gust.zephyron.tech
+          service: web
+          image: demal/web
+          registry-username: ${{ secrets.GUST_REGISTRY_USERNAME }}
+          registry-password: ${{ secrets.GUST_REGISTRY_PASSWORD }}
