@@ -56,15 +56,13 @@ export function PrivacyDe() {
       <h2>Wer Zugriff auf die Daten hat</h2>
       <p>
         Auf die Daten haben die Mitarbeiter der Disposition Zugriff, die Ihre Anfrage bearbeiten. Die
-        Website und den Speicher für Anfragen betreibt die Vercel Inc. auf Servern in der Europäischen
-        Union (Frankfurt am Main). Vercel ist ein US-amerikanisches Unternehmen; eine mögliche Übermittlung
-        von Daten in die USA ist durch den EU-US-Datenschutzrahmen und Standardvertragsklauseln abgesichert.
+        Website und den Speicher für Anfragen betreiben wir auf einem eigenen Server.
         Wir verkaufen Daten nicht und geben sie nicht weiter, sofern es das Gesetz nicht verlangt.
       </p>
 
       <h2>Cookies und Besucherstatistik</h2>
       <p>
-        Die Besuche der Seiten zählen wir mit Vercel Web Analytics. Das Werkzeug setzt keine Cookies und speichert nichts im Browser; die Daten sind zusammengefasst und dienen nicht der Identifizierung einzelner Personen. Rechtsgrundlage ist unser berechtigtes Interesse, die Nutzung der Website zu verstehen (Art. 6 Abs. 1 lit. f DSGVO). Ein Cookie setzt nur die Anmeldung in die interne Verwaltung, die ausschließlich die Mitarbeiter der Disposition nutzen.
+        Die Besuche der Website messen wir nicht und setzen keine Analysewerkzeuge ein. Ein Cookie setzt nur die Anmeldung in die interne Verwaltung, die ausschließlich die Mitarbeiter der Disposition nutzen.
       </p>
 
       <h2>Ihre Rechte</h2>

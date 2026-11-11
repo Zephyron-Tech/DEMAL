@@ -18,6 +18,8 @@ const oldSiteRedirects = [
 ];
 
 const nextConfig: NextConfig = {
+  // Self-hosted in Docker (Gust): .next/standalone holds the server and only the files it needs.
+  output: "standalone",
   cacheComponents: true,
   partialPrefetching: true,
   experimental: {

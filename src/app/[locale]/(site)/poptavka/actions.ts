@@ -1,11 +1,12 @@
 "use server";
 
-import { put } from "@vercel/blob";
 import { hasLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { z } from "zod";
 import { routing } from "@/i18n/routing";
 import { company } from "@/lib/company";
+import { saveQuote } from "@/lib/quotes-store";
+import { newId } from "@/lib/store";
 
 export type QuoteType = "transport" | "wood";
 
@@ -77,15 +78,17 @@ export async function submitQuote(_prev: QuoteState, formData: FormData): Promis
     return { status: "error", message: t("form"), fieldErrors, values };
   }
 
-  const receivedAt = new Date().toISOString();
+  const now = new Date();
   try {
-    await put(
-      `poptavky/${receivedAt.replace(/[:.]/g, "-")}-${type}.json`,
-      JSON.stringify({ receivedAt, type, locale, contact: contact.data, detail: detail.data }, null, 2),
-      { access: "private", contentType: "application/json", addRandomSuffix: true },
-    );
+    await saveQuote(newId(now, type), {
+      receivedAt: now.toISOString(),
+      type,
+      locale,
+      contact: contact.data,
+      detail: detail.data,
+    });
   } catch (error) {
-    console.error("poptavka: blob put failed", error);
+    console.error("poptavka: saving the quote failed", error);
     return {
       status: "error",
       message: t("server", { phone: company.dispatch.phone }),

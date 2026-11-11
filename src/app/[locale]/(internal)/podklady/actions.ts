@@ -1,6 +1,7 @@
 "use server";
 
-import { put } from "@vercel/blob";
+import { saveAnswers } from "@/lib/answers-store";
+import { newId } from "@/lib/store";
 import { questions } from "./questions";
 
 export type SubmitState = {
@@ -36,15 +37,12 @@ export async function submitAnswers(
     return { status: "error", message: "Vyplňte alespoň jednu odpověď." };
   }
 
-  const savedAt = new Date().toISOString();
+  const now = new Date();
+  const savedAt = now.toISOString();
   try {
-    await put(
-      `podklady/odpovedi-${savedAt.replace(/[:.]/g, "-")}.json`,
-      JSON.stringify({ savedAt, answers }, null, 2),
-      { access: "private", contentType: "application/json", addRandomSuffix: true },
-    );
+    await saveAnswers(newId(now, "odpovedi"), { savedAt, answers });
   } catch (error) {
-    console.error("podklady: blob put failed", error);
+    console.error("podklady: saving the answers failed", error);
     return {
       status: "error",
       message: "Odpovědi se nepodařilo odeslat. Zůstávají v prohlížeči, zkuste to za chvíli znovu.",

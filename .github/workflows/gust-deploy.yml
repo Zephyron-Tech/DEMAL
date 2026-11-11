@@ -23,3 +23,6 @@ jobs:
           image: demal/web
           registry-username: ${{ secrets.GUST_REGISTRY_USERNAME }}
           registry-password: ${{ secrets.GUST_REGISTRY_PASSWORD }}
+          # Read while the pages are prerendered. Flip to true when demalspedition.cz points at Gust.
+          build-args: |
+            SITE_INDEXABLE=false

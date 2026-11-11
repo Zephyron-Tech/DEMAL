@@ -1,6 +1,6 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 
-// A single shared password for the dispatch office (ADMIN_PASSWORD on Vercel). A successful login
+// A single shared password for the dispatch office (ADMIN_PASSWORD in the environment). A successful login
 // sets a signed, httpOnly cookie that expires on its own; nothing is stored server-side.
 // ADMIN_SESSION_SECRET signs it; rotating either variable logs everyone out.
 export const ADMIN_COOKIE = "demal_admin";

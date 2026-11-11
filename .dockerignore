@@ -1,0 +1,14 @@
+.git
+.github
+.next
+node_modules
+.env
+.env.*
+.claude
+.serena
+.taste-skill
+test-results
+e2e
+docs
+*.tsbuildinfo
+.DS_Store

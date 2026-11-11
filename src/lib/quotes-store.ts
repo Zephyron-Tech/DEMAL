@@ -1,10 +1,8 @@
 import "server-only";
-import { del, get, list, put } from "@vercel/blob";
+import { deleteDocument, getDocument, listDocuments, putDocument } from "./store";
 
-// Quotes from /poptavka, one private JSON blob each under poptavky/ (written by its Server Action).
+// Quotes from /poptavka, one JSON document each in the "poptavky" collection (written by its Server Action).
 // The admin reads, marks and deletes them here.
-const PREFIX = "poptavky/";
-
 export type StoredQuote = {
   id: string;
   receivedAt: string;
@@ -15,33 +13,21 @@ export type StoredQuote = {
   handledAt?: string | null;
 };
 
-const pathnameOf = (id: string) => `${PREFIX}${id}.json`;
-const idOf = (pathname: string) => pathname.slice(PREFIX.length).replace(/\.json$/, "");
-
-// Ids come from blob pathnames; anything else (slashes, dots) is rejected before touching storage.
+// Ids reach the URL and the database; anything else (slashes, dots) is rejected before touching storage.
 export const isQuoteId = (id: string) => /^[A-Za-z0-9_-]{8,200}$/.test(id);
 
 export async function getQuote(id: string): Promise<StoredQuote | null> {
   if (!isQuoteId(id)) return null;
-  const blob = await get(pathnameOf(id), { access: "private", useCache: false });
-  if (!blob) return null;
-  const data = JSON.parse(await new Response(blob.stream).text());
-  return { ...data, id };
+  return getDocument<Omit<StoredQuote, "id">>("poptavky", id);
 }
 
 export async function listQuotes(): Promise<StoredQuote[]> {
-  const pathnames: string[] = [];
-  let cursor: string | undefined;
-  do {
-    const page = await list({ prefix: PREFIX, cursor, limit: 1000 });
-    pathnames.push(...page.blobs.map((b) => b.pathname));
-    cursor = page.hasMore ? page.cursor : undefined;
-  } while (cursor);
+  const quotes = await listDocuments<Omit<StoredQuote, "id">>("poptavky");
+  return quotes.sort((a, b) => b.receivedAt.localeCompare(a.receivedAt));
+}
 
-  const quotes = await Promise.all(pathnames.map((p) => getQuote(idOf(p))));
-  return quotes
-    .filter((q): q is StoredQuote => q !== null)
-    .sort((a, b) => b.receivedAt.localeCompare(a.receivedAt));
+export async function saveQuote(id: string, quote: Omit<StoredQuote, "id">) {
+  await putDocument("poptavky", id, quote);
 }
 
 export async function setHandled(id: string, handled: boolean) {
@@ -49,14 +35,10 @@ export async function setHandled(id: string, handled: boolean) {
   if (!quote) return;
   const data: Partial<StoredQuote> = { ...quote };
   delete data.id;
-  await put(
-    pathnameOf(id),
-    JSON.stringify({ ...data, handledAt: handled ? new Date().toISOString() : null }, null, 2),
-    { access: "private", contentType: "application/json", addRandomSuffix: false, allowOverwrite: true },
-  );
+  await putDocument("poptavky", id, { ...data, handledAt: handled ? new Date().toISOString() : null });
 }
 
 export async function deleteQuote(id: string) {
   if (!isQuoteId(id)) return;
-  await del(pathnameOf(id));
+  await deleteDocument("poptavky", id);
 }

@@ -54,14 +54,12 @@ export function PrivacyEn() {
       <h2>Who has access to the data</h2>
       <p>
         The dispatch staff who handle your request have access to the data. The website and the storage for
-        requests are operated by Vercel Inc. on servers in the European Union (Frankfurt am Main). Vercel is a
-        US company; any transfer of data to the USA is covered by the EU–US Data Privacy Framework and
-        standard contractual clauses. We do not sell the data and do not pass it on unless the law requires it.
+        requests run on our own server. We do not sell the data and do not pass it on unless the law requires it.
       </p>
 
       <h2>Cookies and visitor statistics</h2>
       <p>
-        We count page views with Vercel Web Analytics. The tool sets no cookies and stores nothing in your browser; the data is aggregated and does not identify individuals. The legal basis is our legitimate interest in understanding how the website is used (Article 6(1)(f) GDPR). The only cookie is set by the login to the internal administration, which only dispatch staff use.
+        We do not measure visits to the website and use no analytics tools. The only cookie is set by the login to the internal administration, which only dispatch staff use.
       </p>
 
       <h2>Your rights</h2>

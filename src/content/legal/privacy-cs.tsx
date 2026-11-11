@@ -55,15 +55,13 @@ export function PrivacyCs() {
       <h2>Kdo k údajům má přístup</h2>
       <p>
         K&nbsp;údajům mají přístup zaměstnanci dispečinku, kteří poptávku vyřizují. Web
-        a&nbsp;úložiště poptávek provozuje Vercel Inc. na serverech v&nbsp;Evropské unii (Frankfurt
-        nad Mohanem). Vercel je americká společnost; případný přenos údajů do USA je zajištěn
-        rámcem EU–USA pro ochranu osobních údajů a&nbsp;standardními smluvními doložkami. Údaje
+        a&nbsp;úložiště poptávek provozujeme na vlastním serveru. Údaje
         neprodáváme a&nbsp;nepředáváme nikomu dalšímu, pokud to nevyžaduje zákon.
       </p>
 
       <h2>Cookies a měření návštěvnosti</h2>
       <p>
-        Počty návštěv stránek měříme nástrojem Vercel Web Analytics. Nepoužívá cookies ani úložiště v&nbsp;prohlížeči, údaje jsou souhrnné a&nbsp;neslouží k&nbsp;identifikaci osoby. Právním základem je náš oprávněný zájem zjistit, jak se web používá (čl. 6 odst. 1 písm. f) GDPR). Jedinou cookie nastavuje přihlášení do interní administrace, kterou používají jen zaměstnanci dispečinku.
+        Návštěvnost webu neměříme a&nbsp;nepoužíváme žádné analytické nástroje. Jedinou cookie nastavuje přihlášení do interní administrace, kterou používají jen zaměstnanci dispečinku.
       </p>
 
       <h2>Vaše práva</h2>
