@@ -18,6 +18,8 @@ RUN pnpm build
 
 FROM node:24-slim AS run
 WORKDIR /app
+# Gust checks health with wget or curl inside the container; the slim image has neither.
+RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/*
 ENV NODE_ENV=production PORT=3000 HOSTNAME=0.0.0.0 NEXT_TELEMETRY_DISABLED=1
 COPY --from=build --chown=node:node /app/.next/standalone ./
 COPY --from=build --chown=node:node /app/.next/static ./.next/static
