@@ -1,9 +1,10 @@
 name: CI
 
+# Pull requests run this directly. On main it runs as the first job of "Deploy to Gust",
+# so a push that fails the checks is never deployed.
 on:
-  push:
-    branches: [main]
   pull_request:
+  workflow_call:
 
 jobs:
   check:
